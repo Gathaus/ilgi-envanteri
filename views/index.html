@@ -188,6 +188,21 @@
     .table-bordered, .table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th{
         border: 3px solid #e7ecf1 !important;
     }
+
+    /* link buttonları için*/
+    #mk , #dg , #yr,
+    #sn, #sk, #yn, #is, #vi {
+  border: none;
+  background-color: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+
+
+.info {color: dodgerblue;}
+
 </style>
 
 <body>
@@ -205,12 +220,12 @@
                     <img src="ilgi4.png" style="width: 80px;height: 80px;">
                 </div>
                 <h1 class="brand brand-name navbar-left">
-                    <div class="navbar-left" style="margin-left: 10px;"> KİŞİSEL KÜRE ENVANTERİ KISA FORM-TÜRKÇE
+                    <div class="navbar-left" style="margin-left: 10px;"> KİŞİSEL KÜRE ENVANTERİ -KISA FORM-TÜRKÇE
                 </h1>
             </div>
             <div class="collapse navbar-collapse navbar-right" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="#intro">Anasayfa</a></li>
+                    <li><a href="#intro" style="font-size: larger;"onclick="$('#anasayfa').css('display','block');$('#rumuz').css('display','none');$('#anket').css('display','none');$('#anket2').css('display','none');$('#anket3').css('display','none');$('#anket4').css('display','none');$('#anket5').css('display','none');$('#sonuc').css('display','none');$('#sonuc2').css('display','none');$('#sonuc3').css('display','none');">Anasayfa</a></li>
                 </ul>
                 
             </div>
@@ -511,6 +526,13 @@
                                     <div class="caption">
                                         <h5 class="caption-subject font-dark bold uppercase" style="bottom: 0%;">KİŞİSEL
                                             KÜRE ENVANTERİ</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="text-align: right;">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <ahref class="btn info" style="text-align: right;">1/4</ahref>
                                     </div>
                                 </div>
                             </div>
@@ -1197,6 +1219,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-6" style="text-align: right;">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <ahref class="btn info" style="text-align: right;">2/4</ahref>
+                                    </div>
+                                </div>
+                            </div>
                             
                         </div>
                         <div id="sample_1_wrapper" class="dataTables_wrapper no-footer">
@@ -1866,6 +1895,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-6" style="text-align: right;">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <ahref class="btn info" style="text-align: right;">3/4</ahref>
+                                    </div>
+                                </div>
+                            </div>
                             
                         </div>
                         <div id="sample_1_wrapper" class="dataTables_wrapper no-footer">
@@ -1898,7 +1934,8 @@
                                             </th>
                                             <th class="sorting_disabled" rowspan="1" colspan="1" aria-label="" style="width: 25%;text-align: center;">
                                                 YAPABİLİRLİK
-                                            <br><br><div><img src="1.1.png" style=""><img src="2.2.png" style=""><img src="3.3.png" style=""><img src="4.4.png" style=""><img src="5.5.png" style=""><img src="6.6.png" style=""><img src="7.7.png" style=""></div>
+                                            <br><br><div><img src="1.1.png" ><img src="2.2.png" ><img src="3.3.png" ><img src="4.4.png" >
+                                                <img src="5.5.png" ><img src="6.6.png" ><img src="7.7.png" ></div>
                                             <div>
                                                 <label style="display: block;float: left;margin-left: 16px;">1</label>
                                                 <label style="display: block;float: left;margin-left: 35px;">2</label>
@@ -2583,6 +2620,13 @@
                                     <div class="caption">
                                         <h5 class="caption-subject font-dark bold uppercase" style="bottom: 0%;">KİŞİSEL
                                             KÜRE ENVANTERİ</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="text-align: right;">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <ahref class="btn info" style="text-align: right;">4/4</ahref>
                                     </div>
                                 </div>
                             </div>
@@ -3291,6 +3335,7 @@
                 <div class="portlet light " id="sonuc" style="display: none;">
                     <div class="portlet-body">
                         <div class="row">
+                            
                             <div class="col-md-6">
                                 <div class="portlet-title">
                                     <div class="caption">
@@ -3303,6 +3348,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
+                                    <ahref class="btn info" style="text-align: right;">1/5</ahref>
                                     <button type="button" class="btn green-haze btn-outline sbold uppercase">
                                         <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                                         YAZDIR
@@ -3402,7 +3448,9 @@
 
                                     <tbody>
                                         <tr>
-                                            <td> asd</td>
+                                            <td> <button class="btn info" id="sk"
+                                                onclick="$('#sonuc').css('display', 'none');$('#sosyal').css('display', 'block');"
+                                                >Sosyal Kolaylaştırma</button></td>
                                             <td>1</td>
                                             <td>2</td>
                                             <td rowspan="8">
@@ -3418,38 +3466,52 @@
 
                                         </tr>
                                         <tr>
-                                            <td> asd</td>
+                                            <td><button class="btn info" id="dg"
+                                                onclick="$('#sonuc').css('display', 'none');$('#doga').css('display', 'block');"
+                                                >Doğa/Açık Alan</button></td>
                                             <td>1</td>
                                             <td>2</td>
 
                                         </tr>
                                         <tr>
-                                            <td> asd</td>
+                                            <td><button class="btn info" id="sn"
+                                                onclick="$('#sonuc').css('display', 'none');$('#sanat').css('display', 'block');"
+                                                >Sanat</button></td>
                                             <td>1</td>
                                             <td>2</td>
                                         </tr>
                                         <tr>
-                                            <td> asd</td>
+                                            <td> <button class="btn info" id="mk" 
+                                                onclick="$('#sonuc').css('display', 'none');$('#mekanik').css('display', 'block');"
+                                                >Mekanik</button></td>
                                             <td>1</td>
                                             <td>2</td>
                                         </tr>
                                         <tr>
-                                            <td> asd</td>
+                                            <td><button class="btn info" id="yr"
+                                                onclick="$('#sonuc').css('display', 'none');$('#yardım').css('display', 'block');"
+                                                >Yardım</button></td>
                                             <td>1</td>
                                             <td>2</td>
                                         </tr>
                                         <tr>
-                                            <td> asd</td>
+                                            <td><button class="btn info" id="sk"
+                                                onclick="$('#sonuc').css('display', 'none');$('#is').css('display', 'block');"
+                                                >İş Ayrıntıları</button></td>
                                             <td>1</td>
                                             <td>2</td>
                                         </tr>
                                         <tr>
-                                            <td> asd</td>
+                                            <td><button class="btn info" id="yn"
+                                                onclick="$('#sonuc').css('display', 'none');$('#yonetim').css('display', 'block');"
+                                                >Yönetim</button></td>
                                             <td>1</td>
                                             <td>2</td>
                                         </tr>
                                         <tr>
-                                            <td> asd</td>
+                                            <td> <button class="btn info" id="vi"
+                                                onclick="$('#sonuc').css('display', 'none');$('#veri').css('display', 'block');"
+                                                >Veri İşleme</button></td>
                                             <td>1</td>
                                             <td>2</td>
                                         </tr>
@@ -3551,6 +3613,219 @@
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
                 </div>
+
+
+                
+                <!-- linkler icin-->
+                <!--mekanik-->
+                <div class="panel panel-default" id="mekanik" style="display: none;">
+                        
+                    <div class="panel-heading">
+                        <h3><b>Mekanik</b></h1>
+                    </div>
+                    <div class="panel-body">
+                        <h4 style="font-weight: 500;">
+                            Makinelerin nasıl çalıştığını anlama, 
+                            onları dizayn etme, bira¬raya getirerek 
+                            kurulumunu ve bakımını yapmak gibi konularla 
+                            ilgilenmektir. Makine kavramı büyük sanayi 
+                            makinelerinden küçük ev aletlerine kadar uzanır. 
+                            Bu ilgi alanına ait meslekler, uçak teknisyeni, 
+                            kimya mühendisi, makine mühendisi, araba tamircisi, 
+                            makinist gibi mesleklerdir. 
+                           
+                        </h4>
+                        <br>
+                        <div >
+                            <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                                onclick="$('#mekanik').css('display', 'none');$('#sonuc').css('display', 'block');">GERi</button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                 <!--doga-->
+                 <div class="panel panel-default" id="doga" style="display: none;">
+                        
+                    <div class="panel-heading">
+                        <h3><b>Doğa/Açık Alan</b></h1>
+                    </div>
+                    <div class="panel-body">
+                        <h4 style="font-weight: 500;">
+                            Doğa bilimlerinin hayvan ve bitkilere yönelik 
+                            uygulamalarıyla ilgilenmektir. Bu ilgi alanına 
+                            ait meslekler çevre mühendisi, orman mü¬hendisi, 
+                            veteriner, hayvan terbiyecisi gibi mesleklerdir. 
+                           
+                        </h4>
+                        <br>
+                        <div >
+                            <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                                onclick="$('#doga').css('display', 'none');$('#sonuc').css('display', 'block');">GERi</button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--sanat-->
+                <div class="panel panel-default" id="sanat" style="display: none;">
+                        
+                    <div class="panel-heading">
+                        <h3><b>Sanat</b></h1>
+                    </div>
+                    <div class="panel-body">
+                        <h4 style="font-weight: 500;">
+                            Görsel, edebi ve sahne sanatlarına yönelik etkinliklerle 
+                            ilgilenmektir. Bu ilgi alanı ile ilgili meslekler heykeltıraş, 
+                            müzisyen, besteci, şair, oyun yazarı, tiyatro sanatçısı gibi 
+                            mesleklerdir. 
+                           
+                        </h4>
+                        <br>
+                        <div >
+                            <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                                onclick="$('#sanat').css('display', 'none');$('#sonuc').css('display', 'block');">GERi</button>
+
+                        </div>
+
+                    </div>
+                </div>
+                
+                 <!--Yardım-->
+                 <div class="panel panel-default" id="yardım" style="display: none;">
+                        
+                    <div class="panel-heading">
+                        <h3><b>Sanat</b></h1>
+                    </div>
+                    <div class="panel-body">
+                        <h4 style="font-weight: 500;">
+                            Her yaştaki insana yardımcı olmak, onlara 
+                            destek sağlamak, danışmanlık yapmak, öğretmek 
+                            gibi etkinliklerin yer aldığı yardım ilişkisi 
+                            kurmaya yönelik ilgi alanıdır. Meslekler ise 
+                            konuşma terapisti, sosyal hizmet uzmanı, aile 
+                            terapisti, okul psikolojik danışmanı, çocuk 
+                            bakıcısı, eğitim psikologu gibi mesleklerdir. 
+                           
+                        </h4>
+                        <br>
+                        <div >
+                            <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                                onclick="$('#yardım').css('display', 'none');$('#sonuc').css('display', 'block');">GERi</button>
+
+                        </div>
+
+                    </div>
+                </div>
+                
+                 <!--Sosyal Kolaylaştırma-->
+                 <div class="panel panel-default" id="sosyal" style="display: none;">
+                        
+                    <div class="panel-heading">
+                        <h3><b>Sosyal Kolaylaştırma</b></h1>
+                    </div>
+                    <div class="panel-body">
+                        <h4 style="font-weight: 500;">
+                            Belirli kişilere (turistler, öğrenciler, 
+                            yurtdışına gitmek isteyenler, vb.) satış yapmak, 
+                            gereksinim duydukları bilgileri sunmak, bu kişilerin 
+                            işlerinin kolaylaşmasına destek olmak ya da bu 
+                            hizmetlerin organizasyonlarını yapmak gibi konularla 
+                            ilgilenmektir. Bu ilgi alanı ile ilgili meslekler 
+                            seyahat acentesi yö-neticisi, halkla ilişkiler müdürü, 
+                            satış danışmanı gibi mesleklerdir
+                           
+                        </h4>
+                        <br>
+                        <div >
+                            <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                                onclick="$('#sosyal').css('display', 'none');$('#sonuc').css('display', 'block');">GERi</button>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!--Yönetim-->
+                <div class="panel panel-default" id="yonetim" style="display: none;">
+                        
+                    <div class="panel-heading">
+                        <h3><b>Yönetim</b></h1>
+                    </div>
+                    <div class="panel-body">
+                        <h4 style="font-weight: 500;">
+                            Bilgi toplama, problem çözme, karar verme, 
+                            geleceğe yönelik planlama ve tahminlerde bulunma, 
+                            başkalarıyla iletişim kurma ve organize etme, ikna 
+                            etme gibi etkinlikleri içeren işletmelerin yönetilmesi 
+                            ve büyük organizasyonların planlanmasıyla ilgilidir. 
+                            İlgili meslekler satış müdürü, personel müdürü, otel 
+                            müdürü, büro yöneticisi gibi mesleklerdir. 
+                           
+                        </h4>
+                        <br>
+                        <div >
+                            <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                                onclick="$('#yonetim').css('display', 'none');$('#sonuc').css('display', 'block');">GERi</button>
+
+                        </div>
+
+                    </div>
+                </div>
+                
+                <!--İş Ayrıntıları-->
+                <div class="panel panel-default" id="is" style="display: none;">
+                        
+                    <div class="panel-heading">
+                        <h3><b>İş Ayrıntıları</b></h1>
+                    </div>
+                    <div class="panel-body">
+                        <h4 style="font-weight: 500;">
+                            Parasal konularda muhasebe, bütçeleme 
+                            ve değerlendirme ile ilgili tahminlerde 
+                            bulunmaya yönelik ilgi alanıdır. Bu alana 
+                            ait meslekler ise finansal analist, banka 
+                            müfettişi, mali denetçi, yeminli mali müşavir 
+                            gibi mesleklerdir
+                        </h4>
+                        <br>
+                        <div >
+                            <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                                onclick="$('#is').css('display', 'none');$('#sonuc').css('display', 'block');">GERi</button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--Veri İşleme-->
+                <div class="panel panel-default" id="veri" style="display: none;">
+                        
+                    <div class="panel-heading">
+                        <h3><b>Veri İşleme</b></h1>
+                    </div>
+                    <div class="panel-body">
+                        <h4 style="font-weight: 500;">
+                            Elektrik-elektronik sistemlerdeki problemlerin 
+                            çözümünde, teknik verilerin analiz ve yorumunda 
+                            matematiği, bilgisayar sistemlerini ve elektronik 
+                            aletleri kullanmaktan hoşlanmak ve bu konulardaki 
+                            problemleri çözmek gibi konularla ilgilenmektir. 
+                            Bu ilgi alanı ile ilgili meslekler ise bilgisayar 
+                            mühendisi, bilgisayar programcısı ve elektrik-
+                            elektronik mühendisi gibi mesleklerdir. 
+                        </h4>
+                        <br>
+                        <div >
+                            <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                                onclick="$('#veri').css('display', 'none');$('#sonuc').css('display', 'block');">GERi</button>
+
+                        </div>
+
+                    </div>
+                </div>
+
                 <!-- sonuç rapor 2-->
                 <div class="portlet light " id="sonuc2" style="display: none;">
                     <div class="portlet-body">
@@ -3567,6 +3842,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
+                                    <ahref class="btn info" style="text-align: right;">2/5</ahref>
                                     <button type="button" class="btn green-haze btn-outline sbold uppercase">
                                         <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                                         YAZDIR
@@ -3651,10 +3927,14 @@
                                         </tr>
                                     </thead>
 
+
+
                                     <tbody>
                                         <tr>
-                                            <td style="text-align: center; vertical-align: middle;"> <span> <strong>puan
-                                                        türü1</strong></span></td>
+                                            <td style="text-align: center; vertical-align: middle;"> <span> <strong>
+                                                <button class="btn info" id="mk" 
+                                                onclick="$('#sonuc2').css('display', 'none');$('#yuksek').css('display', 'block');"
+                                                >Yüksek Saygınlık</button></strong></span></td>
                                             <td style="text-align: center; vertical-align: middle;"> <span>15</span>
                                             </td>
                                             <td style="text-align: center; vertical-align: middle;"> <span>25</span>
@@ -3672,8 +3952,9 @@
 
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center; vertical-align: middle;"> <span><strong> puan
-                                                        türü1</strong></span></td>
+                                            <td style="text-align: center; vertical-align: middle;"> <span><strong> <button class="btn info" id="dg"
+                                                onclick="$('#sonuc2').css('display', 'none');$('#dusuk').css('display', 'block');"
+                                                >Düşük Saygınlık</button></strong></span></td>
                                             <td style="text-align: center; vertical-align: middle;"> <span>15</span>
                                             </td>
                                             <td style="text-align: center; vertical-align: middle;"> <span>10</span>
@@ -3786,11 +4067,52 @@
                     <!-- END EXAMPLE TABLE PORTLET-->
                 </div>
 
+                <!--linkler icin 2-->
+                 <!--Yuksek Saygınlık-->
+                 <div class="panel panel-default" id="yuksek" style="display: none;">
+                        
+                    <div class="panel-heading">
+                        <h3><b>Yüksek Saygınlık</b></h1>
+                    </div>
+                    <div class="panel-body">
+                        <h4 style="font-weight: 500;">
+                            Toplumda popüler olan ve yapılması zor etkinliklere odaklanır.
+                        </h4>
+                        <br>
+                        <div >
+                            <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                                onclick="$('#yuksek').css('display', 'none');$('#sonuc2').css('display', 'block');">GERi</button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--Dusuk Saygınlık-->
+                <div class="panel panel-default" id="dusuk" style="display: none;">
+                        
+                    <div class="panel-heading">
+                        <h3><b>Düşük Saygınlık</b></h1>
+                    </div>
+                    <div class="panel-body">
+                        <h4 style="font-weight: 500;">
+                            Toplumda birçok kişinin yapabildiği etkinliklere odaklanır.
+                        </h4>
+                        <br>
+                        <div >
+                            <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                                onclick="$('#dusuk').css('display', 'none');$('#sonuc2').css('display', 'block');">GERi</button>
+
+                        </div>
+
+                    </div>
+                </div>
 
                 <!-- sonuç rapor3 -->
                 <div class="portlet light " id="sonuc3" style="display: none;">
                     <div class="portlet-body">
                         <div class="row">
+                        
                             <div class="col-md-6">
                                 <div class="portlet-title">
                                     <div class="caption">
@@ -3803,6 +4125,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
+                                    <ahref class="btn info" style="text-align: right;">3/5</ahref>
                                     <button type="button" class="btn green-haze btn-outline sbold uppercase">
                                         <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                                         YAZDIR
@@ -3921,8 +4244,10 @@
 
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center; vertical-align: middle;"> <span> <strong>puan
-                                                        türü1</strong></span></td>
+                                            <td style="text-align: center; vertical-align: middle;"> <span> <strong>
+                                                <button class="btn info" id="mk" 
+                                                onclick="$('#sonuc3').css('display', 'none');$('#insan').css('display', 'block');"
+                                                >İnsanlar</button></strong></span></td>
                                             <td style="text-align: center; vertical-align: middle;"> <span> 12</span>
                                             </td>
                                             <td style="text-align: center; vertical-align: middle;"> <span> 13</span>
@@ -3930,8 +4255,10 @@
 
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center; vertical-align: middle;"> <span> <strong>puan
-                                                        türü1</strong></span></td>
+                                            <td style="text-align: center; vertical-align: middle;"> <span> <strong>
+                                                <button class="btn info" id="dg"
+                                                onclick="$('#sonuc3').css('display', 'none');$('#veriler').css('display', 'block');"
+                                                >Veriler</button></strong></span></td>
                                             <td style="text-align: center; vertical-align: middle;"> <span>14</span>
                                             </td>
                                             <td style="text-align: center; vertical-align: middle;"> <span> 15</span>
@@ -3939,13 +4266,27 @@
                                         </tr>
 
                                         <tr>
-                                            <td style="text-align: center; vertical-align: middle;"> <span> <strong>puan
-                                                        türü1</strong></span></td>
+                                            <td style="text-align: center; vertical-align: middle;"> <span> <strong>
+                                                <button class="btn info" id="mk" 
+                                                onclick="$('#sonuc3').css('display', 'none');$('#nesne').css('display', 'block');"
+                                                >Nesneler</button></strong></span></td>
                                             <td style="text-align: center; vertical-align: middle;"> <span> 16</span>
                                             </td>
                                             <td style="text-align: center; vertical-align: middle;"> <span> 17</span>
                                             </td>
                                         </tr>
+
+                                        <tr>
+                                            <td style="text-align: center; vertical-align: middle;"> <span> <strong>
+                                                <button class="btn info" id="dg"
+                                                onclick="$('#sonuc3').css('display', 'none');$('#fikir').css('display', 'block');"
+                                                >Fikirler</button></strong></span></td>
+                                            <td style="text-align: center; vertical-align: middle;"> <span> 16</span>
+                                            </td>
+                                            <td style="text-align: center; vertical-align: middle;"> <span> 17</span>
+                                            </td>
+                                        </tr>
+                                        
 
                                     </tbody>
                                 </table>
@@ -4044,6 +4385,87 @@
                     <!-- END EXAMPLE TABLE PORTLET-->
                 </div>
 
+                <!--linkler -->
+                 <!--İnsnalar-->
+                 <div class="panel panel-default" id="insan" style="display: none;">
+                        
+                    <div class="panel-heading">
+                        <h3><b>İnsanlar</b></h1>
+                    </div>
+                    <div class="panel-body">
+                        <h4 style="font-weight: 500;">
+                            Çevrede insanların olmasından hoşlanmaya odaklanır. 
+                        </h4>
+                        <br>
+                        <div >
+                            <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                                onclick="$('#insan').css('display', 'none');$('#sonuc3').css('display', 'block');">GERi</button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--Veriler-->
+                <div class="panel panel-default" id="veriler" style="display: none;">
+                        
+                    <div class="panel-heading">
+                        <h3><b>Veriler</b></h1>
+                    </div>
+                    <div class="panel-body">
+                        <h4 style="font-weight: 500;">
+                            Ayrıntılı etkinliklere odaklanır.
+                        </h4>
+                        <br>
+                        <div >
+                            <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                                onclick="$('#veriler').css('display', 'none');$('#sonuc3').css('display', 'block');">GERi</button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--Veriler-->
+                <div class="panel panel-default" id="nesne" style="display: none;">
+                        
+                    <div class="panel-heading">
+                        <h3><b>Nesneler</b></h1>
+                    </div>
+                    <div class="panel-body">
+                        <h4 style="font-weight: 500;">
+                            Kişinin elleriyle ve fiziksel nesnelerle çalışmasına odaklanır. 
+                        </h4>
+                        <br>
+                        <div >
+                            <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                                onclick="$('#nesne').css('display', 'none');$('#sonuc3').css('display', 'block');">GERi</button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                    <!--Fikirler-->
+                    <div class="panel panel-default" id="fikir" style="display: none;">
+                        
+                        <div class="panel-heading">
+                            <h3><b>Fikirler</b></h1>
+                        </div>
+                        <div class="panel-body">
+                            <h4 style="font-weight: 500;">
+                                Çeşitli konular hakkında düşünmeyi tercih etme üzerine odaklanır.
+                            </h4>
+                            <br>
+                            <div >
+                                <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                                    onclick="$('#fikir').css('display', 'none');$('#sonuc3').css('display', 'block');">GERi</button>
+    
+                            </div>
+    
+                        </div>
+                    </div>
+
 
                 <!-- sonuç rapor 4 -->
                 <!--
@@ -4062,6 +4484,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
+                                    <ahref class="btn info" style="text-align: right;">4/5</ahref>
                                     <button type="button" class="btn green-haze btn-outline sbold uppercase">
                                         <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                                         YAZDIR
@@ -4330,6 +4753,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
+                                    <ahref class="btn info" style="text-align: right;">5/5</ahref>
                                     <button type="button" class="btn green-haze btn-outline sbold uppercase">
                                         <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                                         YAZDIR
@@ -5062,7 +5486,7 @@
                     <div class="container">
 
                         <div class="row text-center copyright-text">
-                            <p>Copyright © 2019 All rights reserved</p>
+                            <p>Copyright © 2021 All rights reserved</p>
                         </div>
 
                     </div>
@@ -5089,7 +5513,7 @@
         data: {
             labels: ['Realistik', 'Araştırmacı', 'Yaratıcı', 'Sosyal', 'Girişimci', 'Düzenli'],
             datasets: [{
-                label: 'ilgi t puanları',
+                label: 'İlgi T Puanları',
                 data: [55, 65, 45, 45, 65, 65],
                 backgroundColor: [
                     'rgba(0,0,0,0)'
@@ -5107,7 +5531,7 @@
                 borderWidth: 5
             },
             {
-                label: 'yeterlilik algısı t puanları',
+                label: 'Yeterlilik Algısı T Puanları',
                 data: [45, 55, 45, 25, 55, 55],
                 backgroundColor: [
                     'rgba(0,0,0,0)'
@@ -5179,7 +5603,7 @@
         data: {
             labels: ['Değer1', 'Değer2', 'Değer3', 'Değer4'],
             datasets: [{
-                label: 'ilgi t puanları',
+                label: 'İlgi T Puanları',
                 data: [55, 65, 45, 45,],
                 backgroundColor: [
                     'rgba(0,0,0,0)'
@@ -5197,7 +5621,7 @@
                 borderWidth: 5
             },
             {
-                label: 'yeterlilik algısı t puanları',
+                label: 'Yeterlilik Algısı T Puanları',
                 data: [45, 55, 45, 25],
                 backgroundColor: [
                     'rgba(0,0,0,0)'
