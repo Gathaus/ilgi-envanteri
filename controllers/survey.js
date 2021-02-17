@@ -6,6 +6,12 @@ const getHome = async(req,res,next) => {
     })
 }
 
+const calculateResults = async (req,res,next) => {
+    console.log(req.body);
+
+}
+
 module.exports = {
-    getHome
+    getHome,
+    calculateResults
 }
