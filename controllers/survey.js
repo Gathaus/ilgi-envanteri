@@ -1,7 +1,7 @@
 
 
 const getHome = async(req,res,next) => {
-    res.sendFile('index2.html',{
+    res.sendFile('index.html',{
         root:"views"
     })
 }
