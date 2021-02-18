@@ -547,7 +547,10 @@
 
                                         <tr role="row">
                                             <th class="sorting_disabled" rowspan="1" colspan="1" aria-label="" style="width: 25%;text-align: center;">
-                                                HOŞLANMA<br><br><div><img src="/img/1.1.png" style=""><img src="/img/2.2.png" style=""><img src="/img/3.3.png" style=""><img src="/img/4.4.png" style=""><img src="/img/5.5.png" style=""><img src="/img/6.6.png" style=""><img src="/img/7.7.png" style=""></div>
+                                                HOŞLANMA<br><br><div><img src="/img/1.1.png"><img src="/img/2.2.png" >
+                                                    <img src="/img/3.3.png" ><img src="/img/4.4.png" >
+                                                    <img src="/img/5.5.png" ><img src="/img/6.6.png">
+                                                    <img src="/img/7.7.png" ></div>
                                                 <div>
                                                     <label style="display: block;float: left;margin-left: 16px;">1</label>
                                                     <label style="display: block;float: left;margin-left: 35px;">2</label>
@@ -560,7 +563,11 @@
                                             </th>
                                             <th class="sorting_disabled" rowspan="1" colspan="1" aria-label="" style="width: 25%;text-align: center;">
                                                 YAPABİLİRLİK
-                                            <br><br><div><img src="/img/1.1.png" style=""><img src="/img/2.2.png" style=""><img src="/img/3.3.png" style=""><img src="/img/4.4.png" style=""><img src="/img/5.5.png" style=""><img src="/img/6.6.png" style=""><img src="/img/7.7.png" style=""></div>
+                                            <br><br><div><img src="/img/1.1.png" >
+                                                <img src="/img/2.2.png" >
+                                                <img src="/img/3.3.png" >
+                                                <img src="/img/4.4.png"><img src="/img/5.5.png" >
+                                                <img src="/img/6.6.png" ><img src="/img/7.7.png"></div>
                                             <div>
                                                 <label style="display: block;float: left;margin-left: 16px;">1</label>
                                                 <label style="display: block;float: left;margin-left: 35px;">2</label>
@@ -3341,11 +3348,11 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     <ahref class="btn info" style="text-align: right;">1/5</ahref>
-                                    <button type="button" class="btn green-haze btn-outline sbold uppercase">
+                                    <button type="button" class="btn green-haze btn-outline sbold uppercase" onclick="window.print()">
                                         <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                                         YAZDIR
                                     </button>
-
+                                    
                                 </div>
                             </div>
                         </div>
@@ -3598,7 +3605,7 @@
                             </div>
                             <div class="col-md-4 text-right">
                                 <button type="button" class="btn green-haze btn-outline sbold uppercase"
-                                    onclick="fetchData()">İLERİ</button>
+                                    onclick="$('#sonuc').css('display', 'none');$('#sonuc2').css('display', 'block');">İLERİ</button>
 
                             </div>
                         </div>
@@ -5126,7 +5133,7 @@
                                                 style="width: 452px;text-align: left;">
                                                 <label class="col-md-1  ">Rumuz</label>
                                                 <div class="col-md-3">
-                                                    <input type="text" class="form-control" id="name">
+                                                    <input type="text" class="form-control">
 
                                                 </div>
                                             </th>
@@ -5137,7 +5144,7 @@
                                                 <div class="form-group">
                                                     <label class="col-md-1  ">Yaş</label>
                                                     <div class="col-md-3">
-                                                        <input type="text" class="form-control" id ="age">
+                                                        <input type="text" class="form-control">
                                                     </div>
                                                 </div>
                                             </th>
@@ -5149,9 +5156,9 @@
                                                     <label class="col-md-1  ">Cinsiyet</label>
                                                     <div class="col-md-3">
                                                         <label class="radio-inline" style="margin-left: 10px;">
-                                                            <input type="radio" name="radio-sex" value="kadin">Kadın</label>
+                                                            <input type="radio" name="cins">Kadın</label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" name="radio-sex" value="erkek">Erkek</label>
+                                                            <input type="radio" name="cins">Erkek</label>
                                                     </div>
                                                 </div>
                                             </th>
@@ -5176,15 +5183,15 @@
                                                 / hangisi daha çok
                                                 ilginizi çekiyor?</td>
                                             <td>
-                                                <div class="radio radio_sub-element text-center">
-                                                    <label class="radio-inline"><input type="radio"
-                                                            name="radioPersonal1" value="fen-matematik">FEN-MATEMATİK</label>
-                                                    <label class="radioPersonal1"><input type="radio"
-                                                            name="radioPersonal1" value = "turkce-matematik">TÜRKÇE-MATEMATİK</label>
-                                                    <label class="radio-inline" ><input type="radio"
-                                                            name="radioPersonal1"  value = "turkce-sosyal">TÜRKÇE-SOSYAL</label>
-                                                    <label class="radio-inline" ><input type="radio"
-                                                            name="radioPersonal1" value = "yabanci">YABANCI
+                                                <div class="radioLeft">
+                                                    <label ><input type="radio" id="dene" 
+                                                            name="radio1">FEN-MATEMATİK</label>
+                                                    <label><input type="radio"
+                                                            name="radio1">TÜRKÇE-MATEMATİK</label>
+                                                    <label ><input type="radio"
+                                                            name="radio1">TÜRKÇE-SOSYAL</label>
+                                                    <label ><input type="radio"
+                                                            name="radio1">YABANCI
                                                         DİL</label>
                                                 </div>
                                             </td>
@@ -5196,15 +5203,15 @@
                                                 kendinizi daha yeterli
                                                 hissediyorsunuz?</td>
                                             <td>
-                                                <div class="radio radio_sub-element text-center">
-                                                    <label class="radio-inline"><input type="radio"
-                                                            name="radioPersonal2" value="fen-matematik">FEN-MATEMATİK</label>
-                                                    <label class="radio-inline"><input type="radio"
-                                                            name="radioPersonal2" value = "turkce-matematik">TÜRKÇE-MATEMATİK</label>
-                                                    <label class="radio-inline" ><input type="radio"
-                                                            name="radioPersonal2"  value = "turkce-sosyal">TÜRKÇE-SOSYAL</label>
-                                                    <label class="radio-inline" ><input type="radio"
-                                                            name="radioPersonal2" value = "yabanci">YABANCI
+                                                <div class="radioLeft">
+                                                    <label ><input type="radio"
+                                                            name="radio2">FEN-MATEMATİK</label>
+                                                    <label ><input type="radio"
+                                                            name="radio2">TÜRKÇE-MATEMATİK</label>
+                                                    <label ><input type="radio"
+                                                            name="radio2">TÜRKÇE-SOSYAL</label>
+                                                    <label ><input type="radio"
+                                                            name="radio2">YABANCI
                                                         DİL</label>
                                                 </div>
                                             </td>
@@ -5219,7 +5226,7 @@
 
                                             <td>
                                                 <div class="form-group">
-                                                    <select class="form-control" id="dropdown1">
+                                                    <select class="form-control">
                                                         <option>Option
                                                             1
                                                         </option>
@@ -5250,7 +5257,7 @@
 
                                             <td>
                                                 <div class="form-group">
-                                                    <select class="form-control" id="dropdown2">
+                                                    <select class="form-control">
                                                         <option>Option
                                                             1
                                                         </option>
@@ -5291,23 +5298,23 @@
                                             </td>
 
                                             <td>
-                                                <div class="radio radio_sub-element text-center">
-                                                    <label class="radio-inline"><input type="radio"
-                                                            name="radioPersonal3" value="lise">Lise</label>
-                                                    <label class="radio-inline"><input type="radio" name="radioPersonal3"value="liseli-kiz">Liseli
+                                                <div class="radioLeft">
+                                                    <label><input type="radio"
+                                                            name="radio3">Lise</label>
+                                                    <label><input type="radio" name="radio3">Liseli
                                                         Kız</label>
-                                                    <label class="radio-inline"><input type="radio" name="radioPersonal3"value="liseli-erkek">Liseli
+                                                    <label><input type="radio" name="radio3">Liseli
                                                         Erkek</label>
-                                                    <label class="radio-inline"><input type="radio"
-                                                            name="radioPersonal3" value="universite">Üniversite</label>
-                                                    <label class="radio-inline"><input type="radio"
-                                                            name="radioPersonal3"value="universiteli-kiz" >Üniversiteli
+                                                    <label><input type="radio"
+                                                            name="radio3">Üniversite</label>
+                                                    <label><input type="radio"
+                                                            name="radio3">Üniversiteli
                                                         Kız</label>
-                                                    <label class="radio-inline"><input type="radio"
-                                                            name="radioPersonal3"value="universiteli-erkek">Üniversiteli
+                                                    <label><input type="radio"
+                                                            name="radio3">Üniversiteli
                                                         Erkek</label>
-                                                    <label class="radio-inline"><input type="radio"
-                                                            name="radioPersonal3"value="genel">Genel</label>
+                                                    <label><input type="radio"
+                                                            name="radio3">Genel</label>
                                                 </div>
                                             </td>
                                         </tr>
@@ -5331,7 +5338,7 @@
                                             <button type="button" class="btn green"
                                                 onclick="$('#rumuz').css('display', 'none');$('#anket5').css('display', 'block');">6</button>-->
                                             <button type="button" class="btn green"
-                                            onclick="$('#rumuz').css('display', 'none');$('#sonuc').css('display', 'block');">RAPORLAR</button>
+                                                onclick="$('#rumuz').css('display', 'none');$('#sonuc').css('display', 'block');">RAPORLAR</button>
                                             <!--<button type="button" class="btn green"
                                                 onclick="$('#rumuz').css('display', 'none');$('#sonuc2').css('display', 'block');">8</button>
                                             <button type="button" class="btn green"
@@ -5351,13 +5358,13 @@
                             </div>
                         </div>
                         <div class="row ">
-                            <div class="col-md-6 text-center"><button type="button"
-                                    class="btn green-haze btn-outline sbold uppercase"
+                            <div class="col-md-6 text-center">
+                                <button type="button" class="btn green-haze btn-outline sbold uppercase"
                                     onclick="$('#rumuz').css('display', 'none');$('#anasayfa').css('display', 'block');">GERİ</button>
 
                             </div>
                             <div class="col-md-4 text-right">
-                                <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                                <button type="button" class="btn green-haze btn-outline sbold uppercase" 
                                     onclick="$('#rumuz').css('display', 'none');$('#anket').css('display', 'block');">İLERİ</button>
 
                             </div>
@@ -5651,7 +5658,6 @@
 <!-- BEGIN CORE PLUGINS -->
 <script src="/style/global/plugins/jquery.min.js" type="text/javascript"></script>
 <script src="/style/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="js/form-handling.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
 <script src="/style/global/scripts/app.min.js" type="text/javascript"></script>
