@@ -12,7 +12,7 @@
     <meta content="" name="author" />
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
-        type="text/css" />
+        type="text/css" media="screen,print"/>
     <link href="/style/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet"
         type="text/css" />
     <link href="/style/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -100,6 +100,18 @@
         color: red !important;
     }
 
+
+    @media print{
+        footer {
+        display: none;
+        }
+        #sayfalama{
+            display: none;
+        }
+        #yazdirbtn{
+            display: none;
+        }
+    }
 
     .vbottom {
         bottom: 0 !important;
@@ -3341,7 +3353,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     <ahref class="btn info" style="text-align: right;">1/5</ahref>
-                                    <button type="button" class="btn green-haze btn-outline sbold uppercase">
+                                    <button id="yazdirbtn" type="button" class="btn green-haze btn-outline sbold uppercase" onclick="window.print()">
                                         <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                                         YAZDIR
                                     </button>
@@ -3558,7 +3570,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div id="sayfalama">
                         <nav class="pagination-container text-center">
                             <div class="pagination">
                                 <span class="pagination-inner">
@@ -3602,6 +3614,7 @@
 
                             </div>
                         </div>
+                    </div>
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
                 </div>
@@ -3835,7 +3848,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     <ahref class="btn info" style="text-align: right;">2/5</ahref>
-                                    <button type="button" class="btn green-haze btn-outline sbold uppercase">
+                                    <button id="yazdirbtn" type="button" class="btn green-haze btn-outline sbold uppercase" onclick="window.print()">
                                         <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                                         YAZDIR
                                     </button>
@@ -4002,7 +4015,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div id="sayfalama">
                         <nav class="pagination-container text-center">
                             <div class="pagination">
                                 <span class="pagination-inner">
@@ -4034,13 +4047,6 @@
                                 </span>
                             </div>
                         </nav>
-                        <!---     <div class="progress">
-                            <div class="progress-bar progress-bar-success progress-bar-striped active"
-                                role="progressbar" aria-valuenow="63" aria-valuemin="0" aria-valuemax="100"
-                                style="width:63%">
-                                63%
-                            </div>
-                        </div>-->
                         <div class="row ">
                             <div class="col-md-6 text-center"><button type="button"
                                     class="btn green-haze btn-outline sbold uppercase"
@@ -4054,6 +4060,7 @@
                             </div>
 
 
+                        </div>
                         </div>
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
@@ -4118,7 +4125,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     <ahref class="btn info" style="text-align: right;">3/5</ahref>
-                                    <button type="button" class="btn green-haze btn-outline sbold uppercase">
+                                    <button id="yazdirbtn" type="button" class="btn green-haze btn-outline sbold uppercase" onclick="window.print()">
                                         <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                                         YAZDIR
                                     </button>
@@ -4330,7 +4337,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div id="sayfalama">
                         <nav class="pagination-container text-center">
                             <div class="pagination">
                                 <span class="pagination-inner">
@@ -4373,6 +4380,7 @@
 
                             </div>
                         </div>
+                    </div>
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
                 </div>
