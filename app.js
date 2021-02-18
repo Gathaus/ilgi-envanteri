@@ -5,7 +5,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const path = require("path");
 const routes = require("./routes");
-
+const bodyParser = require("body-parser")
 /**
  * Load environment variables
  */
@@ -17,6 +17,8 @@ const app = express();
 /**
  * Routes
  */
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use("/", routes);
 
@@ -26,7 +28,7 @@ app.use("/", routes);
 app.use(express.static(path.join(__dirname, "public")));
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'pug');
-app.use(express.json());
+
 
 app.listen(PORT || 8080, () => {
   console.log(`App started on ${PORT} `);
