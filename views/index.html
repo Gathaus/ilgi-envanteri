@@ -11,8 +11,7 @@
         name="description" />
     <meta content="" name="author" />
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
-        type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet"type="text/css" media="screen,print"/>
     <link href="/style/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet"
         type="text/css" />
     <link href="/style/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -100,6 +99,18 @@
         color: red !important;
     }
 
+
+    @media print{
+        footer {
+        display: none;
+        }
+        #sayfalama{
+            display: none;
+        }
+        #yazdirbtn{
+            display: none;
+        }
+    }
 
     .vbottom {
         bottom: 0 !important;
@@ -494,16 +505,14 @@
                             </div>
                         </div>
                         <div class="row ">
-                            <div class="col-md-6 text-center"><button type="button"
+                            <button type="button"
                                     class="btn green-haze btn-outline sbold uppercase"
                                     onclick="$('#anket').css('display', 'none');$('#rumuz').css('display', 'block');">GERİ</button>
 
-                            </div>
-                            <div class="col-md-4 text-right">
-                                <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                                <button type="button" style="float: right;" class="btn green-haze btn-outline sbold uppercase"
                                     onclick="$('#anket').css('display', 'none');$('#anket2').css('display', 'block');">İLERİ</button>
 
-                            </div>
+                            
                         </div>
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
@@ -584,22 +593,22 @@
                                                         <input type="radio" name="optradio1" id="optrradio1">
                                                     </div>
                                                     <div style="display: inline-block;text-align: center;margin-left: 25px;">
-                                                        <input type="radio" name="optradio1" id="optrradio1">
+                                                        <input type="radio" name="optradio1" id="optrradio2">
                                                     </div>
                                                     <div style="display: inline-block;text-align: center;margin-left: 25px;">
-                                                        <input type="radio" name="optradio1" id="optrradio1">
+                                                        <input type="radio" name="optradio1" id="optrradio3">
                                                     </div>
                                                     <div style="display: inline-block;text-align: center;margin-left: 25px;">
-                                                        <input type="radio" name="optradio1" id="optrradio1">
+                                                        <input type="radio" name="optradio1" id="optrradio4">
                                                     </div>
                                                     <div style="display: inline-block;text-align: center;margin-left: 25px;">
-                                                        <input type="radio" name="optradio1" id="optrradio1">
+                                                        <input type="radio" name="optradio1" id="optrradio5">
                                                     </div>
                                                     <div style="display: inline-block;text-align: center;margin-left: 25px;">
-                                                        <input type="radio" name="optradio1" id="optrradio1">
+                                                        <input type="radio" name="optradio1" id="optrradio6">
                                                     </div>
                                                     <div style="display: inline-block;text-align: center;margin-left: 25px;">
-                                                        <input type="radio" name="optradio1" id="optrradio1">
+                                                        <input type="radio" name="optradio1" id="optrradio7">
                                                     </div>
                                                 </div>
 
@@ -626,7 +635,7 @@
                                                     <input type="radio" name="optradio1" id="optrradio1">
                                                 </div>
                                                 <div style="display: inline-block;text-align: center;margin-left: 25px;">
-                                                    <input type="radio" name="optradio1" id="optrradio1">
+                                                    <input type="radio" name="optradio2" id="optrradio2">
                                                 </div>
                                             </div>
                                             </td>
@@ -1182,16 +1191,13 @@
                             </div>
                         </div>
                         <div class="row ">
-                            <div class="col-md-6 text-center"><button type="button"
+                            <button type="button"
                                     class="btn green-haze btn-outline sbold uppercase"
                                     onclick="$('#anket2').css('display', 'none');$('#anket').css('display', 'block');">GERİ</button>
 
-                            </div>
-                            <div class="col-md-4 text-right">
-                                <button type="button" class="btn green-haze btn-outline sbold uppercase"
-                                    onclick="$('#anket2').css('display', 'none');$('#anket3').css('display', 'block');">İLERİ</button>
+                                <button id="ileribtn1" style="float: right;"  type="button" class="btn green-haze btn-outline sbold uppercase"
+                                    onclick="btnIleri()">İLERİ</button>
 
-                            </div>
                         </div>
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
@@ -1858,16 +1864,13 @@
                             </div>
                         </div>
                         <div class="row ">
-                            <div class="col-md-6 text-center"><button type="button"
+                            <button type="button"
                                     class="btn green-haze btn-outline sbold uppercase"
                                     onclick="$('#anket3').css('display', 'none');$('#anket2').css('display', 'block');">GERİ</button>
 
-                            </div>
-                            <div class="col-md-4 text-right">
-                                <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                                <button type="button"style="float: right;" class="btn green-haze btn-outline sbold uppercase"
                                     onclick="$('#anket3').css('display', 'none');$('#anket4').css('display', 'block');">İLERİ</button>
 
-                            </div>
                         </div>
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
@@ -2586,16 +2589,15 @@
                             </div>
                         </div>
                         <div class="row ">
-                            <div class="col-md-6 text-center"><button type="button"
+                            <button type="button"
                                     class="btn green-haze btn-outline sbold uppercase"
                                     onclick="$('#anket4').css('display', 'none');$('#anket3').css('display', 'block');">GERİ</button>
 
-                            </div>
-                            <div class="col-md-4 text-right">
-                                <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                            
+                                <button type="button"style="float: right;" class="btn green-haze btn-outline sbold uppercase"
                                     onclick="$('#anket4').css('display', 'none');$('#anket5').css('display', 'block');">İLERİ</button>
 
-                            </div>
+                            
                         </div>
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
@@ -3262,16 +3264,13 @@
                             </div>
                         </div>
                         <div class="row ">
-                            <div class="col-md-6 text-center"><button type="button"
+                            <button type="button"
                                     class="btn green-haze btn-outline sbold uppercase"
                                     onclick="$('#anket5').css('display', 'none');$('#anket4').css('display', 'block');">GERİ</button>
 
-                            </div>
-                            <div class="col-md-4 text-right">
-                                <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                                <button type="button"style="float: right;" class="btn green-haze btn-outline sbold uppercase"
                                     onclick="$('#anket5').css('display', 'none');$('#sonuc').css('display', 'block');">İLERİ</button>
 
-                            </div>
                         </div>
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
@@ -3312,14 +3311,11 @@
                         </div>
                     </div>-->
                     <div class="row ">
-                        <div class="col-md-6 text-center"><button type="button"
+                        <button type="button"
                                 class="btn green-haze btn-outline sbold uppercase">GERİ</button>
 
-                        </div>
-                        <div class="col-md-4 text-right">
-                            <button type="button" class="btn green-haze btn-outline sbold uppercase">İLERİ</button>
+                            <button type="button"style="float: right;" class="btn green-haze btn-outline sbold uppercase">İLERİ</button>
 
-                        </div>
                     </div>
                 </div>
 
@@ -3341,7 +3337,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     <ahref class="btn info" style="text-align: right;">1/5</ahref>
-                                    <button type="button" class="btn green-haze btn-outline sbold uppercase">
+                                    <button id="yazdirbtn" type="button" class="btn green-haze btn-outline sbold uppercase" onclick="window.print()">
                                         <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                                         YAZDIR
                                     </button>
@@ -3558,7 +3554,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div id="sayfalama">
                         <nav class="pagination-container text-center">
                             <div class="pagination">
                                 <span class="pagination-inner">
@@ -3591,17 +3587,15 @@
                         </nav>
 
                         <div class="row ">
-                            <div class="col-md-6 text-center"><button type="button"
+                            <button type="button"
                                     class="btn green-haze btn-outline sbold uppercase"
                                     onclick="$('#sonuc').css('display', 'none');$('#anket5').css('display', 'block');">GERİ</button>
 
-                            </div>
-                            <div class="col-md-4 text-right">
-                                <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                                <button type="button"style="float: right;" class="btn green-haze btn-outline sbold uppercase"
                                     onclick="calculateData()">İLERİ</button>
 
-                            </div>
                         </div>
+                    </div>
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
                 </div>
@@ -3835,7 +3829,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     <ahref class="btn info" style="text-align: right;">2/5</ahref>
-                                    <button type="button" class="btn green-haze btn-outline sbold uppercase">
+                                    <button id="yazdirbtn" type="button" class="btn green-haze btn-outline sbold uppercase" onclick="window.print()">
                                         <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                                         YAZDIR
                                     </button>
@@ -4002,7 +3996,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div id="sayfalama">
                         <nav class="pagination-container text-center">
                             <div class="pagination">
                                 <span class="pagination-inner">
@@ -4034,26 +4028,18 @@
                                 </span>
                             </div>
                         </nav>
-                        <!---     <div class="progress">
-                            <div class="progress-bar progress-bar-success progress-bar-striped active"
-                                role="progressbar" aria-valuenow="63" aria-valuemin="0" aria-valuemax="100"
-                                style="width:63%">
-                                63%
-                            </div>
-                        </div>-->
                         <div class="row ">
-                            <div class="col-md-6 text-center"><button type="button"
+                            <button type="button"
                                     class="btn green-haze btn-outline sbold uppercase"
                                     onclick="$('#sonuc2').css('display', 'none');$('#sonuc').css('display', 'block');">GERİ</button>
 
-                            </div>
-                            <div class="col-md-4 text-right">
-                                <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                            
+                                <button type="button"style="float: right;" class="btn green-haze btn-outline sbold uppercase"
                                     onclick="$('#sonuc2').css('display', 'none');$('#sonuc3').css('display', 'block');">İLERİ</button>
 
-                            </div>
 
 
+                        </div>
                         </div>
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
@@ -4118,7 +4104,7 @@
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
                                     <ahref class="btn info" style="text-align: right;">3/5</ahref>
-                                    <button type="button" class="btn green-haze btn-outline sbold uppercase">
+                                    <button id="yazdirbtn" type="button" class="btn green-haze btn-outline sbold uppercase" onclick="window.print()">
                                         <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                                         YAZDIR
                                     </button>
@@ -4330,7 +4316,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div id="sayfalama">
                         <nav class="pagination-container text-center">
                             <div class="pagination">
                                 <span class="pagination-inner">
@@ -4362,17 +4348,16 @@
                         </nav>
 
                         <div class="row ">
-                            <div class="col-md-6 text-center"><button type="button"
+                            <button type="button"
                                     class="btn green-haze btn-outline sbold uppercase"
                                     onclick="$('#sonuc3').css('display', 'none');$('#sonuc2').css('display', 'block');">GERİ</button>
 
-                            </div>
-                            <div class="col-md-4 text-right">
-                                <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                           
+                                <button type="button"style="float: right;" class="btn green-haze btn-outline sbold uppercase"
                                     onclick="$('#sonuc3').css('display', 'none');$('#son').css('display', 'block');">İLERİ</button>
 
-                            </div>
                         </div>
+                    </div>
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
                 </div>
@@ -5176,14 +5161,14 @@
                                                 / hangisi daha çok
                                                 ilginizi çekiyor?</td>
                                             <td>
-                                                <div class="radio radio_sub-element text-center">
-                                                    <label class="radio-inline"><input type="radio"
+                                                <div class="radioLeft">
+                                                    <label ><input type="radio"
                                                             name="radioPersonal1" value="fen-matematik">FEN-MATEMATİK</label>
-                                                    <label class="radioPersonal1"><input type="radio"
+                                                    <label ><input type="radio"
                                                             name="radioPersonal1" value = "turkce-matematik">TÜRKÇE-MATEMATİK</label>
-                                                    <label class="radio-inline" ><input type="radio"
+                                                    <label  ><input type="radio"
                                                             name="radioPersonal1"  value = "turkce-sosyal">TÜRKÇE-SOSYAL</label>
-                                                    <label class="radio-inline" ><input type="radio"
+                                                    <label  ><input type="radio"
                                                             name="radioPersonal1" value = "yabanci">YABANCI
                                                         DİL</label>
                                                 </div>
@@ -5196,14 +5181,14 @@
                                                 kendinizi daha yeterli
                                                 hissediyorsunuz?</td>
                                             <td>
-                                                <div class="radio radio_sub-element text-center">
-                                                    <label class="radio-inline"><input type="radio"
+                                                <div class="radioLeft">
+                                                    <label ><input type="radio"
                                                             name="radioPersonal2" value="fen-matematik">FEN-MATEMATİK</label>
-                                                    <label class="radio-inline"><input type="radio"
+                                                    <label ><input type="radio"
                                                             name="radioPersonal2" value = "turkce-matematik">TÜRKÇE-MATEMATİK</label>
-                                                    <label class="radio-inline" ><input type="radio"
+                                                    <label  ><input type="radio"
                                                             name="radioPersonal2"  value = "turkce-sosyal">TÜRKÇE-SOSYAL</label>
-                                                    <label class="radio-inline" ><input type="radio"
+                                                    <label  ><input type="radio"
                                                             name="radioPersonal2" value = "yabanci">YABANCI
                                                         DİL</label>
                                                 </div>
@@ -5261,22 +5246,22 @@
                                             </td>
 
                                             <td>
-                                                <div class="radio radio_sub-element text-center">
-                                                    <label class="radio-inline"><input type="radio"
+                                                <div class="radioLeft">
+                                                    <label ><input type="radio"
                                                             name="radioPersonal3" value="lise">Lise</label>
-                                                    <label class="radio-inline"><input type="radio" name="radioPersonal3"value="liseli-kiz">Liseli
+                                                    <label ><input type="radio" name="radioPersonal3"value="liseli-kiz">Liseli
                                                         Kız</label>
-                                                    <label class="radio-inline"><input type="radio" name="radioPersonal3"value="liseli-erkek">Liseli
+                                                    <label ><input type="radio" name="radioPersonal3"value="liseli-erkek">Liseli
                                                         Erkek</label>
-                                                    <label class="radio-inline"><input type="radio"
+                                                    <label ><input type="radio"
                                                             name="radioPersonal3" value="universite">Üniversite</label>
-                                                    <label class="radio-inline"><input type="radio"
+                                                    <label ><input type="radio"
                                                             name="radioPersonal3"value="universiteli-kiz" >Üniversiteli
                                                         Kız</label>
-                                                    <label class="radio-inline"><input type="radio"
+                                                    <label ><input type="radio"
                                                             name="radioPersonal3"value="universiteli-erkek">Üniversiteli
                                                         Erkek</label>
-                                                    <label class="radio-inline"><input type="radio"
+                                                    <label ><input type="radio"
                                                             name="radioPersonal3"value="genel">Genel</label>
                                                 </div>
                                             </td>
@@ -5321,16 +5306,15 @@
                             </div>
                         </div>
                         <div class="row ">
-                            <div class="col-md-6 text-center"><button type="button"
+                            <button type="button"
                                     class="btn green-haze btn-outline sbold uppercase"
                                     onclick="$('#rumuz').css('display', 'none');$('#anasayfa').css('display', 'block');">GERİ</button>
 
-                            </div>
-                            <div class="col-md-4 text-right">
-                                <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                            
+                                <button type="button"style="float: right;" class="btn green-haze btn-outline sbold uppercase"
                                     onclick="$('#rumuz').css('display', 'none');$('#anket').css('display', 'block');">İLERİ</button>
 
-                            </div>
+                            
                         </div>
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
@@ -5617,7 +5601,21 @@
     });
 
 </script>
-
+<script>
+    function btnIleri(){
+        $('#anket2').css('display', 'none');$('#anket3').css('display', 'block');
+        
+        /*var Deger = $("#optradio1 input[type='radio']:checked").val();
+        
+        if($("#optradio1").prop("checked", false)){
+            alert(Deger);
+        }
+        else if($("#optradio1").prop("checked", true)){
+            
+            
+        }*/
+    }
+</script>
 <!-- BEGIN CORE PLUGINS -->
 <script src="/style/global/plugins/jquery.min.js" type="text/javascript"></script>
 <script src="/style/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>

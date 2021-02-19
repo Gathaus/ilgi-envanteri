@@ -97,8 +97,6 @@ function calculateData() {
     'input[name="radioPersonal3"]:checked'
   ).value;
 
-
-
   fetch("http://localhost:8080/api/survey/results", {
     method: "POST",
     headers: {
@@ -116,14 +114,10 @@ function calculateData() {
     }),
   })
     .then((response) => response.json())
-    .then(response => returnResults(response))
+    .then((response) => returnResults(response))
     .catch((error) => {
       console.log(error);
     });
 }
 
-function returnResults (response){
-  
-  console.log(response)
-  console.log(sessionStorage.getItem("haha"))
-}
+function returnResults(response) {}
