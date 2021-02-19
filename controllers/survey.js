@@ -6,7 +6,6 @@ const getHome = async (req, res, next) => {
 };
 
 const getLiselerData = async (req, res, next) => {
-  let liseler, meslekler;
   getLiseler((err, data) => {
     if (err)
       res.status(500).send({
@@ -19,7 +18,6 @@ const getLiselerData = async (req, res, next) => {
   });
 };
 const getMesleklerData = async (req, res, next) => {
-  let liseler, meslekler;
   getMeslekler((err, data) => {
     if (err)
       res.status(500).send({
@@ -33,7 +31,6 @@ const getMesleklerData = async (req, res, next) => {
   });
 };
 const getSorularData = async (req, res, next) => {
-  let liseler, meslekler;
   getSorular((err, data) => {
     if (err)
       res.status(500).send({
