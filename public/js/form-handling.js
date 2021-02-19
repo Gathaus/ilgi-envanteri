@@ -7,8 +7,8 @@ function fetchData() {
         var option = document.createElement("option");
         option.text = response[i].isim;
         element.add(option);
+        // console.log(i +" " + response[i].isim)
       }
-      // console.log(response);
     })
     .catch((error) => {
       console.log(error);
@@ -17,7 +17,7 @@ function fetchData() {
   fetch("http://localhost:8080/api/survey/getMesleklerData")
     .then((response) => response.json())
     .then((response) => {
-      for (i = 0; i < response.length * 3; i++) {
+      for (i = 0; i < response.length; i++) {
         var element = document.getElementById("dropdown2");
         var option = document.createElement("option");
         option.text = response[i].isim;
@@ -35,7 +35,7 @@ function fetchData() {
       // console.log(response);
       let soruCount = 0;
       let breakCheck = false;
-      console.log(response.length);
+      // console.log(response.length);
       for (i = 1; i <= response.length / 4; i++) {
         const tbody = document.getElementById("tbody" + i);
         for (k = 0; k < 10; k++) {
@@ -97,18 +97,7 @@ function calculateData() {
     'input[name="radioPersonal3"]:checked'
   ).value;
 
-  console.log(
-    JSON.stringify({
-      name,
-      age,
-      sex,
-      scoreType1,
-      scoreType2,
-      dropdown1,
-      dropdown2,
-      resultType,
-    })
-  );
+
 
   fetch("http://localhost:8080/api/survey/results", {
     method: "POST",
@@ -127,8 +116,14 @@ function calculateData() {
     }),
   })
     .then((response) => response.json())
-    .then((response) => console.log(response))
+    .then(response => returnResults(response))
     .catch((error) => {
       console.log(error);
     });
+}
+
+function returnResults (response){
+  
+  console.log(response)
+  console.log(sessionStorage.getItem("haha"))
 }

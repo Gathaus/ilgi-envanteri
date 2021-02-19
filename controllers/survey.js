@@ -44,6 +44,8 @@ const getSorularData = async (req, res, next) => {
   });
 };
 const calculateResults = async (req, res, next) => {
+
+  req.session.haha="Sasd"
   res.status(200).json({
     succes: true,
     data: "x",
