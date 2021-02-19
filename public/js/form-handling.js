@@ -1,13 +1,44 @@
+function fetchData() {
+  fetch("http://localhost:8080/api/survey/getLiselerData")
+    .then((response) => response.json())
+    .then((response) =>{
 
-function fetchData(){
-
-    fetch("http://localhost:8080/api/survey/fetchData")
-    .then(response => response.json())
-    .then(response => console.log(response))
+      for(i=0;i<response.length;i++){
+        var element = document.getElementById("dropdown1");
+        var option = document.createElement("option");
+        option.text = "deneme";
+        element.add(option);
+      }
+      console.log(response)
+      })
     .catch((error) => {
       console.log(error);
     });
 
+  
+
+  fetch("http://localhost:8080/api/survey/getMesleklerData")
+    .then((response) => response.json())
+    .then((response) =>{
+
+      for(i=0;i<response.length;i++){
+        var element = document.getElementById("dropdown2");
+        var option = document.createElement("option");
+        option.text = "deneme"+i;
+        element.add(option);
+      }
+      console.log(response)
+      })
+    .catch((error) => {
+      console.log(error);
+    });
+
+  fetch("http://localhost:8080/api/survey/getSorularData")
+    .then((response) => response.json())
+    .then((response) => console.log(response))
+    .catch((error) => {
+      console.log(error);
+    });
 }
 
 function calculateData() {
@@ -59,10 +90,9 @@ function calculateData() {
       resultType,
     }),
   })
-    .then(response=>response.json())
-    .then(response => console.log(response))
+    .then((response) => response.json())
+    .then((response) => console.log(response))
     .catch((error) => {
       console.log(error);
     });
-
 }
