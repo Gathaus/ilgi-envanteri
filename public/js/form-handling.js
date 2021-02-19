@@ -1,6 +1,19 @@
-function fetchData() {
+
+function fetchData(){
+
+    fetch("http://localhost:8080/api/survey/fetchData")
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch((error) => {
+      console.log(error);
+    });
+
+}
+
+function calculateData() {
   $("#sonuc").css("display", "none");
   $("#sonuc2").css("display", "block");
+  // console.log(sessionStorage)
 
   var name = document.getElementById("name").value;
   var age = document.getElementById("age").value;
@@ -51,4 +64,5 @@ function fetchData() {
     .catch((error) => {
       console.log(error);
     });
+
 }

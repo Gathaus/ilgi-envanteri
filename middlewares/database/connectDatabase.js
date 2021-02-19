@@ -2,16 +2,17 @@
 
 const mysql = require('mysql');
 
-let connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'ilgienvanteri'
+var con = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE
 });
 
-connection.connect(function (err) {
+con.connect(function(err) {
   if (err) throw err;
 
-  console.log('MySQL bağlantısı başarıyla gerçekleştirildi.');
-
+  console.log("MySql bağlantısı gerçekleşti")
 });
+
+module.exports = con;

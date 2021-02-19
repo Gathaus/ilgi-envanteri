@@ -2,21 +2,29 @@
  * Module dependencies
  */
 const express = require("express");
-const dotenv = require("dotenv");
 const path = require("path");
+const dotenv = require("dotenv").config({
+  path: path.join(__dirname, "config.env"),
+});
 const routes = require("./routes");
-const bodyParser = require("body-parser")
+const bodyParser = require("body-parser");
+const session = require("express-session")
 /**
  * Load environment variables
  */
-dotenv.config({ path: "./config.env" });
-
 const PORT = process.env.PORT;
 const app = express();
 
 /**
- * Routes
+ * Express configuration
  */
+app.set('trust proxy', 1)
+app.use(session({
+  resave: true,
+  saveUninitialized: true,
+  secret: "asddsa",
+  cookie: { maxAge: 1209600000 }, // two weeks in milliseconds
+}));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -28,7 +36,6 @@ app.use("/", routes);
 app.use(express.static(path.join(__dirname, "public")));
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'pug');
-
 
 app.listen(PORT || 8080, () => {
   console.log(`App started on ${PORT} `);
