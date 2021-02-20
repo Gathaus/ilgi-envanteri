@@ -150,6 +150,7 @@ function userComments(){
 
 function insertHoslantiAndYapabilirlik(){
 
+  $('#anket5').css('display', 'none');$('#sonuc').css('display', 'block');
     var value31 = document.querySelector('input[name="radio-hoslanma31"]:checked').value;
     var value32 = document.querySelector('input[name="radio-hoslanma32"]:checked').value;
     var value33 = document.querySelector('input[name="radio-hoslanma33"]:checked').value;
@@ -171,7 +172,7 @@ function insertHoslantiAndYapabilirlik(){
     var value39y = document.querySelector('input[name="radio-yapabilirlik39"]:checked').value;
     var value40y= document.querySelector('input[name="radio-yapabilirlik40"]:checked').value;
   //if(value31 !=0 && value32 !=0 && value33 !=0 && value34 !=0 && value35 !=0 && value36 !=0 && value37 !=0 && value38 !=0 && value39 !=0 && value40 !=0 && value31y !=0 && value32y !=0 && value33y !=0 && value34y !=0 && value35y !=0 && value36y !=0 && value37y !=0 && value38y !=0 && value39y !=0 && value40y !=0 ){
-    $('#anket5').css('display', 'none');$('#sonuc').css('display', 'block');
+    //$('#anket5').css('display', 'none');$('#sonuc').css('display', 'block');
     var userId=1;
     var value1 = document.querySelector('input[name="radio-hoslanma1"]:checked').value;
     var value2 = document.querySelector('input[name="radio-hoslanma2"]:checked').value;
