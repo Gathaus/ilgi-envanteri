@@ -199,6 +199,7 @@
     .table-bordered, .table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th{
         border: 3px solid #e7ecf1 !important;
     }
+    .ortala{width:100%;max-width:1000px;margin:auto;margin-top:75px;text-align:Center;}
 
     /* link buttonları için*/
     #mk , #dg , #yr,
@@ -1199,7 +1200,7 @@
                                     onclick="$('#anket2').css('display', 'none');$('#anket').css('display', 'block');">GERİ</button>
 
                                 <button id="ileribtn1" style="float: right;"  type="button" class="btn green-haze btn-outline sbold uppercase"
-                                    onclick="btnIleri()">İLERİ</button>
+                                    onclick="goToAnket3()">İLERİ</button>
 
                         </div>
                     </div>
@@ -1881,7 +1882,7 @@
                                     onclick="$('#anket3').css('display', 'none');$('#anket2').css('display', 'block');">GERİ</button>
 
                                 <button type="button"style="float: right;" class="btn green-haze btn-outline sbold uppercase"
-                                    onclick="$('#anket3').css('display', 'none');$('#anket4').css('display', 'block');">İLERİ</button>
+                                    onclick="goToAnket4();">İLERİ</button>
 
                         </div>
                     </div>
@@ -2616,7 +2617,7 @@
                                     onclick="$('#anket4').css('display', 'none');$('#anket3').css('display', 'block');">GERİ</button>
 
                                 <button type="button" style="float: right;"class="btn green-haze btn-outline sbold uppercase"
-                                    onclick="$('#anket4').css('display', 'none');$('#anket5').css('display', 'block');">İLERİ</button>
+                                    onclick="goToAnket5()">İLERİ</button>
 
                         </div>
                     </div>
@@ -3347,6 +3348,8 @@
 
                     </div>
                 </div>
+
+                
 
                 <!-- sonuç rapor -->
                 <div class="portlet light " id="sonuc" style="display: none;">
@@ -5156,7 +5159,7 @@
                                                     <label class="col-md-1  ">Cinsiyet</label>
                                                     <div class="col-md-3">
                                                         <label class="radio-inline" style="margin-left: 10px;">
-                                                            <input type="radio" name="radio-sex" value="kadin">Kadın</label>
+                                                            <input type="radio" name="radio-sex" value="kadin" checked>Kadın</label>
                                                         <label class="radio-inline">
                                                             <input type="radio" name="radio-sex" value="erkek">Erkek</label>
                                                     </div>
@@ -5185,7 +5188,7 @@
                                             <td>
                                                 <div class="radioLeft">
                                                     <label ><input type="radio"
-                                                            name="radioPersonal1" value="fen-matematik">FEN-MATEMATİK</label>
+                                                            name="radioPersonal1" value="fen-matematik" checked>FEN-MATEMATİK</label>
                                                     <label ><input type="radio"
                                                             name="radioPersonal1" value = "turkce-matematik">TÜRKÇE-MATEMATİK</label>
                                                     <label  ><input type="radio"
@@ -5205,7 +5208,7 @@
                                             <td>
                                                 <div class="radioLeft">
                                                     <label ><input type="radio"
-                                                            name="radioPersonal2" value="fen-matematik">FEN-MATEMATİK</label>
+                                                            name="radioPersonal2" value="fen-matematik" checked>FEN-MATEMATİK</label>
                                                     <label ><input type="radio"
                                                             name="radioPersonal2" value = "turkce-matematik">TÜRKÇE-MATEMATİK</label>
                                                     <label  ><input type="radio"
@@ -5272,7 +5275,7 @@
                                             <td>
                                                 <div class="radioLeft">
                                                     <label ><input type="radio"
-                                                            name="radioPersonal3" value="lise">Lise</label>
+                                                            name="radioPersonal3" value="lise" checked>Lise</label>
                                                     <label ><input type="radio" name="radioPersonal3"value="liseli-kiz">Liseli
                                                         Kız</label>
                                                     <label ><input type="radio" name="radioPersonal3"value="liseli-erkek">Liseli
@@ -5335,7 +5338,7 @@
                                     onclick="$('#rumuz').css('display', 'none');$('#anasayfa').css('display', 'block');">GERİ</button>
 
                                 <button type="button" style="float: right;" class="btn green-haze btn-outline sbold uppercase"
-                                    onclick="$('#rumuz').css('display', 'none');$('#anket').css('display', 'block');">İLERİ</button>
+                                    onclick="goToDescription()">İLERİ</button>
 
                         </div>
                     </div>
@@ -5623,19 +5626,6 @@
 
 </script>
 <script>
-    function btnIleri(){
-        $('#anket2').css('display', 'none');$('#anket3').css('display', 'block');
-        
-        /*var Deger = $("#optradio1 input[type='radio']:checked").val();
-        
-        if($("#optradio1").prop("checked", false)){
-            alert(Deger);
-        }
-        else if($("#optradio1").prop("checked", true)){
-            
-            
-        }*/
-    }
 </script>
 <!-- BEGIN CORE PLUGINS -->
 <script src="/style/global/plugins/jquery.min.js" type="text/javascript"></script>
@@ -5647,6 +5637,7 @@
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="/style/layouts/layout2/scripts/layout.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
 </body>
 
