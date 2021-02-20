@@ -7,5 +7,4 @@ router.get('/status', (req, res) => res.send('OK'));
 
 router.get('/',getHome);
 router.use('/api/survey',survey);
-
 module.exports = router;
