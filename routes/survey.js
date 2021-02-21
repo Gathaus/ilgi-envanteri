@@ -7,6 +7,8 @@ const {
   comments,
   hoslanti,
   yapabilirlik,
+  users,
+  lastUserId,
   getRaporData
 } = require("../controllers/survey");
 const router = express.Router();
@@ -23,5 +25,7 @@ router.post("/results", calculateResults);
 router.post("/comments",comments);
 router.post("/hoslanti",hoslanti);
 router.post("/yapabilirlik",yapabilirlik);
+router.post("/users",users);
+router.get("/lastUserId", lastUserId);
 
 module.exports = router;

@@ -173,7 +173,7 @@ function insertHoslantiAndYapabilirlik(){
     var value40y= document.querySelector('input[name="radio-yapabilirlik40"]:checked').value;
   //if(value31 !=0 && value32 !=0 && value33 !=0 && value34 !=0 && value35 !=0 && value36 !=0 && value37 !=0 && value38 !=0 && value39 !=0 && value40 !=0 && value31y !=0 && value32y !=0 && value33y !=0 && value34y !=0 && value35y !=0 && value36y !=0 && value37y !=0 && value38y !=0 && value39y !=0 && value40y !=0 ){
     //$('#anket5').css('display', 'none');$('#sonuc').css('display', 'block');
-    var userId=1;
+    var userId=document.getElementById("userId").value;
     var value1 = document.querySelector('input[name="radio-hoslanma1"]:checked').value;
     var value2 = document.querySelector('input[name="radio-hoslanma2"]:checked').value;
     var value3 = document.querySelector('input[name="radio-hoslanma3"]:checked').value;
@@ -309,6 +309,44 @@ function goToDescription(){
   if(name !="" && age !="" && sex !=0 && scoreType1 !=0 && scoreType2 !=0 && dropdown1 !=0 && dropdown2 !=0){
     $('#rumuz').css('display', 'none');
     $('#anket').css('display', 'block');
+
+    fetch("http://localhost:8080/api/survey/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+      body: JSON.stringify({
+        name,age,sex,scoreType1,scoreType2,dropdown1,dropdown2,resultType,
+      }),
+    })
+      .then((response) => response.json())
+      .then((response) => returnResults(response))
+      .catch((error) => {
+        console.log(error);
+      });
+
+    //getLastUserId
+    fetch("http://localhost:8080/api/survey/lastUserId")
+    .then((response) => response.json())
+    .then((response) => {
+      for (i = 0; i < response.length; i++) {
+        $('#userId').val(response[i].Id);
+      }
+      // console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+    //getUserInfo
+    $("label[for='raporRumuz']").text(name);
+    $("label[for='raporYas']").text(age);
+    $("label[for='raporCins']").text(sex);
+    $("label[for='raporSoru1']").text(scoreType1);
+    $("label[for='raporSoru2']").text(scoreType2);
+    $("label[for='raporSoru3']").text(dropdown1);
+    $("label[for='raporSoru4']").text(dropdown2);
+
   }
   else{
     alert("Lütfen tüm alanları doldurunuz.");
