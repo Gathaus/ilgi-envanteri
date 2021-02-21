@@ -1,4 +1,4 @@
-const { post } = require("../../routes");
+
 
 function fetchData() {
   fetch("http://localhost:8080/api/survey/getLiselerData")

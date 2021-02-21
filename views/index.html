@@ -25,6 +25,7 @@
     <!-- END THEME LAYOUT STYLES -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico" />
+    <link href="/style/index.css" rel="stylesheet" type="text/css" />
 </head>
 <!-- END HEAD -->
 <style>
@@ -216,7 +217,7 @@
 
 </style>
 
-<body onload="fetchData()">
+<body onload="fetchData();raporVerileri()">
 
     <!-- START NAVBAR-->
     <nav class="navbar navbar-default">
@@ -3491,7 +3492,7 @@
                                         </tr>
                                     </thead>
 
-                                    <tbody id="tbody4">
+                                    <tbody id="tbodyChart1">
                                         <tr>
                                             <td> <button class="btn info" id="sk"
                                                 onclick="$('#sonuc').css('display', 'none');$('#sosyal').css('display', 'block');"
@@ -3501,10 +3502,10 @@
                                                 <td style="text-align: center; vertical-align: middle;"> <span>15</span>
                                                 </td>
                                             <td rowspan="8">
-                                                <div class="container" style="position: relative; width: 50%;">
+                                                <div class="container chart-container">
                                                     <div class="container"
                                                         style="position: relative;width: 100%; height: auto;">
-                                                        <canvas id="myChart">
+                                                        <canvas id="myChart1">
 
                                                         </canvas>
                                                     </div>
@@ -3606,18 +3607,18 @@
 
                                         <td>
                                             <div class="radio  ">
-                                                <label class="radio"><input type="radio" name="radio3">Lise</label>
-                                                <label class="radio"><input type="radio" name="radio3">Liseli
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc1(0)">Lise</label>
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc1(2)">Liseli
                                                     Kız</label>
-                                                <label class="radio"><input type="radio" name="radio3">Liseli
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc1(4)">Liseli
                                                     Erkek</label>
                                                 <label class="radio"><input type="radio"
-                                                        name="radio3">Üniversite</label>
-                                                <label class="radio"><input type="radio" name="radio3">Üniversiteli
+                                                        name="radio3" onchange="raporSonuc1(6)">Üniversite</label>
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc1(8)">Üniversiteli
                                                     Kız</label>
-                                                <label class="radio"><input type="radio" name="radio3">Üniversiteli
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc1(10)">Üniversiteli
                                                     Erkek</label>
-                                                <label class="radio"><input type="radio" name="radio3">Genel
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc1(12)">Genel
                                                     (Birleştirilmiş)</label>
 
                                             </div>
@@ -3998,7 +3999,7 @@
                                             <td style="text-align: center; vertical-align: middle;"> <span>25</span>
                                             </td>
                                             <td rowspan="2">
-                                                <div class="container" style="position: relative; width: 90%;">
+                                                <div class="container chart-container">
                                                     <div class="container"
                                                         style="position: relative;width: 100%; height: auto;">
                                                         <canvas id="myChart2">
@@ -4048,18 +4049,18 @@
 
                                         <td>
                                             <div class="radio  ">
-                                                <label class="radio"><input type="radio" name="radio3">Lise</label>
-                                                <label class="radio"><input type="radio" name="radio3">Liseli
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc2(0)">Lise</label>
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc2(2)">Liseli
                                                     Kız</label>
-                                                <label class="radio"><input type="radio" name="radio3">Liseli
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc2(4)">Liseli
                                                     Erkek</label>
                                                 <label class="radio"><input type="radio"
-                                                        name="radio3">Üniversite</label>
-                                                <label class="radio"><input type="radio" name="radio3">Üniversiteli
+                                                        name="radio3" onchange="raporSonuc2(6)">Üniversite</label>
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc2(8)">Üniversiteli
                                                     Kız</label>
-                                                <label class="radio"><input type="radio" name="radio3">Üniversiteli
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc2(10)">Üniversiteli
                                                     Erkek</label>
-                                                <label class="radio"><input type="radio" name="radio3">Genel
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc2(12)">Genel
                                                     (Birleştirilmiş)</label>
 
                                             </div>
@@ -4273,25 +4274,7 @@
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <td style="text-align: center; vertical-align: middle;"> <span> <strong>puan
-                                                        türü1</strong></span></td>
-                                            <td style="text-align: center; vertical-align: middle;"> <span> 11</span>
-                                            </td>
-                                            <td style="text-align: center; vertical-align: middle;"> <span> 11</span>
-                                            </td>
-                                            <td rowspan="8">
-                                                <div class="container" style="position: relative; width: 50%;">
-                                                    <div class="container"
-                                                        style="position: relative;width: 100%; height: auto;">
-                                                        <canvas id="myChart3">
-
-                                                        </canvas>
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                        </tr>
+                                    
                                         <tr>
                                             <td style="text-align: center; vertical-align: middle;"> <span> <strong>
                                                 <button class="btn info" id="mk" 
@@ -4301,7 +4284,16 @@
                                             </td>
                                             <td style="text-align: center; vertical-align: middle;"> <span> 13</span>
                                             </td>
+                                            <td rowspan="4">
+                                                <div class="container chart-container">
+                                                    <div class="container"
+                                                        style="position: relative;width: 100%; height: auto;">
+                                                        <canvas id="myChart3">
 
+                                                        </canvas>
+                                                    </div>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td style="text-align: center; vertical-align: middle;"> <span> <strong>
@@ -4367,18 +4359,18 @@
 
                                         <td>
                                             <div class="radio  ">
-                                                <label class="radio"><input type="radio" name="radio3">Lise</label>
-                                                <label class="radio"><input type="radio" name="radio3">Liseli
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc3(0)">Lise</label>
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc3(2)">Liseli
                                                     Kız</label>
-                                                <label class="radio"><input type="radio" name="radio3">Liseli
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc3(4)">Liseli
                                                     Erkek</label>
                                                 <label class="radio"><input type="radio"
-                                                        name="radio3">Üniversite</label>
-                                                <label class="radio"><input type="radio" name="radio3">Üniversiteli
+                                                        name="radio3" onchange="raporSonuc3(6)">Üniversite</label>
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc3(8)">Üniversiteli
                                                     Kız</label>
-                                                <label class="radio"><input type="radio" name="radio3">Üniversiteli
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc3(10)">Üniversiteli
                                                     Erkek</label>
-                                                <label class="radio"><input type="radio" name="radio3">Genel
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc3(12)">Genel
                                                     (Birleştirilmiş)</label>
 
                                             </div>
@@ -4425,7 +4417,7 @@
 
                            
                                 <button type="button"style="float: right;" class="btn green-haze btn-outline sbold uppercase"
-                                    onclick="$('#sonuc3').css('display', 'none');$('#son').css('display', 'block');">İLERİ</button>
+                                    onclick="$('#sonuc3').css('display', 'none');$('#sonuc4').css('display', 'block');">İLERİ</button>
 
                         </div>
                     </div>
@@ -4516,24 +4508,25 @@
 
 
                 <!-- sonuç rapor 4 -->
-                <!--
+                
                 <div class="portlet light " id="sonuc4" style="display: none;">
                     <div class="portlet-body">
                         <div class="row">
+                            
                             <div class="col-md-6">
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <h5 class="caption-subject font-dark bold uppercase" style="bottom: 0%;">
                                             BİREYSELLEŞTİRİLMİŞ
-                                            RAPOR 4
+                                            RAPOR 1
                                         </h5>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
-                                    <ahref class="btn info" style="text-align: right;">4/5</ahref>
-                                    <button type="button" onclick="window.print()" class="btn green-haze btn-outline sbold uppercase">
+                                    <ahref class="btn info" style="text-align: right;">1/5</ahref>
+                                    <button id="yazdirbtn" type="button" class="btn green-haze btn-outline sbold uppercase" onclick="window.print()">
                                         <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                                         YAZDIR
                                     </button>
@@ -4611,7 +4604,7 @@
                                                     <strong>xxx</strong></span>
                                             </th>
                                         </tr>
-                                        <tr role="row">
+                                        <tr role="row"style="background-color: #cecece;"> 
                                             <th class="sorting_disabled" rowspan="1" colspan="1" aria-label=""
                                                 style="text-align: center;width: 15%;">
                                                 Sekiz dilimli<br />
@@ -4619,7 +4612,7 @@
                                             </th>
                                             <th class="sorting_disabled" rowspan="1" colspan="2" aria-label=""
                                                 style="text-align: center;width: 15%;">
-                                                Puanlar
+                                                <div style=" margin: 8px;">Puanlar</div>
                                             </th>
                                             <th class="sorting_disabled" rowspan="1" colspan="1"
                                                 style="text-align: center;width: 80%;" aria-sort="ascending"
@@ -4630,59 +4623,73 @@
                                         </tr>
                                     </thead>
 
-                                    <tbody>
+                                    <tbody id="tbodyChart1">
                                         <tr>
-                                            <td> asd</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td rowspan="8">
-                                                <div class="container" style="position: relative; width: 50%;">
+                                            <td> <button class="btn info" id="sk"
+                                                onclick="$('#sonuc').css('display', 'none');$('#sosyal').css('display', 'block');"
+                                                >Realistik</button></td>
+                                                <td style="text-align: center; vertical-align: middle;"> <span>15</span>
+                                                </td>
+                                                <td style="text-align: center; vertical-align: middle;"> <span>15</span>
+                                                </td>
+                                            <td rowspan="6">
+                                                <div class="container chart-container">
                                                     <div class="container"
                                                         style="position: relative;width: 100%; height: auto;">
-                                                     
-                                                     
+                                                        <canvas id="myChart4">
+
+                                                        </canvas>
                                                     </div>
                                                 </div>
                                             </td>
 
                                         </tr>
                                         <tr>
-                                            <td> asd</td>
-                                            <td>1</td>
-                                            <td>2</td>
-
+                                            <td><button class="btn info" id="dg"
+                                                onclick="$('#sonuc').css('display', 'none');$('#doga').css('display', 'block');"
+                                                >Araştırmacı</button></td>
+                                                <td style="text-align: center; vertical-align: middle;"> <span>15</span>
+                                                </td>
+                                                <td style="text-align: center; vertical-align: middle;"> <span>15</span>
+                                                </td>
                                         </tr>
                                         <tr>
-                                            <td> asd</td>
-                                            <td>1</td>
-                                            <td>2</td>
+                                            <td><button class="btn info" id="sn"
+                                                onclick="$('#sonuc').css('display', 'none');$('#sanat').css('display', 'block');"
+                                                >Yaratıcı</button></td>
+                                                <td style="text-align: center; vertical-align: middle;"> <span>15</span>
+                                                </td>
+                                                <td style="text-align: center; vertical-align: middle;"> <span>15</span>
+                                                </td>
                                         </tr>
                                         <tr>
-                                            <td> asd</td>
-                                            <td>1</td>
-                                            <td>2</td>
+                                            <td> <button class="btn info" id="mk" 
+                                                onclick="$('#sonuc').css('display', 'none');$('#mekanik').css('display', 'block');"
+                                                >Sosyal</button></td>
+                                                <td style="text-align: center; vertical-align: middle;"> <span>15</span>
+                                                </td>
+                                                <td style="text-align: center; vertical-align: middle;"> <span>15</span>
+                                                </td>
                                         </tr>
                                         <tr>
-                                            <td> asd</td>
-                                            <td>1</td>
-                                            <td>2</td>
+                                            <td><button class="btn info" id="yr"
+                                                onclick="$('#sonuc').css('display', 'none');$('#yardım').css('display', 'block');"
+                                                >Girişimci</button></td>
+                                                <td style="text-align: center; vertical-align: middle;"> <span>15</span>
+                                                </td>
+                                                <td style="text-align: center; vertical-align: middle;"> <span>15</span>
+                                                </td>
                                         </tr>
                                         <tr>
-                                            <td> asd</td>
-                                            <td>1</td>
-                                            <td>2</td>
+                                            <td><button class="btn info" id="sk"
+                                                onclick="$('#sonuc').css('display', 'none');$('#is').css('display', 'block');"
+                                                >Düzenli</button></td>
+                                                <td style="text-align: center; vertical-align: middle;"> <span>15</span>
+                                                </td>
+                                                <td style="text-align: center; vertical-align: middle;"> <span>15</span>
+                                                </td>
                                         </tr>
-                                        <tr>
-                                            <td> asd</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td> asd</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                        </tr>
-
+                            
                                     </tbody>
                                 </table>
 
@@ -4691,7 +4698,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-body" style="margin: 10px;">
 
-                                    <tr class="gradeX odd" role="row">
+                                    <tr class="gradeX odd" role="row" >
                                         <td class="sorting_1" style="text-align: left;">
                                             Envanter sonuçlarınızın
                                             hangi grupla
@@ -4713,18 +4720,18 @@
 
                                         <td>
                                             <div class="radio  ">
-                                                <label class="radio"><input type="radio" name="radio3">Lise</label>
-                                                <label class="radio"><input type="radio" name="radio3">Liseli
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc4(0)">Lise</label>
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc4(2)">Liseli
                                                     Kız</label>
-                                                <label class="radio"><input type="radio" name="radio3">Liseli
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc4(4)">Liseli
                                                     Erkek</label>
                                                 <label class="radio"><input type="radio"
-                                                        name="radio3">Üniversite</label>
-                                                <label class="radio"><input type="radio" name="radio3">Üniversiteli
+                                                        name="radio3" onchange="raporSonuc4(6)">Üniversite</label>
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc4(8)">Üniversiteli
                                                     Kız</label>
-                                                <label class="radio"><input type="radio" name="radio3">Üniversiteli
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc4(10)">Üniversiteli
                                                     Erkek</label>
-                                                <label class="radio"><input type="radio" name="radio3">Genel
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc4(12)">Genel
                                                     (Birleştirilmiş)</label>
 
                                             </div>
@@ -4733,33 +4740,31 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div id="sayfalama">
                         <nav class="pagination-container text-center">
                             <div class="pagination">
                                 <span class="pagination-inner">
                                     <div class="btn-group btn-group-solid">
                                         <button type="button" class="btn green"
-                                            onclick="$('#sonuc4').css('display', 'none');$('#rumuz').css('display', 'block');">1</button>
+                                            onclick="$('#sonuc').css('display', 'none');$('#rumuz').css('display', 'block');">BAŞLANGIÇ</button>
                                         <button type="button" class="btn green"
-                                            onclick="$('#sonuc4').css('display', 'none');$('#anket').css('display', 'block');">2</button>
+                                            onclick="$('#sonuc').css('display', 'none');$('#anket').css('display', 'block');">AÇIKLAMA</button>
                                         <button type="button" class="btn green"
-                                            onclick="$('#sonuc4').css('display', 'none');$('#anket2').css('display', 'block');">3</button>
+                                            onclick="$('#sonuc').css('display', 'none');$('#anket2').css('display', 'block');">MADDELER</button>
+                                       <!-- <button type="button" class="btn green"
+                                            onclick="$('#sonuc').css('display', 'none');$('#anket3').css('display', 'block');">4</button>
                                         <button type="button" class="btn green"
-                                            onclick="$('#sonuc4').css('display', 'none');$('#anket3').css('display', 'block');">4</button>
+                                            onclick="$('#sonuc').css('display', 'none');$('#anket4').css('display', 'block');">5</button>
                                         <button type="button" class="btn green"
-                                            onclick="$('#sonuc4').css('display', 'none');$('#anket4').css('display', 'block');">5</button>
-                                        <button type="button" class="btn green"
-                                            onclick="$('#sonuc4').css('display', 'none');$('#anket5').css('display', 'block');">6</button>
-                                        <button type="button" class="btn green"
-                                            onclick="$('#sonuc4').css('display', 'none');$('#sonuc').css('display', 'block');">7</button>
-                                        <button type="button" class="btn green"
-                                            onclick="$('#sonuc4').css('display', 'none');$('#sonuc2').css('display', 'block');">8</button>
-                                        <button type="button" class="btn green"
-                                            onclick="$('#sonuc4').css('display', 'none');$('#sonuc3').css('display', 'block');">9</button>
+                                            onclick="$('#sonuc').css('display', 'none');$('#anket5').css('display', 'block');">6</button>-->
                                         <button type="button" class="btn default"
-                                            onclick="$('#sonuc4').css('display', 'none');$('#sonuc4').css('display', 'block');">10</button>
+                                            onclick="$('#sonuc').css('display', 'none');$('#sonuc').css('display', 'block');">RAPORLAR</button>
+                                        <!--<button type="button" class="btn green"
+                                            onclick="$('#sonuc').css('display', 'none');$('#sonuc2').css('display', 'block');">8</button>
                                         <button type="button" class="btn green"
-                                            onclick="$('#sonuc4').css('display', 'none');$('#sonuc5').css('display', 'block');">11</button>
+                                            onclick="$('#sonuc').css('display', 'none');$('#sonuc3').css('display', 'block');">9</button>-->
+                                  
+
 
                                     </div>
 
@@ -4772,34 +4777,36 @@
                                     class="btn green-haze btn-outline sbold uppercase"
                                     onclick="$('#sonuc4').css('display', 'none');$('#sonuc3').css('display', 'block');">GERİ</button>
 
-                                <button type="button" style="float: right;" class="btn green-haze btn-outline sbold uppercase"
-                                    onclick="$('#sonuc4').css('display', 'none');$('#sonuc5').css('display', 'block');">İLERİ</button>
+                                <button type="button"style="float: right;" class="btn green-haze btn-outline sbold uppercase"
+                                    onclick="$('#sonuc4').css('display','none');$('#sonuc5').css('display','block');">İLERİ</button>
 
                         </div>
                     </div>
-                   
+                    </div>
+                    <!-- END EXAMPLE TABLE PORTLET-->
                 </div>
-            -->
+
 
                 <!-- sonuç rapor 5 -->
-                <!--
+            
                 <div class="portlet light " id="sonuc5" style="display: none;">
                     <div class="portlet-body">
                         <div class="row">
+                            
                             <div class="col-md-6">
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <h5 class="caption-subject font-dark bold uppercase" style="bottom: 0%;">
                                             BİREYSELLEŞTİRİLMİŞ
-                                            RAPOR 5
+                                            RAPOR 1
                                         </h5>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
-                                    <ahref class="btn info" style="text-align: right;">5/5</ahref>
-                                    <button type="button" onclick="window.print()" class="btn green-haze btn-outline sbold uppercase">
+                                    <ahref class="btn info" style="text-align: right;">1/5</ahref>
+                                    <button id="yazdirbtn" type="button" class="btn green-haze btn-outline sbold uppercase" onclick="window.print()">
                                         <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                                         YAZDIR
                                     </button>
@@ -4877,7 +4884,7 @@
                                                     <strong>xxx</strong></span>
                                             </th>
                                         </tr>
-                                        <tr role="row">
+                                        <tr role="row"style="background-color: #cecece;"> 
                                             <th class="sorting_disabled" rowspan="1" colspan="1" aria-label=""
                                                 style="text-align: center;width: 15%;">
                                                 Sekiz dilimli<br />
@@ -4885,7 +4892,7 @@
                                             </th>
                                             <th class="sorting_disabled" rowspan="1" colspan="2" aria-label=""
                                                 style="text-align: center;width: 15%;">
-                                                Puanlar
+                                                <div style=" margin: 8px;">Puanlar</div>
                                             </th>
                                             <th class="sorting_disabled" rowspan="1" colspan="1"
                                                 style="text-align: center;width: 80%;" aria-sort="ascending"
@@ -4896,58 +4903,46 @@
                                         </tr>
                                     </thead>
 
-                                    <tbody>
+                                    <tbody id="tbodyChart5">
                                         <tr>
-                                            <td> asd</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td rowspan="8">
-                                                <div class="container" style="position: relative; width: 50%;">
+                                            <td> <button class="btn info" id="sk"
+                                                onclick="$('#sonuc').css('display', 'none');$('#sosyal').css('display', 'block');"
+                                                >İnsanlar/Nesneler</button></td>
+                                                <td style="text-align: center; vertical-align: middle;"> <span>15</span>
+                                                </td>
+                                                <td style="text-align: center; vertical-align: middle;"> <span>15</span>
+                                                </td>
+                                            <td rowspan="3">
+                                                <div class="container chart-container">
                                                     <div class="container"
                                                         style="position: relative;width: 100%; height: auto;">
+                                                        <canvas id="myChart5">
 
+                                                        </canvas>
                                                     </div>
                                                 </div>
                                             </td>
 
                                         </tr>
                                         <tr>
-                                            <td> asd</td>
-                                            <td>1</td>
-                                            <td>2</td>
-
+                                            <td><button class="btn info" id="dg"
+                                                onclick="$('#sonuc').css('display', 'none');$('#doga').css('display', 'block');"
+                                                >Fikirler/Veriler</button></td>
+                                                <td style="text-align: center; vertical-align: middle;"> <span>15</span>
+                                                </td>
+                                                <td style="text-align: center; vertical-align: middle;"> <span>15</span>
+                                                </td>
                                         </tr>
                                         <tr>
-                                            <td> asd</td>
-                                            <td>1</td>
-                                            <td>2</td>
+                                            <td><button class="btn info" id="sn"
+                                                onclick="$('#sonuc').css('display', 'none');$('#sanat').css('display', 'block');"
+                                                >Saygınlık</button></td>
+                                                <td style="text-align: center; vertical-align: middle;"> <span>15</span>
+                                                </td>
+                                                <td style="text-align: center; vertical-align: middle;"> <span>15</span>
+                                                </td>
                                         </tr>
-                                        <tr>
-                                            <td> asd</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td> asd</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td> asd</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td> asd</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td> asd</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                        </tr>
-
+             
                                     </tbody>
                                 </table>
 
@@ -4956,7 +4951,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-body" style="margin: 10px;">
 
-                                    <tr class="gradeX odd" role="row">
+                                    <tr class="gradeX odd" role="row" >
                                         <td class="sorting_1" style="text-align: left;">
                                             Envanter sonuçlarınızın
                                             hangi grupla
@@ -4978,18 +4973,18 @@
 
                                         <td>
                                             <div class="radio  ">
-                                                <label class="radio"><input type="radio" name="radio3">Lise</label>
-                                                <label class="radio"><input type="radio" name="radio3">Liseli
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc5(0)">Lise</label>
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc5(2)">Liseli
                                                     Kız</label>
-                                                <label class="radio"><input type="radio" name="radio3">Liseli
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc5(4)">Liseli
                                                     Erkek</label>
                                                 <label class="radio"><input type="radio"
-                                                        name="radio3">Üniversite</label>
-                                                <label class="radio"><input type="radio" name="radio3">Üniversiteli
+                                                        name="radio3" onchange="raporSonuc5(6)">Üniversite</label>
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc5(8)">Üniversiteli
                                                     Kız</label>
-                                                <label class="radio"><input type="radio" name="radio3">Üniversiteli
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc5(10)">Üniversiteli
                                                     Erkek</label>
-                                                <label class="radio"><input type="radio" name="radio3">Genel
+                                                <label class="radio"><input type="radio" name="radio3" onchange="raporSonuc5(12)">Genel
                                                     (Birleştirilmiş)</label>
 
                                             </div>
@@ -4998,33 +4993,30 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div id="sayfalama">
                         <nav class="pagination-container text-center">
                             <div class="pagination">
                                 <span class="pagination-inner">
                                     <div class="btn-group btn-group-solid">
                                         <button type="button" class="btn green"
-                                            onclick="$('#sonuc5').css('display', 'none');$('#rumuz').css('display', 'block');">1</button>
+                                            onclick="$('#sonuc').css('display', 'none');$('#rumuz').css('display', 'block');">BAŞLANGIÇ</button>
                                         <button type="button" class="btn green"
-                                            onclick="$('#sonuc5').css('display', 'none');$('#anket').css('display', 'block');">2</button>
+                                            onclick="$('#sonuc').css('display', 'none');$('#anket').css('display', 'block');">AÇIKLAMA</button>
                                         <button type="button" class="btn green"
-                                            onclick="$('#sonuc5').css('display', 'none');$('#anket2').css('display', 'block');">3</button>
+                                            onclick="$('#sonuc').css('display', 'none');$('#anket2').css('display', 'block');">MADDELER</button>
+                                       <!-- <button type="button" class="btn green"
+                                            onclick="$('#sonuc').css('display', 'none');$('#anket3').css('display', 'block');">4</button>
                                         <button type="button" class="btn green"
-                                            onclick="$('#sonuc5').css('display', 'none');$('#anket3').css('display', 'block');">4</button>
+                                            onclick="$('#sonuc').css('display', 'none');$('#anket4').css('display', 'block');">5</button>
                                         <button type="button" class="btn green"
-                                            onclick="$('#sonuc5').css('display', 'none');$('#anket4').css('display', 'block');">5</button>
-                                        <button type="button" class="btn green"
-                                            onclick="$('#sonuc5').css('display', 'none');$('#anket5').css('display', 'block');">6</button>
-                                        <button type="button" class="btn green"
-                                            onclick="$('#sonuc5').css('display', 'none');$('#sonuc').css('display', 'block');">7</button>
-                                        <button type="button" class="btn green"
-                                            onclick="$('#sonuc5').css('display', 'none');$('#sonuc2').css('display', 'block');">8</button>
-                                        <button type="button" class="btn green"
-                                            onclick="$('#sonuc5').css('display', 'none');$('#sonuc3').css('display', 'block');">9</button>
-                                        <button type="button" class="btn green"
-                                            onclick="$('#sonuc5').css('display', 'none');$('#sonuc4').css('display', 'block');">10</button>
+                                            onclick="$('#sonuc').css('display', 'none');$('#anket5').css('display', 'block');">6</button>-->
                                         <button type="button" class="btn default"
-                                            onclick="$('#sonuc5').css('display', 'none');$('#sonuc5').css('display', 'block');">11</button>
+                                            onclick="$('#sonuc').css('display', 'none');$('#sonuc').css('display', 'block');">RAPORLAR</button>
+                                        <!--<button type="button" class="btn green"
+                                            onclick="$('#sonuc').css('display', 'none');$('#sonuc2').css('display', 'block');">8</button>
+                                        <button type="button" class="btn green"
+                                            onclick="$('#sonuc').css('display', 'none');$('#sonuc3').css('display', 'block');">9</button>-->
+                                  
 
 
                                     </div>
@@ -5038,14 +5030,15 @@
                                     class="btn green-haze btn-outline sbold uppercase"
                                     onclick="$('#sonuc5').css('display', 'none');$('#sonuc4').css('display', 'block');">GERİ</button>
 
-                                <button type="button" style="float: right;" class="btn green-haze btn-outline sbold uppercase"
-                                    onclick="$('#sonuc5').css('display', 'none');$('#son').css('display', 'block');">İLERİ</button>
+                                <button type="button"style="float: right;" class="btn green-haze btn-outline sbold uppercase"
+                                    onclick="$('#sonuc5').css('display','none');$('#son').css('display','block');">İLERİ</button>
 
                         </div>
                     </div>
-                   
+                    </div>
+                    <!-- END EXAMPLE TABLE PORTLET-->
                 </div>
--->
+
 
                 <!-- -->
                 <!-- son -->
@@ -5511,159 +5504,7 @@
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
-<script>
-    var ctx = document.getElementById('myChart');
-    let ctx2 = document.getElementById('myChart2');
-    let ctx3 = document.getElementById('myChart3');
-
-    var myChart = new Chart(ctx, {
-        type: 'radar',
-
-        data: {
-            labels: ['Realistik', 'Araştırmacı', 'Yaratıcı', 'Sosyal', 'Girişimci', 'Düzenli'],
-            datasets: [{
-                label: 'İlgi T Puanları',
-                data: [55, 65, 45, 45, 65, 65],
-                backgroundColor: [
-                    'rgba(0,0,0,0)'
-                ],
-                borderColor: [
-                    'rgba(91, 155, 213, 1)',
-                    'rgba(91, 155, 213, 1)',
-                    'rgba(91, 155, 213, 1)',
-                    'rgba(91, 155, 213, 1)',
-                    'rgba(91, 155, 213, 1)',
-                    'rgba(91, 155, 213, 1)',
-
-                ],
-                pointBorderColor: [],
-                borderWidth: 5
-            },
-            {
-                label: 'Yeterlilik Algısı T Puanları',
-                data: [45, 55, 45, 25, 55, 55],
-                backgroundColor: [
-                    'rgba(0,0,0,0)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(255, 99, 132, 1)',
-                ],
-                borderWidth: 5
-            }]
-        },
-        options: {
-            aspectRatio: 1,
-            scale: {
-
-                ticks: {
-
-                    min: -1,
-                    max: 70,
-                    stepSize: 10,
-
-                },
-
-
-            }
-        }
-    });
-
-    var myChart2 = new Chart(ctx2, {
-        type: 'bar',
-        data: {
-            labels: ["Chocolate", "Vanilla"],
-            datasets: [
-                {
-                    label: "Blue",
-                    backgroundColor: "rgba(165, 165, 165, 1)",
-                    data: [30, 70]
-                },
-                {
-                    label: "Red",
-                    backgroundColor: "rgba(0, 0, 0, 1)",
-                    data: [20, 50]
-                },
-            ]
-
-        },
-        options: {
-            scales: {
-                xAxes: [{
-                    categoryPercentage: 0.5,
-                    barPercentage: 1
-                }],
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
-
-    var myChart3 = new Chart(ctx3, {
-        type: 'radar',
-
-        data: {
-            labels: ['Değer1', 'Değer2', 'Değer3', 'Değer4'],
-            datasets: [{
-                label: 'İlgi T Puanları',
-                data: [55, 65, 45, 45,],
-                backgroundColor: [
-                    'rgba(0,0,0,0)'
-                ],
-                borderColor: [
-                    'rgba(91, 155, 213, 1)',
-                    'rgba(91, 155, 213, 1)',
-                    'rgba(91, 155, 213, 1)',
-                    'rgba(91, 155, 213, 1)',
-                    'rgba(91, 155, 213, 1)',
-                    'rgba(91, 155, 213, 1)',
-
-                ],
-                pointBorderColor: [],
-                borderWidth: 5
-            },
-            {
-                label: 'Yeterlilik Algısı T Puanları',
-                data: [45, 55, 45, 25],
-                backgroundColor: [
-                    'rgba(0,0,0,0)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(255, 99, 132, 1)',
-                ],
-                borderWidth: 5
-            }]
-        },
-        options: {
-            aspectRatio: 1,
-            scale: {
-
-                ticks: {
-
-                    min: -1,
-                    max: 70,
-                    stepSize: 10,
-
-                },
-
-
-            }
-        }
-    });
-
-</script>
+<script src="js/raporlar.js" type="text/javascript"></script>
 <script>
     function btnIleri(){
         $('#anket2').css('display', 'none');$('#anket3').css('display', 'block');
@@ -5682,6 +5523,7 @@
 <!-- BEGIN CORE PLUGINS -->
 <script src="/style/global/plugins/jquery.min.js" type="text/javascript"></script>
 <script src="/style/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="style/index.css" type="text/style"></script>
 <script src="js/form-handling.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN THEME GLOBAL SCRIPTS -->

@@ -7,6 +7,7 @@ const {
   comments,
   hoslanti,
   yapabilirlik,
+  getRaporData
 } = require("../controllers/survey");
 const router = express.Router();
 
@@ -17,8 +18,10 @@ router.get("/results", calculateResults);
 router.get("/getLiselerData", getLiselerData);
 router.get("/getMesleklerData", getMesleklerData);
 router.get("/getSorularData", getSorularData);
+router.get("/getRaporData",getRaporData)
 router.post("/results", calculateResults);
 router.post("/comments",comments);
 router.post("/hoslanti",hoslanti);
 router.post("/yapabilirlik",yapabilirlik);
+
 module.exports = router;
