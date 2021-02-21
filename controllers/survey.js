@@ -1,5 +1,6 @@
+const { Console } = require("console");
 const path = require("path");
-const { getLiseler, getMeslekler,getSorular,insertComments,insertHoslanti,insertYapabilirlik } = require("../models/survey");
+const { getLiseler, getMeslekler,getSorular,insertComments,insertHoslanti,insertYapabilirlik,insertUsers,getLastUserId } = require("../models/survey");
 
 const getHome = async (req, res, next) => {
   res.sendFile(path.join(__dirname, "../views", "index.html"));
@@ -179,6 +180,42 @@ const yapabilirlik = async (req, res, next) => {
     }
   });
 };
+const users = async (req, res, next) => {
+  console.log("POST ÇALIŞTI")
+  var name = req.body.name;
+  var age = req.body.age;
+  var sex = req.body.sex;
+  var scoreType1 = req.body.scoreType1;
+  var scoreType2 = req.body.scoreType2;
+  var dropdown1 = req.body.dropdown1;
+  var dropdown2 = req.body.dropdown2;
+  var resultType = req.body.resultType;
+  console.log(name,age,sex,scoreType2,scoreType1,dropdown2,dropdown1,resultType);
+  insertUsers(name,age,sex,scoreType1,scoreType2,dropdown1,dropdown2,resultType,(err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data)
+
+    }
+  });
+};
+
+const lastUserId = async (req, res, next) => {
+  getLastUserId((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data)
+    }
+  });
+};
 
 module.exports = {
   getHome,
@@ -189,4 +226,6 @@ module.exports = {
   comments,
   hoslanti,
   yapabilirlik,
+  users,
+  lastUserId
 };
