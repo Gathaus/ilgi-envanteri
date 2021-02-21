@@ -115,10 +115,69 @@ var raporValues5 = [
 ];
 
 function raporVerileri() {
+  /**
+   * Test Scripts
+   */
+  // for(i=1;i<=40;i++){document.querySelectorAll("input[name=radio-hoslanma"+i+"]")[6].checked = true }
+  // for(i=1;i<=40;i++){document.querySelectorAll("input[name=radio-yapabilirlik"+i+"]")[4].checked = true }
+  // document.querySelectorAll("input[name=radio-hoslanma-ö]")[3].checked = true
+  // document.querySelectorAll("input[name=radio-yapabilirlik-ö]")[3].checked = true
+  var name = document.getElementById("name").value;
+  var age = document.getElementById("age").value;
+  var sex = document.querySelector('input[name="radio-sex"]:checked').value;
+  var scoreType1 = document.querySelector(
+    'input[name="radioPersonal1"]:checked'
+  ).value;
+  var scoreType2 = document.querySelector(
+    'input[name="radioPersonal2"]:checked'
+  ).value;
+  var dropdown1 = document.getElementById("dropdown1").value;
+  var dropdown2 = document.getElementById("dropdown2").value;
+  var resultType = document.querySelector(
+    'input[name="radioPersonal3"]:checked'
+  ).value;
+
+
+  var hoslanma = [];
+  var yapabilirlik = [];
+  for (i = 1; i <= 40; i++) {
+    hoslanma[i - 1] = document.querySelector(
+      "input[name=radio-hoslanma" + i + "]:checked"
+    ).value;
+  }
+  hoslanma[i - 1] = document.querySelector(
+    "input[name=radio-hoslanma-ö]:checked"
+  ).value;
+  for (i = 1; i <= 40; i++) {
+    yapabilirlik[i - 1] = document.querySelector(
+      "input[name=radio-yapabilirlik" + i + "]:checked"
+    ).value;
+  }
+  yapabilirlik[i - 1] = document.querySelector(
+    "input[name=radio-yapabilirlik-ö]:checked"
+  ).value;
+
+  fetch("http://localhost:8080/api/survey/results", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json; charset=UTF-8",
+    },
+    body: JSON.stringify({
+      hoslanma,
+      yapabilirlik
+    }),
+  })
+    .then((response) => response.json())
+    .then((response) => {
+      console.log(response)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   fetch("http://localhost:8080/api/survey/getRaporData")
     .then((response) => response.json())
     .then((response) => {
-      raporValues1=response.rapor1;
+      raporValues1 = response.rapor1;
     })
     .catch((error) => {
       console.log(error);

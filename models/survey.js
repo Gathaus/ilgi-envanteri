@@ -56,7 +56,6 @@ const insertHoslanti = (userId,value1,value2,value3,value4,value5,value6,value7,
   });
 };
 const insertYapabilirlik = (userId,value1y,value2y,value3y,value4y,value5y,value6y,value7y,value8y,value9y,value10y,value11y,value12y,value13y,value14y,value15y,value16y,value17y,value18y,value19y,value20y,value21y,value22y,value23y,value24y,valueOy,value25y,value26y,value27y,value28y,value29y,value30y,value31y,value32y,value33y,value34y,value35y,value36y,value37y,value38y,value39y,value40y, result) => {
-  
   con.query("INSERT INTO yapabilirlik (UserId,Madde1,Madde2,Madde3,Madde4,Madde5,Madde6,Madde7,Madde8,Madde9,Madde10,Madde11,Madde12,Madde13,Madde14,Madde15,Madde16,Madde17,Madde18,Madde19,Madde20,Madde21,Madde22,Madde23,Madde24,MaddeOnemli,Madde25,Madde26,Madde27,Madde28,Madde29,Madde30,Madde31,Madde32,Madde33,Madde34,Madde35,Madde36,Madde37,Madde38,Madde39,Madde40) VALUES('"+userId+"','"+value1y+"','"+value2y+"','"+value3y+"','"+value4y+"','"+value5y+"','"+value6y+"','"+value7y+"','"+value8y+"','"+value9y+"','"+value10y+"','"+value11y+"','"+value12y+"','"+value13y+"','"+value14y+"','"+value15y+"','"+value16y+"','"+value17y+"','"+value18y+"','"+value19y+"','"+value20y+"','"+value21y+"','"+value22y+"','"+value23y+"','"+value24y+"','"+valueOy+"','"+value25y+"','"+value26y+"','"+value27y+"','"+value28y+"','"+value29y+"','"+value30y+"','"+value31y+"','"+value32y+"','"+value33y+"','"+value34y+"','"+value35y+"','"+value36y+"','"+value37y+"','"+value38y+"','"+value39y+"','"+value40y+"') ", (err, res) => {
     if (err) {
       result(null, err);

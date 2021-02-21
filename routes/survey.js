@@ -17,11 +17,11 @@ router.get("/", (req, res) => {
   res.send("OK SURVEY");
 });
 router.get("/results", calculateResults);
+router.post("/results", calculateResults);
 router.get("/getLiselerData", getLiselerData);
 router.get("/getMesleklerData", getMesleklerData);
 router.get("/getSorularData", getSorularData);
 router.get("/getRaporData",getRaporData)
-router.post("/results", calculateResults);
 router.post("/comments",comments);
 router.post("/hoslanti",hoslanti);
 router.post("/yapabilirlik",yapabilirlik);

@@ -51,30 +51,49 @@ const getSorularData = async (req, res, next) => {
   });
 };
 const calculateResults = async (req, res, next) => {
-  req.session.haha = "Sasd";
+  var { hoslanma, yapabilirlik } = req.body;
+  var m = [];
+  console.log(hoslanma.length);
+  for (i = 0; i < hoslanma.length - 1; i++) {
+    m[i] = parseInt(hoslanma[i]) + parseInt(yapabilirlik[i]);
+  }
+  // console.log(parseInt(hoslanma[0]), parseInt(hoslanma[10]), parseInt(hoslanma[20]), parseInt(hoslanma[30]))
+  // console.log(hoslanma)
+  // var sosyalKolaylastirma = sumandDivide(parseInt(hoslanma[0]), parseInt(hoslanma[10]), parseInt(hoslanma[20]), parseInt(hoslanma[30]));
+  // console.log(sosyalKolaylastirma);
+  // sosyalKolaylastirma = (((sosyalKolaylastirma - (3.50/1.37))*10)+50);
+  // console.log(sosyalKolaylastirma);
   res.status(200).json({
     succes: true,
     data: "x",
   });
 };
+
+function sumandDivide(x1, x2, x3, x4) {
+  return (((x1 + x2 + x3 + x4) * 0.6) / 4).toFixed(2);
+}
+
+function map(x, in_min, in_max, out_min, out_max) {
+  return (((x - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min).toFixed(2);
+}
+
 const comments = async (req, res, next) => {
-  console.log("POST ÇALIŞTI")
+  console.log("POST ÇALIŞTI");
   var x = req.body.value;
   var comment = req.body.comment;
-  insertComments(x,comment,(err, data) => {
+  insertComments(x, comment, (err, data) => {
     if (err)
       res.status(500).send({
         message:
           err.message || "Some error occurred while retrieving customers.",
       });
     else {
-      res.send(data)
-
+      res.send(data);
     }
   });
 };
 const hoslanti = async (req, res, next) => {
-  console.log("POST ÇALIŞTI")
+  console.log("POST ÇALIŞTI");
   var userId = req.body.userId;
   var value1 = req.body.value1;
   var value2 = req.body.value2;
@@ -92,12 +111,12 @@ const hoslanti = async (req, res, next) => {
   var value14 = req.body.value14;
   var value15 = req.body.value15;
   var value16 = req.body.value16;
-  var value17= req.body.value17;
-  var value18= req.body.value18;
-  var value19= req.body.value19;
-  var value20= req.body.value20;
-  var value21= req.body.value21;
-  var value22= req.body.value22;
+  var value17 = req.body.value17;
+  var value18 = req.body.value18;
+  var value19 = req.body.value19;
+  var value20 = req.body.value20;
+  var value21 = req.body.value21;
+  var value22 = req.body.value22;
   var value23 = req.body.value23;
   var value24 = req.body.value24;
   var valueO = req.body.valueO;
@@ -113,24 +132,67 @@ const hoslanti = async (req, res, next) => {
   var value34 = req.body.value34;
   var value35 = req.body.value35;
   var value36 = req.body.value36;
-  var value37= req.body.value37;
-  var value38= req.body.value38;
-  var value39= req.body.value39;
-  var value40= req.body.value40;
-  insertHoslanti(userId,value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,value11,value12,value13,value14,value15,value16,value17,value18,value19,value20,value21,value22,value23,value24,valueO,value25,value26,value27,value28,value29,value30,value31,value32,value33,value34,value35,value36,value37,value38,value39,value40,(err, data) => {
-    if (err)
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving customers.",
-      });
-    else {
-      res.send(data)
-
+  var value37 = req.body.value37;
+  var value38 = req.body.value38;
+  var value39 = req.body.value39;
+  var value40 = req.body.value40;
+  insertHoslanti(
+    userId,
+    value1,
+    value2,
+    value3,
+    value4,
+    value5,
+    value6,
+    value7,
+    value8,
+    value9,
+    value10,
+    value11,
+    value12,
+    value13,
+    value14,
+    value15,
+    value16,
+    value17,
+    value18,
+    value19,
+    value20,
+    value21,
+    value22,
+    value23,
+    value24,
+    valueO,
+    value25,
+    value26,
+    value27,
+    value28,
+    value29,
+    value30,
+    value31,
+    value32,
+    value33,
+    value34,
+    value35,
+    value36,
+    value37,
+    value38,
+    value39,
+    value40,
+    (err, data) => {
+      if (err)
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving customers.",
+        });
+      else {
+        res.send(data);
+      }
     }
-  });
+  );
 };
 const yapabilirlik = async (req, res, next) => {
-  console.log("POST ÇALIŞTI")
+  console.log("POST ÇALIŞTI");
   var userId = req.body.userId;
   var value1 = req.body.value1y;
   var value2 = req.body.value2y;
@@ -148,12 +210,12 @@ const yapabilirlik = async (req, res, next) => {
   var value14 = req.body.value14y;
   var value15 = req.body.value15y;
   var value16 = req.body.value16y;
-  var value17= req.body.value17y;
-  var value18= req.body.value18y;
-  var value19= req.body.value19y;
-  var value20= req.body.value20y;
-  var value21= req.body.value21y;
-  var value22= req.body.value22y;
+  var value17 = req.body.value17y;
+  var value18 = req.body.value18y;
+  var value19 = req.body.value19y;
+  var value20 = req.body.value20y;
+  var value21 = req.body.value21y;
+  var value22 = req.body.value22y;
   var value23 = req.body.value23y;
   var value24 = req.body.value24y;
   var valueO = req.body.valueOy;
@@ -169,24 +231,67 @@ const yapabilirlik = async (req, res, next) => {
   var value34 = req.body.value34y;
   var value35 = req.body.value35y;
   var value36 = req.body.value36y;
-  var value37= req.body.value37y;
-  var value38= req.body.value38y;
-  var value39= req.body.value39y;
-  var value40= req.body.value40y;
-  insertYapabilirlik(userId,value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,value11,value12,value13,value14,value15,value16,value17,value18,value19,value20,value21,value22,value23,value24,valueO,value25,value26,value27,value28,value29,value30,value31,value32,value33,value34,value35,value36,value37,value38,value39,value40,(err, data) => {
-    if (err)
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving customers.",
-      });
-    else {
-      res.send(data)
-
+  var value37 = req.body.value37y;
+  var value38 = req.body.value38y;
+  var value39 = req.body.value39y;
+  var value40 = req.body.value40y;
+  insertYapabilirlik(
+    userId,
+    value1,
+    value2,
+    value3,
+    value4,
+    value5,
+    value6,
+    value7,
+    value8,
+    value9,
+    value10,
+    value11,
+    value12,
+    value13,
+    value14,
+    value15,
+    value16,
+    value17,
+    value18,
+    value19,
+    value20,
+    value21,
+    value22,
+    value23,
+    value24,
+    valueO,
+    value25,
+    value26,
+    value27,
+    value28,
+    value29,
+    value30,
+    value31,
+    value32,
+    value33,
+    value34,
+    value35,
+    value36,
+    value37,
+    value38,
+    value39,
+    value40,
+    (err, data) => {
+      if (err)
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving customers.",
+        });
+      else {
+        res.send(data);
+      }
     }
-  });
+  );
 };
 const users = async (req, res, next) => {
-  console.log("POST ÇALIŞTI")
+  console.log("POST ÇALIŞTI");
   var name = req.body.name;
   var age = req.body.age;
   var sex = req.body.sex;
@@ -195,18 +300,36 @@ const users = async (req, res, next) => {
   var dropdown1 = req.body.dropdown1;
   var dropdown2 = req.body.dropdown2;
   var resultType = req.body.resultType;
-  console.log(name,age,sex,scoreType2,scoreType1,dropdown2,dropdown1,resultType);
-  insertUsers(name,age,sex,scoreType1,scoreType2,dropdown1,dropdown2,resultType,(err, data) => {
-    if (err)
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving customers.",
-      });
-    else {
-      res.send(data)
-
+  console.log(
+    name,
+    age,
+    sex,
+    scoreType2,
+    scoreType1,
+    dropdown2,
+    dropdown1,
+    resultType
+  );
+  insertUsers(
+    name,
+    age,
+    sex,
+    scoreType1,
+    scoreType2,
+    dropdown1,
+    dropdown2,
+    resultType,
+    (err, data) => {
+      if (err)
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving customers.",
+        });
+      else {
+        res.send(data);
+      }
     }
-  });
+  );
 };
 
 const lastUserId = async (req, res, next) => {
@@ -217,16 +340,15 @@ const lastUserId = async (req, res, next) => {
           err.message || "Some error occurred while retrieving customers.",
       });
     else {
-      res.send(data)
+      res.send(data);
     }
   });
 };
 
 const getRaporData = async (req, res, next) => {
-  
   res.status(200).json({
-    succes:"true",
-    rapor1:[
+    succes: "true",
+    rapor1: [
       [55, 65, 45, 45, 65, 65, 55, 55],
       [55, 65, 45, 45, 0, 65, 55, 55],
       [55, 0, 45, 45, 65, 65, 55, 55],
@@ -241,9 +363,8 @@ const getRaporData = async (req, res, next) => {
       [55, 65, 45, 45, 65, 65, 55, 55],
       [55, 65, 45, 33, 65, 65, 55, 55],
       [55, 65, 45, 45, 65, 65, 55, 55],
-
-    ]
-  })
+    ],
+  });
 };
 module.exports = {
   getHome,
