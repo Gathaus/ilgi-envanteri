@@ -1,5 +1,6 @@
 const express = require("express");
 const {
+  calculateResults2,
   calculateResults,
   getLiselerData,
   getMesleklerData,
@@ -18,6 +19,8 @@ router.get("/", (req, res) => {
 });
 router.get("/results", calculateResults);
 router.post("/results", calculateResults);
+router.get("/results2", calculateResults2);
+router.post("/results2", calculateResults2);
 router.get("/getLiselerData", getLiselerData);
 router.get("/getMesleklerData", getMesleklerData);
 router.get("/getSorularData", getSorularData);

@@ -1,6 +1,9 @@
 const {
   liseliTum8Dilim,
   liseliTumYDSaygin,
+  liseliTum4Kutup,
+  liseliTumRAYSGD,
+  liseliTum3Boyut,
 } = require("../public/js/pointArrays");
 const path = require("path");
 const {
@@ -101,19 +104,19 @@ const calculateResults = async (req, res, next) => {
   let hampuan2 = [];
   for (i = 8; i < 10; i++) {
     var hoslanmaScore = sumandDivide(
-      parseInt(hoslanma[i]),
-      parseInt(hoslanma[i + 10]),
-      parseInt(hoslanma[i + 20]),
-      parseInt(hoslanma[i + 30])
+      parseFloat(hoslanma[i]),
+      parseFloat(hoslanma[i + 10]),
+      parseFloat(hoslanma[i + 20]),
+      parseFloat(hoslanma[i + 30])
     );
     hampuan2.push(hoslanmaScore);
   }
   for (i = 8; i < 10; i++) {
     var hoslanmaScore = sumandDivide(
-      parseInt(yapabilirlik[i]),
-      parseInt(yapabilirlik[i + 10]),
-      parseInt(yapabilirlik[i + 20]),
-      parseInt(yapabilirlik[i + 30])
+      parseFloat(yapabilirlik[i]),
+      parseFloat(yapabilirlik[i + 10]),
+      parseFloat(yapabilirlik[i + 20]),
+      parseFloat(yapabilirlik[i + 30])
     );
     hampuan2.push(hoslanmaScore);
   }
@@ -138,21 +141,161 @@ const calculateResults = async (req, res, next) => {
     );
   }
 
-  console.log(liseliTumResultsYDSaygin);
+  let hampuan3 = [];
+  hampuan3.push(
+    (
+      0.924 * (parseFloat(hampuan1[7]) + parseFloat(hampuan1[0])) +
+      0.383 * (parseFloat(hampuan1[1]) + parseFloat(hampuan1[6]))
+    ).toFixed(2)
+  );
+  hampuan3.push(
+    (
+      0.924 * (parseFloat(hampuan1[3]) + parseFloat(hampuan1[4])) +
+      0.383 * (parseFloat(hampuan1[2]) + parseFloat(hampuan1[5]))
+    ).toFixed(2)
+  );
+  hampuan3.push(
+    (
+      0.924 * (parseFloat(hampuan1[1]) + parseFloat(hampuan1[3])) +
+      0.383 * (parseFloat(hampuan1[0]) + parseFloat(hampuan1[3]))
+    ).toFixed(2)
+  );
+  hampuan3.push(
+    (
+      0.924 * (parseFloat(hampuan1[6]) + parseFloat(hampuan1[5])) +
+      0.383 * (parseFloat(hampuan1[4]) + parseFloat(hampuan1[7]))
+    ).toFixed(2)
+  );
+  hampuan3.push(
+    (
+      0.924 * (parseFloat(yapabilirlik[7]) + parseFloat(yapabilirlik[0])) +
+      0.383 * (parseFloat(yapabilirlik[1]) + parseFloat(yapabilirlik[6]))
+    ).toFixed(2)
+  );
+  hampuan3.push(
+    (
+      0.924 * (parseFloat(yapabilirlik[3]) + parseFloat(yapabilirlik[4])) +
+      0.383 * (parseFloat(yapabilirlik[2]) + parseFloat(yapabilirlik[5]))
+    ).toFixed(2)
+  );
+  hampuan3.push(
+    (
+      0.924 * (parseFloat(yapabilirlik[1]) + parseFloat(yapabilirlik[3])) +
+      0.383 * (parseFloat(yapabilirlik[0]) + parseFloat(yapabilirlik[3]))
+    ).toFixed(2)
+  );
+  hampuan3.push(
+    (
+      0.924 * (parseFloat(yapabilirlik[6]) + parseFloat(yapabilirlik[5])) +
+      0.383 * (parseFloat(yapabilirlik[4]) + parseFloat(yapabilirlik[7]))
+    ).toFixed(2)
+  );
+
+  let liseliTumResults4Kutup = [];
+  for (i = 0; i < 4; i++) {
+    liseliTumResults4Kutup.push(
+      (
+        ((hampuan3[i] - liseliTum4Kutup.h_ao[i]) / liseliTum4Kutup.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 4; i++) {
+    liseliTumResults4Kutup.push(
+      (
+        ((hampuan3[i + 4] - liseliTum4Kutup.y_ao[i]) / liseliTum4Kutup.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  let hampuan4 = [];
+  hampuan4.push(hampuan1[4]);
+  hampuan4.push(hampuan1[5]);
+  hampuan4.push(hampuan1[6]);
+  hampuan4.push(
+    (2 * ((parseFloat(hampuan1[7]) + parseFloat(hampuan1[0])) / 3)).toFixed(2)
+  );
+  hampuan4.push(
+    (2 * ((parseFloat(hampuan1[1]) + parseFloat(hampuan1[0])) / 3)).toFixed(2)
+  );
+  hampuan4.push(
+    (2 * ((parseFloat(hampuan1[3]) + parseFloat(hampuan1[2])) / 3)).toFixed(2)
+  );
+  hampuan4.push(hampuan1[4 + 8]);
+  hampuan4.push(hampuan1[5 + 8]);
+  hampuan4.push(hampuan1[6 + 8]);
+  hampuan4.push(
+    (
+      2 *
+      ((parseFloat(hampuan1[7 + 8]) + parseFloat(hampuan1[0 + 8])) / 3)
+    ).toFixed(2)
+  );
+  hampuan4.push(
+    (
+      2 *
+      ((parseFloat(hampuan1[1 + 8]) + parseFloat(hampuan1[0 + 8])) / 3)
+    ).toFixed(2)
+  );
+  hampuan4.push(
+    (
+      2 *
+      ((parseFloat(hampuan1[3 + 8]) + parseFloat(hampuan1[2 + 8])) / 3)
+    ).toFixed(2)
+  );
+  let liseliTumResultsRAYSGD = [];
+  console.log(hampuan4)
+
+  for (i = 0; i < 6; i++) {
+    liseliTumResultsRAYSGD.push(
+      (
+        ((hampuan4[i] - liseliTumRAYSGD.h_ao[i]) /
+          liseliTumRAYSGD.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 6; i++) {
+    liseliTumResultsRAYSGD.push(
+      (
+        ((hampuan4[i+8] - liseliTumRAYSGD.y_ao[i+8]) /
+          liseliTumRAYSGD.y_s[i+8]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  let hampuan5 = []
+  hampuan5.push(parseFloat(hampuan3[0]-parseFloat(hampuan3[1])))
+  hampuan5.push(parseFloat(hampuan3[3]-parseFloat(hampuan3[2])))
+  hampuan5.push(parseFloat(hampuan2[0]-parseFloat(hampuan2[1])))
+  hampuan5.push(parseFloat(hampuan3[0+4]-parseFloat(hampuan3[1+4])))
+  hampuan5.push(parseFloat(hampuan3[3+4]-parseFloat(hampuan3[2+4])))
+  hampuan5.push(parseFloat(hampuan2[0+2]-parseFloat(hampuan2[1+2])))
+  console.log(hampuan5)
+  let liseliTumResults3Boyut=[]
+  for(i=0;i<3;i++){
+    liseliTumResults3Boyut.push((((hampuan5[i]-liseliTum3Boyut.h_ao[i])/liseliTum3Boyut.h_s[i])*10+50).toFixed(2))
+  }
+  for(i=0;i<3;i++){
+    liseliTumResults3Boyut.push((((hampuan5[i+3]-liseliTum3Boyut.y_ao[i])/liseliTum3Boyut.y_s[i])*10+50).toFixed(2))
+  }
+  console.log(liseliTumResults3Boyut)
   res.status(200).json({
     succes: true,
     rapor1_1: liseliTumResults8Dilim,
     rapor1_2: "liseliKız",
     rapor1_3: "liseliErkek",
     rapor1_4: "liseliFln",
+    rapor2_1: liseliTumResultsYDSaygin,
+    rapor3_1: liseliTumResults4Kutup,
+    rapor4_1: liseliTumResultsRAYSGD,
+    rapor5_1: liseliTumResults3Boyut
   });
 };
 const calculateResults2 = async (req, res, next) => {
-  var { hoslanma, yapabilirlik } = req.body;
-  //8dilimli grafik
-  let hampuan1 = [];
-
-
   res.status(200).json({
     succes: true,
     rapor1_1: liseliTumResults8Dilim,
