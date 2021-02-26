@@ -106,6 +106,49 @@ const liseliTum4Kutup = {
   y_s: [2.99, 3.18, 3.03, 2.97],
 };
 
+const liseliKiz4Kutup = {
+  h_ao: [10.59, 7.23, 8.22, 9.97],
+  h_s: [2.89, 2.68, 2.63, 3.04],
+  y_ao: [11.26, 7.84, 9.16, 9.43],
+  y_s: [2.93, 2.94, 2.86, 2.97],
+};
+
+const liseliErkek4Kutup = {
+  h_ao: [9.45, 9.34, 9.8, 9.75],
+  h_s: [2.88, 2.92, 2.81, 3.04],
+  y_ao: [10.23, 9.96, 10.79, 9.36],
+  y_s: [2.98, 3.12, 3.03, 2.97],
+};
+
+const universiteliTum4Kutup = {
+  h_ao: [10.77, 7.86, 8.66, 10.2],
+  h_s: [2.63, 2.91, 2.76, 2.87],
+  y_ao: [11.36, 8.23, 9.54, 9.3],
+  y_s: [2.64, 2.97, 2.86, 2.69],
+};
+
+const universiteliKiz4Kutup = {
+  h_ao: [11.15, 6.94, 7.98, 10.2],
+  h_s: [2.58, 2.61, 2.55, 2.88],
+  y_ao: [11.79, 7.39, 8.88, 9.36],
+  y_s: [2.59, 2.75, 2.71, 2.71],
+};
+
+const universiteliErkek4Kutup = {
+  h_ao: [10.22, 9.2, 9.64, 10.19],
+  h_s: [2.6, 2.81, 2.77, 2.86],
+  y_ao: [10.74, 9.45, 10.5, 9.2],
+  y_s: [2.59, 2.87, 2.81, 2.66],
+};
+
+const tumOgrenci4Kutup = {
+  h_ao: [10.52, 7.93, 8.72, 10.07],
+  h_s: [2.78, 2.93, 2.78, 2.94],
+  y_ao: [11.16, 8.4, 9.64, 9.34],
+  y_s: [2.8, 3.07, 2.94, 2.81],
+};
+
+
 //chart4
 const liseliTumRAYSGD = {
   h_ao: [2.85, 3.78, 4.01, 5.13, 4.97, 3.95],
@@ -141,4 +184,10 @@ module.exports = {
   liseliTum4Kutup,
   liseliTumRAYSGD,
   liseliTum3Boyut,
+  tumOgrenci4Kutup,
+  universiteliErkek4Kutup,
+  universiteliKiz4Kutup,
+  universiteliTum4Kutup,
+  liseliErkek4Kutup,
+  liseliKiz4Kutup
 };

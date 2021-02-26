@@ -14,6 +14,13 @@ const {
   universiteerkek,
   tumogrenci,
   liseliTum4Kutup,
+  liseliTumResults4Kutup,
+  liseliKizResults4Kutup,
+  liseliErkekResults4Kutup,
+  universiteliTumResults4Kutup,
+  universiteliKizResults4Kutup,
+  universiteliErkekResults4Kutup,
+  tumResults4Kutup,
   liseliTumRAYSGD,
   liseliTum3Boyut,
 } = require("../public/js/pointArrays");
@@ -413,6 +420,7 @@ const calculateResults = async (req, res, next) => {
       );
     }
 
+  //tablo 3
 
   let hampuan3 = [];
   hampuan3.push(
@@ -464,6 +472,7 @@ const calculateResults = async (req, res, next) => {
     ).toFixed(2)
   );
 
+  //liseli tüm
   let liseliTumResults4Kutup = [];
   for (i = 0; i < 4; i++) {
     liseliTumResults4Kutup.push(
@@ -483,6 +492,135 @@ const calculateResults = async (req, res, next) => {
       ).toFixed(2)
     );
   }
+
+    //liseli kız
+    let liseliKizResults4Kutup = [];
+    for (i = 0; i < 4; i++) {
+      liseliKizResults4Kutup.push(
+        (
+          ((hampuan3[i] - liseliKiz4Kutup.h_ao[i]) / liseliKiz4Kutup.h_s[i]) *
+            10 +
+          50
+        ).toFixed(2)
+      );
+    }
+    for (i = 0; i < 4; i++) {
+      liseliKizResults4Kutup.push(
+        (
+          ((hampuan3[i + 4] - liseliKiz4Kutup.y_ao[i]) / liseliKiz4Kutup.y_s[i]) *
+            10 +
+          50
+        ).toFixed(2)
+      );
+    }
+
+    
+    //liseli erkek
+    let liseliErkekResults4Kutup = [];
+    for (i = 0; i < 4; i++) {
+      liseliErkekResults4Kutup.push(
+        (
+          ((hampuan3[i] - liseliErkek4Kutup.h_ao[i]) / liseliErkek4Kutup.h_s[i]) *
+            10 +
+          50
+        ).toFixed(2)
+      );
+    }
+    for (i = 0; i < 4; i++) {
+      liseliErkekResults4Kutup.push(
+        (
+          ((hampuan3[i + 4] - liseliErkek4Kutup.y_ao[i]) / liseliErkek4Kutup.y_s[i]) *
+            10 +
+          50
+        ).toFixed(2)
+      );
+    }
+
+    //üniversiteli tüm
+    let universiteliTumResults4Kutup = [];
+    for (i = 0; i < 4; i++) {
+      universiteliTumResults4Kutup.push(
+        (
+          ((hampuan3[i] - universiteliTum4Kutup.h_ao[i]) / universiteliTum4Kutup.h_s[i]) *
+            10 +
+          50
+        ).toFixed(2)
+      );
+    }
+    for (i = 0; i < 4; i++) {
+      universiteliTumResults4Kutup.push(
+        (
+          ((hampuan3[i + 4] - universiteliTum4Kutup.y_ao[i]) / universiteliTum4Kutup.y_s[i]) *
+            10 +
+          50
+        ).toFixed(2)
+      );
+    }
+
+    //üniversiteli kız
+    let universiteliKizResults4Kutup = [];
+    for (i = 0; i < 4; i++) {
+      universiteliKizResults4Kutup.push(
+        (
+          ((hampuan3[i] - universiteliKiz4Kutup.h_ao[i]) / universiteliKiz4Kutup.h_s[i]) *
+            10 +
+          50
+        ).toFixed(2)
+      );
+    }
+    for (i = 0; i < 4; i++) {
+      universiteliKizResults4Kutup.push(
+        (
+          ((hampuan3[i + 4] - universiteliKiz4Kutup.y_ao[i]) / universiteliKiz4Kutup.y_s[i]) *
+            10 +
+          50
+        ).toFixed(2)
+      );
+    }
+
+    //üniversiteli erkek
+    let universiteliErkekResults4Kutup = [];
+    for (i = 0; i < 4; i++) {
+      universiteliErkekResults4Kutup.push(
+        (
+          ((hampuan3[i] - universiteliErkek4Kutup.h_ao[i]) / universiteliErkek4Kutup.h_s[i]) *
+            10 +
+          50
+        ).toFixed(2)
+      );
+    }
+    for (i = 0; i < 4; i++) {
+      universiteliErkekResults4Kutup.push(
+        (
+          ((hampuan3[i + 4] - universiteliErkek4Kutup.y_ao[i]) / universiteliErkek4Kutup.y_s[i]) *
+            10 +
+          50
+        ).toFixed(2)
+      );
+    }
+
+    //tüm öğrenciler
+    let tumResults4Kutup = [];
+    for (i = 0; i < 4; i++) {
+      tumResults4Kutup.push(
+        (
+          ((hampuan3[i] - tumOgrenci4Kutup.h_ao[i]) / tumOgrenci4Kutup.h_s[i]) *
+            10 +
+          50
+        ).toFixed(2)
+      );
+    }
+    for (i = 0; i < 4; i++) {
+      tumResults4Kutup.push(
+        (
+          ((hampuan3[i + 4] - tumOgrenci4Kutup.y_ao[i]) / tumOgrenci4Kutup.y_s[i]) *
+            10 +
+          50
+        ).toFixed(2)
+      );
+    }
+
+  //tablo 4
   let hampuan4 = [];
   hampuan4.push(hampuan1[4]);
   hampuan4.push(hampuan1[5]);
@@ -573,6 +711,12 @@ const calculateResults = async (req, res, next) => {
     rapor2_6: universiteerkek,
     rapor2_7: tumogrenci,
     rapor3_1: liseliTumResults4Kutup,
+    rapor3_2: liseliKizResults4Kutup,
+    rapor3_3: liseliErkekResults4Kutup,
+    rapor3_4: universiteliTumResults4Kutup,
+    rapor3_5: universiteliKizResults4Kutup,
+    rapor3_6: universiteliErkekResults4Kutup,
+    rapor3_7: tumResults4Kutup,
     rapor4_1: liseliTumResultsRAYSGD,
     rapor5_1: liseliTumResults3Boyut
   });
@@ -593,7 +737,16 @@ const calculateResults2 = async (req, res, next) => {
     rapor2_4: universitetum,
     rapor2_5: universitekiz,
     rapor2_6: universiteerkek,
-    rapor2_7: tumogrenci
+    rapor2_7: tumogrenci,
+    rapor3_1: liseliTumResults4Kutup,
+    rapor3_2: liseliKizResults4Kutup,
+    rapor3_3: liseliErkekResults4Kutup,
+    rapor3_4: universiteliTumResults4Kutup,
+    rapor3_5: universiteliKizResults4Kutup,
+    rapor3_6: universiteliErkekResults4Kutup,
+    rapor3_7: tumResults4Kutup,
+    rapor4_1: liseliTumResultsRAYSGD,
+    rapor5_1: liseliTumResults3Boyut
   });
 };
 function sumandDivide(x1, x2, x3, x4) {
