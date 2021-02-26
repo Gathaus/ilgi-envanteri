@@ -13,6 +13,56 @@ const liseliTumYDSaygin = {
   y_s: [1.43, 1.64],
 };
 
+//8 dilim
+const liseliTum_yd = {
+  h_ao: [3.93, 2.88],
+  h_s: [1.42, 1.56],
+  y_ao: [4.02, 3.25],
+  y_s: [1.43,1.64],
+};
+
+const liselikız_yd = {
+  h_ao: [4.01, 2.45],
+  h_s: [1.42, 1.34],
+  y_ao: [4.1, 2.76],
+  y_s: [1.42, 1.44],
+};
+
+const liselierkek_yd = {
+  h_ao: [3.78, 3.6],
+  h_s: [1.42, 1.62],
+  y_ao: [3.88, 4.07],
+  y_s: [1.44, 1.64],
+};
+
+const universitetum_yd = {
+  h_ao: [4.24, 3.15],
+  h_s: [1.36, 1.5],
+  y_ao: [4.26, 3.42],
+  y_s: [1.35, 1.6],
+};
+
+const universitekiz_yd = {
+  h_ao: [4.31, 2.75],
+  h_s: [1.35, 1.34],
+  y_ao: [4.32, 2.89],
+  y_s: [1.34, 1.39],
+};
+
+const universiteerkek_yd = {
+  h_ao: [4.15, 3.72],
+  h_s: [1.37, 1.54],
+  y_ao: [4.17, 4.17],
+  y_s: [1.35, 1.58],
+};
+
+const tum_yd = {
+  h_ao: [4.11, 3.04],
+  h_s: [1.4, 1.53],
+  y_ao: [4.16, 3.35],
+  y_s: [1.39, 1.62],
+};
+
 //chart3
 const liseliTum4Kutup = {
   h_ao: [10.16, 8.02, 8.81, 9.89],
@@ -40,6 +90,13 @@ const liseliTum3Boyut = {
 module.exports = {
   liseliTum8Dilim,
   liseliTumYDSaygin,
+  liseliTum_yd,
+  liselikız_yd,
+  liselierkek_yd,
+  universitetum_yd,
+  universitekiz_yd,
+  universiteerkek_yd,
+  tum_yd,
   liseliTum4Kutup,
   liseliTumRAYSGD,
   liseliTum3Boyut,

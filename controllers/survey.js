@@ -1,6 +1,12 @@
 const {
   liseliTum8Dilim,
-  liseliTumYDSaygin,
+  liseliTumResultsYDSaygin,
+  liselikizYDSaygin,
+  liselierkekYDSaygin,
+  universitetum,
+  universitekiz,
+  universiteerkek,
+  tumogrenci,
   liseliTum4Kutup,
   liseliTumRAYSGD,
   liseliTum3Boyut,
@@ -100,23 +106,26 @@ const calculateResults = async (req, res, next) => {
       ).toFixed(2)
     );
   }
+
   //tablo2
+  //Y-D Saygınlık
+  //tüm lise
   let hampuan2 = [];
   for (i = 8; i < 10; i++) {
     var hoslanmaScore = sumandDivide(
-      parseFloat(hoslanma[i]),
-      parseFloat(hoslanma[i + 10]),
-      parseFloat(hoslanma[i + 20]),
-      parseFloat(hoslanma[i + 30])
+      parseInt(hoslanma[i]),
+      parseInt(hoslanma[i + 10]),
+      parseInt(hoslanma[i + 20]),
+      parseInt(hoslanma[i + 30])
     );
     hampuan2.push(hoslanmaScore);
   }
   for (i = 8; i < 10; i++) {
     var hoslanmaScore = sumandDivide(
-      parseFloat(yapabilirlik[i]),
-      parseFloat(yapabilirlik[i + 10]),
-      parseFloat(yapabilirlik[i + 20]),
-      parseFloat(yapabilirlik[i + 30])
+      parseInt(yapabilirlik[i]),
+      parseInt(yapabilirlik[i + 10]),
+      parseInt(yapabilirlik[i + 20]),
+      parseInt(yapabilirlik[i + 30])
     );
     hampuan2.push(hoslanmaScore);
   }
@@ -124,7 +133,7 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 2; i++) {
     liseliTumResultsYDSaygin.push(
       (
-        ((hampuan2[i] - liseliTumYDSaygin.h_ao[i]) / liseliTumYDSaygin.h_s[i]) *
+        ((hampuan2[i] - liseliTum_yd.h_ao[i]) / liseliTum_yd.h_s[i]) *
           10 +
         50
       ).toFixed(2)
@@ -133,13 +142,149 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 2; i++) {
     liseliTumResultsYDSaygin.push(
       (
-        ((hampuan2[i + 2] - liseliTumYDSaygin.y_ao[i]) /
-          liseliTumYDSaygin.y_s[i]) *
+        ((hampuan2[i + 2] - liseliTum_yd.y_ao[i]) /
+        liseliTum_yd.y_s[i]) *
           10 +
         50
       ).toFixed(2)
     );
   }
+
+
+
+  //liseli kız
+  let liselikizYDSaygin = [];
+  for (i = 0; i < 2; i++) {
+    liselikizYDSaygin.push(
+      (
+        ((hampuan2[i] - liselikız_yd.h_ao[i]) / liselikız_yd.h_s[i]) * 
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 2; i++) {
+    liselikizYDSaygin.push(
+      (
+        ((hampuan2[i + 2] - liselikız_yd.y_ao[i]) /
+        liselikız_yd.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+
+
+  //liseli erkek
+  let liselierkekYDSaygin = []; 
+  for (i = 0; i < 2; i++) {
+    liselierkekYDSaygin.push(
+      (
+        ((hampuan2[i] - liselierkek_yd.h_ao[i]) / liselierkek_yd.h_s[i]) * 
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 2; i++) {
+    liselierkekYDSaygin.push(
+      (
+        ((hampuan2[i + 2] - liselierkek_yd.y_ao[i]) /
+        liselierkek_yd.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+
+   //üniversiteli tüm
+   let universitetum = []; 
+   for (i = 0; i < 2; i++) {
+    universitetum.push(
+       (
+         ((hampuan2[i] - universitetum_yd.h_ao[i]) / universitetum_yd.h_s[i]) * 
+           10 +
+         50
+       ).toFixed(2)
+     );
+   }
+   for (i = 0; i < 2; i++) {
+    universitetum.push(
+       (
+         ((hampuan2[i + 2] - universitetum_yd.y_ao[i]) /
+         universitetum_yd.y_s[i]) *
+           10 +
+         50
+       ).toFixed(2)
+     );
+   }
+
+    //üniversite kız
+    let universitekiz = []; 
+    for (i = 0; i < 2; i++) {
+      universitekiz.push(
+        (
+          ((hampuan2[i] - universitekiz_yd.h_ao[i]) / universitekiz_yd.h_s[i]) *
+            10 +
+          50
+        ).toFixed(2)
+      );
+    }
+    for (i = 0; i < 2; i++) {
+      universitekiz.push(
+        (
+          ((hampuan2[i + 2] - universitekiz_yd.y_ao[i]) /
+          universitekiz_yd.y_s[i]) *
+            10 +
+          50
+        ).toFixed(2)
+      );
+    }
+
+    //üniversite erkek
+    let universiteerkek = []; 
+    for (i = 0; i < 2; i++) {
+      universiteerkek.push(
+        (
+          ((hampuan2[i] - universiteerkek_yd.h_ao[i]) / universiteerkek_yd.h_s[i]) *
+            10 +
+          50
+        ).toFixed(2)
+      );
+    }
+    for (i = 0; i < 2; i++) {
+      universiteerkek.push(
+        (
+          ((hampuan2[i + 2] - universiteerkek_yd.y_ao[i]) /
+          universiteerkek_yd.y_s[i]) *
+            10 +
+          50
+        ).toFixed(2)
+      );
+    }
+
+    //tüm öğrenciler
+    let tumogrenci = []; 
+    for (i = 0; i < 2; i++) {
+      tumogrenci.push(
+        (
+          ((hampuan2[i] - tum_yd.h_ao[i]) / tum_yd.h_s[i]) * 
+            10 +
+          50
+        ).toFixed(2)
+      );
+    }
+    for (i = 0; i < 2; i++) {
+      tumogrenci.push(
+        (
+          ((hampuan2[i + 2] - tum_yd.y_ao[i]) /
+          tum_yd.y_s[i]) *
+            10 +
+          50
+        ).toFixed(2)
+      );
+    }
+
 
   let hampuan3 = [];
   hampuan3.push(
@@ -290,6 +435,12 @@ const calculateResults = async (req, res, next) => {
     rapor1_3: "liseliErkek",
     rapor1_4: "liseliFln",
     rapor2_1: liseliTumResultsYDSaygin,
+    rapor2_2: liselikizYDSaygin,
+    rapor2_3: liselierkekYDSaygin,
+    rapor2_4: universitetum,
+    rapor2_5: universitekiz,
+    rapor2_6: universiteerkek,
+    rapor2_7: tumogrenci,
     rapor3_1: liseliTumResults4Kutup,
     rapor4_1: liseliTumResultsRAYSGD,
     rapor5_1: liseliTumResults3Boyut
@@ -303,6 +454,12 @@ const calculateResults2 = async (req, res, next) => {
     rapor1_3: "NOT READY",
     rapor1_4: "NOT READY",
     rapor2_1: liseliTumResultsYDSaygin,
+    rapor2_2: liselikizYDSaygin,
+    rapor2_3: liselierkekYDSaygin,
+    rapor2_4: universitetum,
+    rapor2_5: universitekiz,
+    rapor2_6: universiteerkek,
+    rapor2_7: tumogrenci
   });
 };
 function sumandDivide(x1, x2, x3, x4) {
