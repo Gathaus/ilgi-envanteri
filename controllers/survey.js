@@ -142,13 +142,26 @@ const calculateResults = async (req, res, next) => {
   res.status(200).json({
     succes: true,
     rapor1_1: liseliTumResults8Dilim,
+    rapor1_2: "liseliKız",
+    rapor1_3: "liseliErkek",
+    rapor1_4: "liseliFln",
+  });
+};
+const calculateResults2 = async (req, res, next) => {
+  var { hoslanma, yapabilirlik } = req.body;
+  //8dilimli grafik
+  let hampuan1 = [];
+
+
+  res.status(200).json({
+    succes: true,
+    rapor1_1: liseliTumResults8Dilim,
     rapor1_2: "NOT READY",
     rapor1_3: "NOT READY",
     rapor1_4: "NOT READY",
     rapor2_1: liseliTumResultsYDSaygin,
   });
 };
-
 function sumandDivide(x1, x2, x3, x4) {
   return ((x1 + x2 + x3 + x4) / 4).toFixed(2);
 }
@@ -461,4 +474,5 @@ module.exports = {
   users,
   lastUserId,
   getRaporData,
+  calculateResults2,
 };
