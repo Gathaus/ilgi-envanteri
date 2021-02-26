@@ -1,3 +1,7 @@
+const {
+  liseliTum8Dilim,
+  liseliTumYDSaygin,
+} = require("../public/js/pointArrays");
 const path = require("path");
 const {
   getLiseler,
@@ -52,29 +56,108 @@ const getSorularData = async (req, res, next) => {
 };
 const calculateResults = async (req, res, next) => {
   var { hoslanma, yapabilirlik } = req.body;
-  var m = [];
-  console.log(hoslanma.length);
-  for (i = 0; i < hoslanma.length - 1; i++) {
-    m[i] = parseInt(hoslanma[i]) + parseInt(yapabilirlik[i]);
+  //8dilimli grafik
+  let hampuan1 = [];
+  for (i = 0; i < 8; i++) {
+    var hoslanmaScore = sumandDivide(
+      parseInt(hoslanma[i]),
+      parseInt(hoslanma[i + 10]),
+      parseInt(hoslanma[i + 20]),
+      parseInt(hoslanma[i + 30])
+    );
+    hampuan1.push(hoslanmaScore);
   }
-  // console.log(parseInt(hoslanma[0]), parseInt(hoslanma[10]), parseInt(hoslanma[20]), parseInt(hoslanma[30]))
-  // console.log(hoslanma)
-  // var sosyalKolaylastirma = sumandDivide(parseInt(hoslanma[0]), parseInt(hoslanma[10]), parseInt(hoslanma[20]), parseInt(hoslanma[30]));
-  // console.log(sosyalKolaylastirma);
-  // sosyalKolaylastirma = (((sosyalKolaylastirma - (3.50/1.37))*10)+50);
-  // console.log(sosyalKolaylastirma);
+  for (i = 0; i < 8; i++) {
+    var yapabilirlikScore = sumandDivide(
+      parseInt(yapabilirlik[i]),
+      parseInt(yapabilirlik[i + 10]),
+      parseInt(yapabilirlik[i + 20]),
+      parseInt(yapabilirlik[i + 30])
+    );
+    hampuan1.push(yapabilirlikScore);
+  }
+
+  //tablo1
+  let liseliTumResults8Dilim = [];
+  for (i = 0; i < 8; i++) {
+    liseliTumResults8Dilim.push(
+      (
+        ((hampuan1[i] - liseliTum8Dilim.h_ao[i]) / liseliTum8Dilim.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 8; i++) {
+    liseliTumResults8Dilim.push(
+      (
+        ((hampuan1[i + 8] - liseliTum8Dilim.y_ao[i]) / liseliTum8Dilim.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  //tablo2
+  let hampuan2 = [];
+  for (i = 8; i < 10; i++) {
+    var hoslanmaScore = sumandDivide(
+      parseInt(hoslanma[i]),
+      parseInt(hoslanma[i + 10]),
+      parseInt(hoslanma[i + 20]),
+      parseInt(hoslanma[i + 30])
+    );
+    hampuan2.push(hoslanmaScore);
+  }
+  for (i = 8; i < 10; i++) {
+    var hoslanmaScore = sumandDivide(
+      parseInt(yapabilirlik[i]),
+      parseInt(yapabilirlik[i + 10]),
+      parseInt(yapabilirlik[i + 20]),
+      parseInt(yapabilirlik[i + 30])
+    );
+    hampuan2.push(hoslanmaScore);
+  }
+  let liseliTumResultsYDSaygin = [];
+  for (i = 0; i < 2; i++) {
+    liseliTumResultsYDSaygin.push(
+      (
+        ((hampuan2[i] - liseliTumYDSaygin.h_ao[i]) / liseliTumYDSaygin.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 2; i++) {
+    liseliTumResultsYDSaygin.push(
+      (
+        ((hampuan2[i + 2] - liseliTumYDSaygin.y_ao[i]) /
+          liseliTumYDSaygin.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+
+  console.log(liseliTumResultsYDSaygin);
   res.status(200).json({
     succes: true,
-    data: "x",
+    rapor1_1: liseliTumResults8Dilim,
+    rapor1_2: "NOT READY",
+    rapor1_3: "NOT READY",
+    rapor1_4: "NOT READY",
+    rapor2_1: liseliTumResultsYDSaygin,
   });
 };
 
 function sumandDivide(x1, x2, x3, x4) {
-  return (((x1 + x2 + x3 + x4) * 0.6) / 4).toFixed(2);
+  return ((x1 + x2 + x3 + x4) / 4).toFixed(2);
 }
 
 function map(x, in_min, in_max, out_min, out_max) {
-  return (((x - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min).toFixed(2);
+  return (
+    ((x - in_min) * (out_max - out_min)) / (in_max - in_min) +
+    out_min
+  ).toFixed(2);
 }
 
 const comments = async (req, res, next) => {

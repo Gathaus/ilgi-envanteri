@@ -115,13 +115,6 @@ var raporValues5 = [
 ];
 
 function raporVerileri() {
-  /**
-   * Test Scripts
-   */
-  // for(i=1;i<=40;i++){document.querySelectorAll("input[name=radio-hoslanma"+i+"]")[6].checked = true }
-  // for(i=1;i<=40;i++){document.querySelectorAll("input[name=radio-yapabilirlik"+i+"]")[4].checked = true }
-  // document.querySelectorAll("input[name=radio-hoslanma-ö]")[3].checked = true
-  // document.querySelectorAll("input[name=radio-yapabilirlik-ö]")[3].checked = true
   var name = document.getElementById("name").value;
   var age = document.getElementById("age").value;
   var sex = document.querySelector('input[name="radio-sex"]:checked').value;
@@ -136,7 +129,6 @@ function raporVerileri() {
   var resultType = document.querySelector(
     'input[name="radioPersonal3"]:checked'
   ).value;
-
 
   var hoslanma = [];
   var yapabilirlik = [];
