@@ -1,5 +1,11 @@
 const {
   liseliTum8Dilim,
+  liseliKiz8Dilim,
+  liseliErkek8Dilim,
+  üniliTum8Dilim,
+  üniliKiz8Dilim,
+  üniliErkek8Dilim,
+  tüm8Dilim,
   liseliTumResultsYDSaygin,
   liselikizYDSaygin,
   liselierkekYDSaygin,
@@ -86,7 +92,7 @@ const calculateResults = async (req, res, next) => {
     hampuan1.push(yapabilirlikScore);
   }
 
-  //tablo1
+  //tablo1 liseli
   let liseliTumResults8Dilim = [];
   for (i = 0; i < 8; i++) {
     liseliTumResults8Dilim.push(
@@ -106,6 +112,128 @@ const calculateResults = async (req, res, next) => {
       ).toFixed(2)
     );
   }
+  //tablo1 liseli kız
+  let liseliKizResults8Dilim = [];
+  for (i = 0; i < 8; i++) {
+    liseliKizResults8Dilim.push(
+      (
+        ((hampuan1[i] - liseliKiz8Dilim.h_ao[i]) / liseliKiz8Dilim.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 8; i++) {
+    liseliKizResults8Dilim.push(
+      (
+        ((hampuan1[i + 8] - liseliKiz8Dilim.y_ao[i]) / liseliTum8Dilim.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  //tablo1 liseli erkek
+  let liseliErkekResults8Dilim = [];
+  for (i = 0; i < 8; i++) {
+    liseliErkekResults8Dilim.push(
+      (
+        ((hampuan1[i] - liseliErkek8Dilim.h_ao[i]) / liseliErkek8Dilim.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 8; i++) {
+    liseliErkekResults8Dilim.push(
+      (
+        ((hampuan1[i + 8] - liseliErkek8Dilim.y_ao[i]) / liseliErkek8Dilim.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  //tablo1 ünili
+  let üniliTumResults8Dilim = [];
+  for (i = 0; i < 8; i++) {
+    üniliTumResults8Dilim.push(
+      (
+        ((hampuan1[i] - üniliTum8Dilim.h_ao[i]) / üniliTum8Dilim.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 8; i++) {
+    üniliTumResults8Dilim.push(
+      (
+        ((hampuan1[i + 8] - üniliTum8Dilim.y_ao[i]) / üniliTum8Dilim.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  //tablo1 ünili kız
+  let üniliKizResults8Dilim = [];
+  for (i = 0; i < 8; i++) {
+    üniliKizResults8Dilim.push(
+      (
+        ((hampuan1[i] - üniliKiz8Dilim.h_ao[i]) / üniliKiz8Dilim.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 8; i++) {
+    üniliKizResults8Dilim.push(
+      (
+        ((hampuan1[i + 8] - üniliKiz8Dilim.y_ao[i]) / üniliKiz8Dilim.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  //tablo1 ünili erkek
+  let üniliErkekResults8Dilim = [];
+  for (i = 0; i < 8; i++) {
+    üniliErkekResults8Dilim.push(
+      (
+        ((hampuan1[i] - üniliErkek8Dilim.h_ao[i]) / üniliErkek8Dilim.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 8; i++) {
+    üniliErkekResults8Dilim.push(
+      (
+        ((hampuan1[i + 8] - üniliErkek8Dilim.y_ao[i]) / üniliErkek8Dilim.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  
+  //tablo1 tüm 8dilim
+  let tümResults8Dilim = [];
+  for (i = 0; i < 8; i++) {
+    tümResults8Dilim.push(
+      (
+        ((hampuan1[i] - tüm8Dilim.h_ao[i]) / tüm8Dilim.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 8; i++) {
+    tümResults8Dilim.push(
+      (
+        ((hampuan1[i + 8] - tüm8Dilim.y_ao[i]) / tüm8Dilim.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+
 
   //tablo2
   //Y-D Saygınlık
@@ -431,9 +559,12 @@ const calculateResults = async (req, res, next) => {
   res.status(200).json({
     succes: true,
     rapor1_1: liseliTumResults8Dilim,
-    rapor1_2: "liseliKız",
-    rapor1_3: "liseliErkek",
-    rapor1_4: "liseliFln",
+    rapor1_2: liseliKizResults8Dilim,
+    rapor1_3: liseliErkekResults8Dilim,
+    rapor1_4: üniliTumResults8Dilim,
+    rapor1_5: üniliKizResults8Dilim,
+    rapor1_6: üniliErkekResults8Dilim,
+    rapor1_7: tümResults8Dilim,
     rapor2_1: liseliTumResultsYDSaygin,
     rapor2_2: liselikizYDSaygin,
     rapor2_3: liselierkekYDSaygin,
@@ -450,9 +581,12 @@ const calculateResults2 = async (req, res, next) => {
   res.status(200).json({
     succes: true,
     rapor1_1: liseliTumResults8Dilim,
-    rapor1_2: "NOT READY",
-    rapor1_3: "NOT READY",
-    rapor1_4: "NOT READY",
+    rapor1_2: liseliKizResults8Dilim,
+    rapor1_3: liseliErkekResults8Dilim,
+    rapor1_4: üniliTumResults8Dilim,
+    rapor1_5: üniliKizResults8Dilim,
+    rapor1_6: üniliErkekResults8Dilim,
+    rapor1_7: tümResults8Dilim,
     rapor2_1: liseliTumResultsYDSaygin,
     rapor2_2: liselikizYDSaygin,
     rapor2_3: liselierkekYDSaygin,
