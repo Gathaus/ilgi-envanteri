@@ -202,6 +202,48 @@ const liseliTum3Boyut = {
   y_s: [3.29, 2.78, 1.84],
 };
 
+const liseliKiz3Boyut = {
+  h_ao: [3.36, 1.78, 1.57],
+  h_s: [3.05, 2.85, 1.68],
+  y_ao: [3.42, 0.28, 1.35],
+  y_s: [2.98, 2.98, 2.72, 1.63],
+};
+
+const liseliErkek3Boyut = { 
+  h_ao: [0.07, -0.05, 0.2],
+  h_s: [2.9, 2.87, 1.83],
+  y_ao: [0.26, -1.4, -0.19],
+  y_s: [2.78, 2.57, 1.75],
+};
+
+const universiteliTum3Boyut = { 
+  h_ao: [2.91, 1.54, 1.09],
+  h_s: [3.27, 2.97, 1.84],
+  y_ao: [3.14, -0.24, 0.84],
+  y_s: [3.23, 2.7, 1.84],
+};
+
+const universiteliErkek3Boyut = {
+  h_ao: [1.03, 0.58, 0.43],
+  h_s: [2.84, 2.95, 1.81],
+  y_ao: [1.3, -1.3, 0.01],
+  y_s: [2.83, 2.58, 1.77],
+};
+
+const universiteliKiz3Boyut = {
+  h_ao: [4.2, 2.21, 1.55],
+  h_s: [2.9, 2.8, 1.71],
+  y_ao: [4.4, 0.48, 1.43],
+  y_s: [2.86, 2.53, 1.66],
+};
+
+const tumOgrenci3Boyut = {
+  h_ao: [2.59, 1.36, 1.07],
+  h_s: [3.34, 2.98, 1.85],
+  y_ao: [2.77, -0.29, 0.81],
+  y_s: [3.28, 2.73, 1.84],
+};
+
 module.exports = {
   liseliTum8Dilim,
   liseliKiz8Dilim,
@@ -226,11 +268,17 @@ module.exports = {
   üniliKizRAYSGD,
   üniliErkekRAYSGD,
   tümRAYSGD,
-  liseliTum3Boyut,
   tumOgrenci4Kutup,
   universiteliErkek4Kutup,
   universiteliKiz4Kutup,
   universiteliTum4Kutup,
   liseliErkek4Kutup,
-  liseliKiz4Kutup
+  liseliKiz4Kutup,
+  liseliTum3Boyut,
+  liseliKiz3Boyut,
+  liseliErkek3Boyut,
+  universiteliTum3Boyut,
+  universiteliErkek3Boyut,
+  universiteliKiz3Boyut,
+  tumOgrenci3Boyut
 };
