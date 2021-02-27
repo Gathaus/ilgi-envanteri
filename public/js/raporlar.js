@@ -1,25 +1,5 @@
 var raporValues1 = [
-  //Lise 0
-  [55, 65, 45, 45, 65, 65, 55, 55],
-  [45, 55, 45, 25, 55, 55, 36, 12],
-  //Liseli Kız 2
-  [0, 65, 45, 45, 0, 65, 55, 55],
-  [45, 55, 45, 0, 55, 55, 36, 12],
-  //Liseli Erkek 4
-  [55, 65, 45, 45, 65, 65, 55, 55],
-  [45, 55, 45, 25, 55, 55, 36, 12],
-  //Üniversite 6
-  [55, 4, 45, 45, 65, 65, 55, 55],
-  [45, 55, 45, 25, 55, 55, 36, 12],
-  //Üniversiteli Kız 8
-  [55, 65, 5, 45, 65, 65, 55, 55],
-  [45, 55, 45, 25, 55, 55, 36, 12],
-  //Üniversiteli Erkek 10
-  [55, 65, 45, 45, 65, 65, 55, 55],
-  [45, 55, 45, 25, 55, 55, 36, 12],
-  //Genel 12
-  [0, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1],
+
 ];
 var raporValues2 = [
   //Lise 0
@@ -115,6 +95,7 @@ var raporValues5 = [
 ];
 
 function raporVerileri() {
+  raporValues1[12]
   var name = document.getElementById("name").value;
   var age = document.getElementById("age").value;
   var sex = document.querySelector('input[name="radio-sex"]:checked').value;
@@ -156,32 +137,105 @@ function raporVerileri() {
     },
     body: JSON.stringify({
       hoslanma,
-      yapabilirlik
+      yapabilirlik,
     }),
   })
     .then((response) => response.json())
     .then((response) => {
-      console.log(response)
+      console.log(response);
+      evalulateRaporData(response);
     })
-    .catch((error) => {
-      console.log(error);
-    });
-  fetch("http://localhost:8080/api/survey/getRaporData")
-    .then((response) => response.json())
-    .then((response) => {
-      raporValues1 = response.rapor1;
+    .then(()=>{
+      raporSonuc1();
+      raporSonuc2();
+      raporSonuc3(0);
+      raporSonuc4(0);
+      raporSonuc5(0);
     })
     .catch((error) => {
       console.log(error);
     });
 
-  raporSonuc1();
-  raporSonuc2();
-  raporSonuc3();
-  raporSonuc4();
-  raporSonuc5();
+ 
 }
+async function evalulateRaporData(response) {
+console.log(raporValues1)
+  raporValues1[0] = response.rapor1_1.slice(0,8)
+  console.log(raporValues1)
 
+  raporValues1[1] = response.rapor1_1.slice(8)
+  raporValues1[2] = response.rapor1_2.slice(0,8)
+  raporValues1[3] = response.rapor1_2.slice(8)
+  raporValues1[4] = response.rapor1_3.slice(0,8)
+  raporValues1[5] = response.rapor1_3.slice(8)
+  raporValues1[6] = response.rapor1_4.slice(0,8)
+  raporValues1[7] = response.rapor1_4.slice(8)
+  raporValues1[8] = response.rapor1_5.slice(0,8)
+  raporValues1[9] = response.rapor1_5.slice(8)
+  raporValues1[10] = response.rapor1_6.slice(0,8)
+  raporValues1[11] = response.rapor1_6.slice(8)
+  raporValues1[12] = response.rapor1_7.slice(0,8)
+  raporValues1[13] = response.rapor1_7.slice(8)
+
+  raporValues2[1] = response.rapor2_1.slice(2)
+  raporValues2[2] = response.rapor2_2.slice(0,2)
+  raporValues2[3] = response.rapor2_2.slice(2)
+  raporValues2[4] = response.rapor2_3.slice(0,2)
+  raporValues2[5] = response.rapor2_3.slice(2)
+  raporValues2[6] = response.rapor2_4.slice(0,2)
+  raporValues2[7] = response.rapor2_4.slice(2)
+  raporValues2[8] = response.rapor2_5.slice(0,2)
+  raporValues2[9] = response.rapor2_5.slice(2)
+  raporValues2[10] = response.rapor2_6.slice(0,2)
+  raporValues2[11] = response.rapor2_6.slice(2)
+  raporValues2[12] = response.rapor2_7.slice(0,2)
+  raporValues2[13] = response.rapor2_7.slice(2)
+
+  raporValues3[1] = response.rapor3_1.slice(4)
+  raporValues3[2] = response.rapor3_2.slice(0,4)
+  raporValues3[3] = response.rapor3_2.slice(4)
+  raporValues3[4] = response.rapor3_3.slice(0,4)
+  raporValues3[5] = response.rapor3_3.slice(4)
+  raporValues3[6] = response.rapor3_4.slice(0,4)
+  raporValues3[7] = response.rapor3_4.slice(4)
+  raporValues3[8] = response.rapor3_5.slice(0,4)
+  raporValues3[9] = response.rapor3_5.slice(4)
+  raporValues3[10] = response.rapor3_6.slice(0,4)
+  raporValues3[11] = response.rapor3_6.slice(4)
+  raporValues3[12] = response.rapor3_7.slice(0,4)
+  raporValues3[13] = response.rapor3_7.slice(4)
+
+  raporValues4[1] = response.rapor4_1.slice(6)
+  raporValues4[2] = response.rapor4_2.slice(0,6)
+  raporValues4[3] = response.rapor4_2.slice(6)
+  raporValues4[4] = response.rapor4_3.slice(0,6)
+  raporValues4[5] = response.rapor4_3.slice(6)
+  raporValues4[6] = response.rapor4_4.slice(0,6)
+  raporValues4[7] = response.rapor4_4.slice(6)
+  raporValues4[8] = response.rapor4_5.slice(0,6)
+  raporValues4[9] = response.rapor4_5.slice(6)
+  raporValues4[10] = response.rapor4_6.slice(0,6)
+  raporValues4[11] = response.rapor4_6.slice(6)
+  raporValues4[12] = response.rapor4_7.slice(0,6)
+  raporValues4[13] = response.rapor4_7.slice(6)
+
+  raporValues5[1] = response.rapor5_1.slice(3)
+  raporValues5[2] = response.rapor5_2.slice(0,3)
+  raporValues5[3] = response.rapor5_2.slice(3)
+  raporValues5[4] = response.rapor5_3.slice(0,3)
+  raporValues5[5] = response.rapor5_3.slice(3)
+  raporValues5[6] = response.rapor5_4.slice(0,3)
+  raporValues5[7] = response.rapor5_4.slice(3)
+  raporValues5[8] = response.rapor5_5.slice(0,3)
+  raporValues5[9] = response.rapor5_5.slice(3)
+  raporValues5[10] = response.rapor5_6.slice(0,3)
+  raporValues5[11] = response.rapor5_6.slice(3)
+  raporValues5[12] = response.rapor5_7.slice(0,3)
+  raporValues5[13] = response.rapor5_7.slice(3)
+  return new Promise((resolve)=>{
+    resolve("done")
+  })
+}
 function raporSonuc1(index) {
   if (!index) index = 0;
   var ctx1 = document.getElementById("myChart1");
@@ -247,6 +301,19 @@ function raporSonuc1(index) {
       },
     },
   });
+
+  const tbody = document.getElementById("tbodyChart1")
+  
+  for(i=0;i<8;i++){
+    const trow = tbody.getElementsByTagName("tr")[i]
+    
+    var puan1 = trow.getElementsByTagName("td")[1].getElementsByTagName("span")[0]
+    var puan2 = trow.getElementsByTagName("td")[2].getElementsByTagName("span")[0]
+    
+    puan1.innerHTML = raporValues1[index][i]
+    puan2.innerHTML = raporValues1[index+1][i]
+  }
+
 }
 function raporSonuc2(index) {
   if (!index) index = 0;
@@ -285,6 +352,18 @@ function raporSonuc2(index) {
       },
     },
   });
+
+  const tbody = document.getElementById("tbodyChart2")
+  
+  for(i=0;i<2;i++){
+    const trow = tbody.getElementsByTagName("tr")[i]
+    
+    var puan1 = trow.getElementsByTagName("td")[1].getElementsByTagName("span")[0]
+    var puan2 = trow.getElementsByTagName("td")[2].getElementsByTagName("span")[0]
+    
+    puan1.innerHTML = raporValues2[index][i]
+    puan2.innerHTML = raporValues2[index+1][i]
+  }
 }
 function raporSonuc3(index) {
   if (!index) index = 0;
@@ -338,6 +417,18 @@ function raporSonuc3(index) {
       },
     },
   });
+
+  const tbody = document.getElementById("tbodyChart3")
+  
+  for(i=0;i<4;i++){
+    const trow = tbody.getElementsByTagName("tr")[i]
+    
+    var puan1 = trow.getElementsByTagName("td")[1].getElementsByTagName("span")[0]
+    var puan2 = trow.getElementsByTagName("td")[2].getElementsByTagName("span")[0]
+    
+    puan1.innerHTML = raporValues3[index][i]
+    puan2.innerHTML = raporValues3[index+1][i]
+  }
 }
 function raporSonuc4(index) {
   if (!index) index = 0;
@@ -398,6 +489,18 @@ function raporSonuc4(index) {
       },
     },
   });
+
+  const tbody = document.getElementById("tbodyChart4")
+  
+  for(i=0;i<6;i++){
+    const trow = tbody.getElementsByTagName("tr")[i]
+    
+    var puan1 = trow.getElementsByTagName("td")[1].getElementsByTagName("span")[0]
+    var puan2 = trow.getElementsByTagName("td")[2].getElementsByTagName("span")[0]
+    
+    puan1.innerHTML = raporValues4[index][i]
+    puan2.innerHTML = raporValues4[index+1][i]
+  }
 }
 function raporSonuc5(index) {
   if (!index) index = 0;
@@ -445,4 +548,16 @@ function raporSonuc5(index) {
       },
     },
   });
+
+  const tbody = document.getElementById("tbodyChart5")
+  
+  for(i=0;i<3;i++){
+    const trow = tbody.getElementsByTagName("tr")[i]
+    
+    var puan1 = trow.getElementsByTagName("td")[1].getElementsByTagName("span")[0]
+    var puan2 = trow.getElementsByTagName("td")[2].getElementsByTagName("span")[0]
+    
+    puan1.innerHTML = raporValues5[index][i]
+    puan2.innerHTML = raporValues5[index+1][i]
+  }
 }

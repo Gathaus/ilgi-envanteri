@@ -88,6 +88,9 @@ array1.forEach((i,index)=>{
 array2.forEach((i,index)=>{
     document.querySelectorAll("input[name=radio-yapabilirlik"+(index+1)+"]")[i-1].checked = true;
 })
+document.querySelectorAll("input[name=radio-hoslanma-ö]")[3].checked = true
+document.querySelectorAll("input[name=radio-yapabilirlik-ö]")[3].checked = true
+
 /**
  * Test Scripts
  */

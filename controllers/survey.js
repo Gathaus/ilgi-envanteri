@@ -6,21 +6,15 @@ const {
   üniliKiz8Dilim,
   üniliErkek8Dilim,
   tüm8Dilim,
-  liseliTumResultsYDSaygin,
-  liselikizYDSaygin,
-  liselierkekYDSaygin,
-  universitetum,
-  universitekiz,
-  universiteerkek,
-  tumogrenci,
+  liseliTumYDSaygin,
+  liseliTum_yd,
+  liselikız_yd,
+  liselierkek_yd,
+  universitetum_yd,
+  universitekiz_yd,
+  universiteerkek_yd,
+  tum_yd,
   liseliTum4Kutup,
-  liseliTumResults4Kutup,
-  liseliKizResults4Kutup,
-  liseliErkekResults4Kutup,
-  universiteliTumResults4Kutup,
-  universiteliKizResults4Kutup,
-  universiteliErkekResults4Kutup,
-  tumResults4Kutup,
   liseliTumRAYSGD,
   liseliKizRAYSGD,
   liseliErkekRAYSGD,
@@ -28,13 +22,19 @@ const {
   üniliKizRAYSGD,
   üniliErkekRAYSGD,
   tümRAYSGD,
-  liseliTumResults3Boyut,
-  liseliKizResults3Boyut,
-  liseliErkekResults3Boyut,
-  universiteTumResults3Boyut,
-  universiteKizResults3Boyut,
-  universiteErkekResults3Boyut,
-  tumResults3Boyut,
+  tumOgrenci4Kutup,
+  universiteliErkek4Kutup,
+  universiteliKiz4Kutup,
+  universiteliTum4Kutup,
+  liseliErkek4Kutup,
+  liseliKiz4Kutup,
+  liseliTum3Boyut,
+  liseliKiz3Boyut,
+  liseliErkek3Boyut,
+  universiteliTum3Boyut,
+  universiteliErkek3Boyut,
+  universiteliKiz3Boyut,
+  tumOgrenci3Boyut,
 } = require("../public/js/pointArrays");
 const path = require("path");
 const {
@@ -165,7 +165,8 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 8; i++) {
     liseliErkekResults8Dilim.push(
       (
-        ((hampuan1[i + 8] - liseliErkek8Dilim.y_ao[i]) / liseliErkek8Dilim.y_s[i]) *
+        ((hampuan1[i + 8] - liseliErkek8Dilim.y_ao[i]) /
+          liseliErkek8Dilim.y_s[i]) *
           10 +
         50
       ).toFixed(2)
@@ -176,8 +177,7 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 8; i++) {
     üniliTumResults8Dilim.push(
       (
-        ((hampuan1[i] - üniliTum8Dilim.h_ao[i]) / üniliTum8Dilim.h_s[i]) *
-          10 +
+        ((hampuan1[i] - üniliTum8Dilim.h_ao[i]) / üniliTum8Dilim.h_s[i]) * 10 +
         50
       ).toFixed(2)
     );
@@ -196,8 +196,7 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 8; i++) {
     üniliKizResults8Dilim.push(
       (
-        ((hampuan1[i] - üniliKiz8Dilim.h_ao[i]) / üniliKiz8Dilim.h_s[i]) *
-          10 +
+        ((hampuan1[i] - üniliKiz8Dilim.h_ao[i]) / üniliKiz8Dilim.h_s[i]) * 10 +
         50
       ).toFixed(2)
     );
@@ -225,34 +224,32 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 8; i++) {
     üniliErkekResults8Dilim.push(
       (
-        ((hampuan1[i + 8] - üniliErkek8Dilim.y_ao[i]) / üniliErkek8Dilim.y_s[i]) *
-          10 +
-        50
-      ).toFixed(2)
-    );
-  }
-  
-  //tablo1 tüm 8dilim
-  let tümResults8Dilim = [];
-  for (i = 0; i < 8; i++) {
-    tümResults8Dilim.push(
-      (
-        ((hampuan1[i] - tüm8Dilim.h_ao[i]) / tüm8Dilim.h_s[i]) *
-          10 +
-        50
-      ).toFixed(2)
-    );
-  }
-  for (i = 0; i < 8; i++) {
-    tümResults8Dilim.push(
-      (
-        ((hampuan1[i + 8] - tüm8Dilim.y_ao[i]) / tüm8Dilim.y_s[i]) *
+        ((hampuan1[i + 8] - üniliErkek8Dilim.y_ao[i]) /
+          üniliErkek8Dilim.y_s[i]) *
           10 +
         50
       ).toFixed(2)
     );
   }
 
+  //tablo1 tüm 8dilim
+  let tümResults8Dilim = [];
+  for (i = 0; i < 8; i++) {
+    tümResults8Dilim.push(
+      (
+        ((hampuan1[i] - tüm8Dilim.h_ao[i]) / tüm8Dilim.h_s[i]) * 10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 8; i++) {
+    tümResults8Dilim.push(
+      (
+        ((hampuan1[i + 8] - tüm8Dilim.y_ao[i]) / tüm8Dilim.y_s[i]) * 10 +
+        50
+      ).toFixed(2)
+    );
+  }
 
   //tablo2
   //Y-D Saygınlık
@@ -280,8 +277,7 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 2; i++) {
     liseliTumResultsYDSaygin.push(
       (
-        ((hampuan2[i] - liseliTum_yd.h_ao[i]) / liseliTum_yd.h_s[i]) *
-          10 +
+        ((hampuan2[i] - liseliTum_yd.h_ao[i]) / liseliTum_yd.h_s[i]) * 10 +
         50
       ).toFixed(2)
     );
@@ -289,23 +285,18 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 2; i++) {
     liseliTumResultsYDSaygin.push(
       (
-        ((hampuan2[i + 2] - liseliTum_yd.y_ao[i]) /
-        liseliTum_yd.y_s[i]) *
-          10 +
+        ((hampuan2[i + 2] - liseliTum_yd.y_ao[i]) / liseliTum_yd.y_s[i]) * 10 +
         50
       ).toFixed(2)
     );
   }
-
-
 
   //liseli kız
   let liselikizYDSaygin = [];
   for (i = 0; i < 2; i++) {
     liselikizYDSaygin.push(
       (
-        ((hampuan2[i] - liselikız_yd.h_ao[i]) / liselikız_yd.h_s[i]) * 
-          10 +
+        ((hampuan2[i] - liselikız_yd.h_ao[i]) / liselikız_yd.h_s[i]) * 10 +
         50
       ).toFixed(2)
     );
@@ -313,22 +304,18 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 2; i++) {
     liselikizYDSaygin.push(
       (
-        ((hampuan2[i + 2] - liselikız_yd.y_ao[i]) /
-        liselikız_yd.y_s[i]) *
-          10 +
+        ((hampuan2[i + 2] - liselikız_yd.y_ao[i]) / liselikız_yd.y_s[i]) * 10 +
         50
       ).toFixed(2)
     );
   }
-
 
   //liseli erkek
-  let liselierkekYDSaygin = []; 
+  let liselierkekYDSaygin = [];
   for (i = 0; i < 2; i++) {
     liselierkekYDSaygin.push(
       (
-        ((hampuan2[i] - liselierkek_yd.h_ao[i]) / liselierkek_yd.h_s[i]) * 
-          10 +
+        ((hampuan2[i] - liselierkek_yd.h_ao[i]) / liselierkek_yd.h_s[i]) * 10 +
         50
       ).toFixed(2)
     );
@@ -336,101 +323,94 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 2; i++) {
     liselierkekYDSaygin.push(
       (
-        ((hampuan2[i + 2] - liselierkek_yd.y_ao[i]) /
-        liselierkek_yd.y_s[i]) *
+        ((hampuan2[i + 2] - liselierkek_yd.y_ao[i]) / liselierkek_yd.y_s[i]) *
           10 +
         50
       ).toFixed(2)
     );
   }
 
-   //üniversiteli tüm
-   let universitetum = []; 
-   for (i = 0; i < 2; i++) {
+  //üniversiteli tüm
+  let universitetum = [];
+  for (i = 0; i < 2; i++) {
     universitetum.push(
-       (
-         ((hampuan2[i] - universitetum_yd.h_ao[i]) / universitetum_yd.h_s[i]) * 
-           10 +
-         50
-       ).toFixed(2)
-     );
-   }
-   for (i = 0; i < 2; i++) {
+      (
+        ((hampuan2[i] - universitetum_yd.h_ao[i]) / universitetum_yd.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 2; i++) {
     universitetum.push(
-       (
-         ((hampuan2[i + 2] - universitetum_yd.y_ao[i]) /
-         universitetum_yd.y_s[i]) *
-           10 +
-         50
-       ).toFixed(2)
-     );
-   }
+      (
+        ((hampuan2[i + 2] - universitetum_yd.y_ao[i]) /
+          universitetum_yd.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
 
-    //üniversite kız
-    let universitekiz = []; 
-    for (i = 0; i < 2; i++) {
-      universitekiz.push(
-        (
-          ((hampuan2[i] - universitekiz_yd.h_ao[i]) / universitekiz_yd.h_s[i]) *
-            10 +
-          50
-        ).toFixed(2)
-      );
-    }
-    for (i = 0; i < 2; i++) {
-      universitekiz.push(
-        (
-          ((hampuan2[i + 2] - universitekiz_yd.y_ao[i]) /
+  //üniversite kız
+  let universitekiz = [];
+  for (i = 0; i < 2; i++) {
+    universitekiz.push(
+      (
+        ((hampuan2[i] - universitekiz_yd.h_ao[i]) / universitekiz_yd.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 2; i++) {
+    universitekiz.push(
+      (
+        ((hampuan2[i + 2] - universitekiz_yd.y_ao[i]) /
           universitekiz_yd.y_s[i]) *
-            10 +
-          50
-        ).toFixed(2)
-      );
-    }
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
 
-    //üniversite erkek
-    let universiteerkek = []; 
-    for (i = 0; i < 2; i++) {
-      universiteerkek.push(
-        (
-          ((hampuan2[i] - universiteerkek_yd.h_ao[i]) / universiteerkek_yd.h_s[i]) *
-            10 +
-          50
-        ).toFixed(2)
-      );
-    }
-    for (i = 0; i < 2; i++) {
-      universiteerkek.push(
-        (
-          ((hampuan2[i + 2] - universiteerkek_yd.y_ao[i]) /
+  //üniversite erkek
+  let universiteerkek = [];
+  for (i = 0; i < 2; i++) {
+    universiteerkek.push(
+      (
+        ((hampuan2[i] - universiteerkek_yd.h_ao[i]) /
+          universiteerkek_yd.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 2; i++) {
+    universiteerkek.push(
+      (
+        ((hampuan2[i + 2] - universiteerkek_yd.y_ao[i]) /
           universiteerkek_yd.y_s[i]) *
-            10 +
-          50
-        ).toFixed(2)
-      );
-    }
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
 
-    //tüm öğrenciler
-    let tumogrenci = []; 
-    for (i = 0; i < 2; i++) {
-      tumogrenci.push(
-        (
-          ((hampuan2[i] - tum_yd.h_ao[i]) / tum_yd.h_s[i]) * 
-            10 +
-          50
-        ).toFixed(2)
-      );
-    }
-    for (i = 0; i < 2; i++) {
-      tumogrenci.push(
-        (
-          ((hampuan2[i + 2] - tum_yd.y_ao[i]) /
-          tum_yd.y_s[i]) *
-            10 +
-          50
-        ).toFixed(2)
-      );
-    }
+  //tüm öğrenciler
+  let tumogrenci = [];
+  for (i = 0; i < 2; i++) {
+    tumogrenci.push(
+      (((hampuan2[i] - tum_yd.h_ao[i]) / tum_yd.h_s[i]) * 10 + 50).toFixed(2)
+    );
+  }
+  for (i = 0; i < 2; i++) {
+    tumogrenci.push(
+      (((hampuan2[i + 2] - tum_yd.y_ao[i]) / tum_yd.y_s[i]) * 10 + 50).toFixed(
+        2
+      )
+    );
+  }
 
   //tablo 3
 
@@ -505,132 +485,139 @@ const calculateResults = async (req, res, next) => {
     );
   }
 
-    //liseli kız
-    let liseliKizResults4Kutup = [];
-    for (i = 0; i < 4; i++) {
-      liseliKizResults4Kutup.push(
-        (
-          ((hampuan3[i] - liseliKiz4Kutup.h_ao[i]) / liseliKiz4Kutup.h_s[i]) *
-            10 +
-          50
-        ).toFixed(2)
-      );
-    }
-    for (i = 0; i < 4; i++) {
-      liseliKizResults4Kutup.push(
-        (
-          ((hampuan3[i + 4] - liseliKiz4Kutup.y_ao[i]) / liseliKiz4Kutup.y_s[i]) *
-            10 +
-          50
-        ).toFixed(2)
-      );
-    }
+  //liseli kız
+  let liseliKizResults4Kutup = [];
+  for (i = 0; i < 4; i++) {
+    liseliKizResults4Kutup.push(
+      (
+        ((hampuan3[i] - liseliKiz4Kutup.h_ao[i]) / liseliKiz4Kutup.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 4; i++) {
+    liseliKizResults4Kutup.push(
+      (
+        ((hampuan3[i + 4] - liseliKiz4Kutup.y_ao[i]) / liseliKiz4Kutup.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
 
-    
-    //liseli erkek
-    let liseliErkekResults4Kutup = [];
-    for (i = 0; i < 4; i++) {
-      liseliErkekResults4Kutup.push(
-        (
-          ((hampuan3[i] - liseliErkek4Kutup.h_ao[i]) / liseliErkek4Kutup.h_s[i]) *
-            10 +
-          50
-        ).toFixed(2)
-      );
-    }
-    for (i = 0; i < 4; i++) {
-      liseliErkekResults4Kutup.push(
-        (
-          ((hampuan3[i + 4] - liseliErkek4Kutup.y_ao[i]) / liseliErkek4Kutup.y_s[i]) *
-            10 +
-          50
-        ).toFixed(2)
-      );
-    }
+  //liseli erkek
+  let liseliErkekResults4Kutup = [];
+  for (i = 0; i < 4; i++) {
+    liseliErkekResults4Kutup.push(
+      (
+        ((hampuan3[i] - liseliErkek4Kutup.h_ao[i]) / liseliErkek4Kutup.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 4; i++) {
+    liseliErkekResults4Kutup.push(
+      (
+        ((hampuan3[i + 4] - liseliErkek4Kutup.y_ao[i]) /
+          liseliErkek4Kutup.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
 
-    //üniversiteli tüm
-    let universiteliTumResults4Kutup = [];
-    for (i = 0; i < 4; i++) {
-      universiteliTumResults4Kutup.push(
-        (
-          ((hampuan3[i] - universiteliTum4Kutup.h_ao[i]) / universiteliTum4Kutup.h_s[i]) *
-            10 +
-          50
-        ).toFixed(2)
-      );
-    }
-    for (i = 0; i < 4; i++) {
-      universiteliTumResults4Kutup.push(
-        (
-          ((hampuan3[i + 4] - universiteliTum4Kutup.y_ao[i]) / universiteliTum4Kutup.y_s[i]) *
-            10 +
-          50
-        ).toFixed(2)
-      );
-    }
+  //üniversiteli tüm
+  let universiteliTumResults4Kutup = [];
+  for (i = 0; i < 4; i++) {
+    universiteliTumResults4Kutup.push(
+      (
+        ((hampuan3[i] - universiteliTum4Kutup.h_ao[i]) /
+          universiteliTum4Kutup.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 4; i++) {
+    universiteliTumResults4Kutup.push(
+      (
+        ((hampuan3[i + 4] - universiteliTum4Kutup.y_ao[i]) /
+          universiteliTum4Kutup.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
 
-    //üniversiteli kız
-    let universiteliKizResults4Kutup = [];
-    for (i = 0; i < 4; i++) {
-      universiteliKizResults4Kutup.push(
-        (
-          ((hampuan3[i] - universiteliKiz4Kutup.h_ao[i]) / universiteliKiz4Kutup.h_s[i]) *
-            10 +
-          50
-        ).toFixed(2)
-      );
-    }
-    for (i = 0; i < 4; i++) {
-      universiteliKizResults4Kutup.push(
-        (
-          ((hampuan3[i + 4] - universiteliKiz4Kutup.y_ao[i]) / universiteliKiz4Kutup.y_s[i]) *
-            10 +
-          50
-        ).toFixed(2)
-      );
-    }
+  //üniversiteli kız
+  let universiteliKizResults4Kutup = [];
+  for (i = 0; i < 4; i++) {
+    universiteliKizResults4Kutup.push(
+      (
+        ((hampuan3[i] - universiteliKiz4Kutup.h_ao[i]) /
+          universiteliKiz4Kutup.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 4; i++) {
+    universiteliKizResults4Kutup.push(
+      (
+        ((hampuan3[i + 4] - universiteliKiz4Kutup.y_ao[i]) /
+          universiteliKiz4Kutup.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
 
-    //üniversiteli erkek
-    let universiteliErkekResults4Kutup = [];
-    for (i = 0; i < 4; i++) {
-      universiteliErkekResults4Kutup.push(
-        (
-          ((hampuan3[i] - universiteliErkek4Kutup.h_ao[i]) / universiteliErkek4Kutup.h_s[i]) *
-            10 +
-          50
-        ).toFixed(2)
-      );
-    }
-    for (i = 0; i < 4; i++) {
-      universiteliErkekResults4Kutup.push(
-        (
-          ((hampuan3[i + 4] - universiteliErkek4Kutup.y_ao[i]) / universiteliErkek4Kutup.y_s[i]) *
-            10 +
-          50
-        ).toFixed(2)
-      );
-    }
+  //üniversiteli erkek
+  let universiteliErkekResults4Kutup = [];
+  for (i = 0; i < 4; i++) {
+    universiteliErkekResults4Kutup.push(
+      (
+        ((hampuan3[i] - universiteliErkek4Kutup.h_ao[i]) /
+          universiteliErkek4Kutup.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 4; i++) {
+    universiteliErkekResults4Kutup.push(
+      (
+        ((hampuan3[i + 4] - universiteliErkek4Kutup.y_ao[i]) /
+          universiteliErkek4Kutup.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
 
-    //tüm öğrenciler
-    let tumResults4Kutup = [];
-    for (i = 0; i < 4; i++) {
-      tumResults4Kutup.push(
-        (
-          ((hampuan3[i] - tumOgrenci4Kutup.h_ao[i]) / tumOgrenci4Kutup.h_s[i]) *
-            10 +
-          50
-        ).toFixed(2)
-      );
-    }
-    for (i = 0; i < 4; i++) {
-      tumResults4Kutup.push(
-        (
-          ((hampuan3[i + 4] - tumOgrenci4Kutup.y_ao[i]) / tumOgrenci4Kutup.y_s[i]) *
-            10 +
-          50
-        ).toFixed(2)
-      );
-    }
+  //tüm öğrenciler
+  let tumResults4Kutup = [];
+  for (i = 0; i < 4; i++) {
+    tumResults4Kutup.push(
+      (
+        ((hampuan3[i] - tumOgrenci4Kutup.h_ao[i]) / tumOgrenci4Kutup.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 4; i++) {
+    tumResults4Kutup.push(
+      (
+        ((hampuan3[i + 4] - tumOgrenci4Kutup.y_ao[i]) /
+          tumOgrenci4Kutup.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
 
   //tablo 4
   let hampuan4 = [];
@@ -669,13 +656,12 @@ const calculateResults = async (req, res, next) => {
   );
   //liseli
   let liseliTumResultsRAYSGD = [];
-  console.log(hampuan4)
+  
 
   for (i = 0; i < 6; i++) {
     liseliTumResultsRAYSGD.push(
       (
-        ((hampuan4[i] - liseliTumRAYSGD.h_ao[i]) /
-          liseliTumRAYSGD.h_s[i]) *
+        ((hampuan4[i] - liseliTumRAYSGD.h_ao[i]) / liseliTumRAYSGD.h_s[i]) *
           10 +
         50
       ).toFixed(2)
@@ -684,22 +670,22 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 6; i++) {
     liseliTumResultsRAYSGD.push(
       (
-        ((hampuan4[i+8] - liseliTumRAYSGD.y_ao[i+8]) /
-          liseliTumRAYSGD.y_s[i+8]) *
+        ((hampuan4[i + 6] - liseliTumRAYSGD.y_ao[i]) /
+          liseliTumRAYSGD.y_s[i]) *
           10 +
         50
       ).toFixed(2)
     );
   }
+  console.log(liseliTumResultsRAYSGD)
   //liseli kız
   let liseliKizResultsRAYSGD = [];
-  console.log(hampuan4)
+  
 
   for (i = 0; i < 6; i++) {
     liseliKizResultsRAYSGD.push(
       (
-        ((hampuan4[i] - liseliKizRAYSGD.h_ao[i]) /
-        liseliKizRAYSGD.h_s[i]) *
+        ((hampuan4[i] - liseliKizRAYSGD.h_ao[i]) / liseliKizRAYSGD.h_s[i]) *
           10 +
         50
       ).toFixed(2)
@@ -708,8 +694,8 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 6; i++) {
     liseliKizResultsRAYSGD.push(
       (
-        ((hampuan4[i+8] - liseliKizRAYSGD.y_ao[i+8]) /
-        liseliKizRAYSGD.y_s[i+8]) *
+        ((hampuan4[i + 8] - liseliKizRAYSGD.y_ao[i + 8]) /
+          liseliKizRAYSGD.y_s[i + 8]) *
           10 +
         50
       ).toFixed(2)
@@ -717,13 +703,12 @@ const calculateResults = async (req, res, next) => {
   }
   //liseli erkek
   let liseliErkekResultsRAYSGD = [];
-  console.log(hampuan4)
+  
 
   for (i = 0; i < 6; i++) {
     liseliErkekResultsRAYSGD.push(
       (
-        ((hampuan4[i] - liseliErkekRAYSGD.h_ao[i]) /
-        liseliErkekRAYSGD.h_s[i]) *
+        ((hampuan4[i] - liseliErkekRAYSGD.h_ao[i]) / liseliErkekRAYSGD.h_s[i]) *
           10 +
         50
       ).toFixed(2)
@@ -732,32 +717,30 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 6; i++) {
     liseliErkekResultsRAYSGD.push(
       (
-        ((hampuan4[i+8] - liseliErkekRAYSGD.y_ao[i+8]) /
-        liseliErkekRAYSGD.y_s[i+8]) *
+        ((hampuan4[i + 8] - liseliErkekRAYSGD.y_ao[i + 8]) /
+          liseliErkekRAYSGD.y_s[i + 8]) *
           10 +
         50
       ).toFixed(2)
     );
   }
   //ünili
-  let üniliResultsRAYSGD = [];
-  console.log(hampuan4)
+  let üniliTumResultsRAYSGD = [];
+  
 
   for (i = 0; i < 6; i++) {
-    üniliResultsRAYSGD.push(
+    üniliTumResultsRAYSGD.push(
       (
-        ((hampuan4[i] - üniliTumRAYSGD.h_ao[i]) /
-        üniliTumRAYSGD.h_s[i]) *
-          10 +
+        ((hampuan4[i] - üniliTumRAYSGD.h_ao[i]) / üniliTumRAYSGD.h_s[i]) * 10 +
         50
       ).toFixed(2)
     );
   }
   for (i = 0; i < 6; i++) {
-    üniliResultsRAYSGD.push(
+    üniliTumResultsRAYSGD.push(
       (
-        ((hampuan4[i+8] - üniliTumRAYSGD.y_ao[i+8]) /
-        üniliTumRAYSGD.y_s[i+8]) *
+        ((hampuan4[i + 8] - üniliTumRAYSGD.y_ao[i + 8]) /
+          üniliTumRAYSGD.y_s[i + 8]) *
           10 +
         50
       ).toFixed(2)
@@ -765,14 +748,12 @@ const calculateResults = async (req, res, next) => {
   }
   //ünili kız
   let üniliKizResultsRAYSGD = [];
-  console.log(hampuan4)
+  
 
   for (i = 0; i < 6; i++) {
     üniliKizResultsRAYSGD.push(
       (
-        ((hampuan4[i] - üniliKizRAYSGD.h_ao[i]) /
-        üniliKizRAYSGD.h_s[i]) *
-          10 +
+        ((hampuan4[i] - üniliKizRAYSGD.h_ao[i]) / üniliKizRAYSGD.h_s[i]) * 10 +
         50
       ).toFixed(2)
     );
@@ -780,8 +761,8 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 6; i++) {
     üniliKizResultsRAYSGD.push(
       (
-        ((hampuan4[i+8] - üniliKizRAYSGD.y_ao[i+8]) /
-        üniliKizRAYSGD.y_s[i+8]) *
+        ((hampuan4[i + 8] - üniliKizRAYSGD.y_ao[i + 8]) /
+          üniliKizRAYSGD.y_s[i + 8]) *
           10 +
         50
       ).toFixed(2)
@@ -789,13 +770,12 @@ const calculateResults = async (req, res, next) => {
   }
   //ünili erkek
   let üniliErkekResultsRAYSGD = [];
-  console.log(hampuan4)
+  
 
   for (i = 0; i < 6; i++) {
     üniliErkekResultsRAYSGD.push(
       (
-        ((hampuan4[i] - üniliErkekRAYSGD.h_ao[i]) /
-        üniliErkekRAYSGD.h_s[i]) *
+        ((hampuan4[i] - üniliErkekRAYSGD.h_ao[i]) / üniliErkekRAYSGD.h_s[i]) *
           10 +
         50
       ).toFixed(2)
@@ -804,23 +784,21 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 6; i++) {
     üniliErkekResultsRAYSGD.push(
       (
-        ((hampuan4[i+8] - üniliErkekRAYSGD.y_ao[i+8]) /
-        üniliErkekRAYSGD.y_s[i+8]) *
+        ((hampuan4[i + 8] - üniliErkekRAYSGD.y_ao[i + 8]) /
+          üniliErkekRAYSGD.y_s[i + 8]) *
           10 +
         50
       ).toFixed(2)
     );
   }
-  //tüm 
+  //tüm
   let tümResultsRAYSGD = [];
-  console.log(hampuan4)
+  
 
   for (i = 0; i < 6; i++) {
     tümResultsRAYSGD.push(
       (
-        ((hampuan4[i] - tümRAYSGD.h_ao[i]) /
-        tümRAYSGD.h_s[i]) *
-          10 +
+        ((hampuan4[i] - tümRAYSGD.h_ao[i]) / tümRAYSGD.h_s[i]) * 10 +
         50
       ).toFixed(2)
     );
@@ -828,8 +806,7 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 6; i++) {
     tümResultsRAYSGD.push(
       (
-        ((hampuan4[i+8] - tümRAYSGD.y_ao[i+8]) /
-        tümRAYSGD.y_s[i+8]) *
+        ((hampuan4[i + 8] - tümRAYSGD.y_ao[i + 8]) / tümRAYSGD.y_s[i + 8]) *
           10 +
         50
       ).toFixed(2)
@@ -837,82 +814,171 @@ const calculateResults = async (req, res, next) => {
   }
 
   //tablo 5
-  let hampuan5 = []
-  hampuan5.push(parseFloat(hampuan3[0]-parseFloat(hampuan3[1])))
-  hampuan5.push(parseFloat(hampuan3[3]-parseFloat(hampuan3[2])))
-  hampuan5.push(parseFloat(hampuan2[0]-parseFloat(hampuan2[1])))
-  hampuan5.push(parseFloat(hampuan3[0+4]-parseFloat(hampuan3[1+4])))
-  hampuan5.push(parseFloat(hampuan3[3+4]-parseFloat(hampuan3[2+4])))
-  hampuan5.push(parseFloat(hampuan2[0+2]-parseFloat(hampuan2[1+2])))
-  console.log(hampuan5)
+  let hampuan5 = [];
+  hampuan5.push(parseFloat(hampuan3[0] - parseFloat(hampuan3[1])));
+  hampuan5.push(parseFloat(hampuan3[3] - parseFloat(hampuan3[2])));
+  hampuan5.push(parseFloat(hampuan2[0] - parseFloat(hampuan2[1])));
+  hampuan5.push(parseFloat(hampuan3[0 + 4] - parseFloat(hampuan3[1 + 4])));
+  hampuan5.push(parseFloat(hampuan3[3 + 4] - parseFloat(hampuan3[2 + 4])));
+  hampuan5.push(parseFloat(hampuan2[0 + 2] - parseFloat(hampuan2[1 + 2])));
+  
 
   //liseli tüm
-  let liseliTumResults3Boyut=[]
-  for(i=0;i<3;i++){
-    liseliTumResults3Boyut.push((((hampuan5[i]-liseliTum3Boyut.h_ao[i])/liseliTum3Boyut.h_s[i])*10+50).toFixed(2))
+  let liseliTumResults3Boyut = [];
+  for (i = 0; i < 3; i++) {
+    liseliTumResults3Boyut.push(
+      (
+        ((hampuan5[i] - liseliTum3Boyut.h_ao[i]) / liseliTum3Boyut.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
   }
-  for(i=0;i<3;i++){
-    liseliTumResults3Boyut.push((((hampuan5[i+3]-liseliTum3Boyut.y_ao[i])/liseliTum3Boyut.y_s[i])*10+50).toFixed(2))
+  for (i = 0; i < 3; i++) {
+    liseliTumResults3Boyut.push(
+      (
+        ((hampuan5[i + 3] - liseliTum3Boyut.y_ao[i]) / liseliTum3Boyut.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
   }
 
-    //liseli kız
-    let liseliKizResults3Boyut=[] 
-    for(i=0;i<3;i++){
-      liseliKizResults3Boyut.push((((hampuan5[i]-liseliKiz3Boyut.h_ao[i])/liseliKiz3Boyut.h_s[i])*10+50).toFixed(2))
-    }
-    for(i=0;i<3;i++){
-      liseliKizResults3Boyut.push((((hampuan5[i+3]-liseliKiz3Boyut.y_ao[i])/liseliKiz3Boyut.y_s[i])*10+50).toFixed(2))
-    }
+  //liseli kız
+  let liseliKizResults3Boyut = [];
+  for (i = 0; i < 3; i++) {
+    liseliKizResults3Boyut.push(
+      (
+        ((hampuan5[i] - liseliKiz3Boyut.h_ao[i]) / liseliKiz3Boyut.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 3; i++) {
+    liseliKizResults3Boyut.push(
+      (
+        ((hampuan5[i + 3] - liseliKiz3Boyut.y_ao[i]) / liseliKiz3Boyut.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+
+  //liseli erkek
+  let liseliErkekResults3Boyut = [];
+  for (i = 0; i < 3; i++) {
+    liseliErkekResults3Boyut.push(
+      (
+        ((hampuan5[i] - liseliErkek3Boyut.h_ao[i]) / liseliErkek3Boyut.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 3; i++) {
+    liseliErkekResults3Boyut.push(
+      (
+        ((hampuan5[i + 3] - liseliErkek3Boyut.y_ao[i]) /
+          liseliErkek3Boyut.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+
+  //tüm üni
+  let universiteTumResults3Boyut = [];
+  for (i = 0; i < 3; i++) {
+    universiteTumResults3Boyut.push(
+      (
+        ((hampuan5[i] - universiteliTum3Boyut.h_ao[i]) /
+          universiteliTum3Boyut.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 3; i++) {
+    universiteTumResults3Boyut.push(
+      (
+        ((hampuan5[i + 3] - universiteliTum3Boyut.y_ao[i]) /
+          universiteliTum3Boyut.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+
+  //üni kız
+  let universiteKizResults3Boyut = [];
+  for (i = 0; i < 3; i++) {
+    universiteKizResults3Boyut.push(
+      (
+        ((hampuan5[i] - universiteliKiz3Boyut.h_ao[i]) /
+          universiteliKiz3Boyut.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 3; i++) {
+    universiteKizResults3Boyut.push(
+      (
+        ((hampuan5[i + 3] - universiteliKiz3Boyut.y_ao[i]) /
+          universiteliKiz3Boyut.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+
+  //üni erkek
+  let universiteErkekResults3Boyut = [];
+  for (i = 0; i < 3; i++) {
+    universiteErkekResults3Boyut.push(
+      (
+        ((hampuan5[i] - universiteliErkek3Boyut.h_ao[i]) /
+          universiteliErkek3Boyut.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 3; i++) {
+    universiteErkekResults3Boyut.push(
+      (
+        ((hampuan5[i + 3] - universiteliErkek3Boyut.y_ao[i]) /
+          universiteliErkek3Boyut.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+
+  //tüm öğrenciler
+  let tumResults3Boyut = [];
+  for (i = 0; i < 3; i++) {
+    tumResults3Boyut.push(
+      (
+        ((hampuan5[i] - tumOgrenci3Boyut.h_ao[i]) / tumOgrenci3Boyut.h_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+  for (i = 0; i < 3; i++) {
+    tumResults3Boyut.push(
+      (
+        ((hampuan5[i + 3] - tumOgrenci3Boyut.y_ao[i]) /
+          tumOgrenci3Boyut.y_s[i]) *
+          10 +
+        50
+      ).toFixed(2)
+    );
+  }
+
   
-    //liseli erkek
-    let liseliErkekResults3Boyut=[]
-    for(i=0;i<3;i++){
-      liseliErkekResults3Boyut.push((((hampuan5[i]-liseliErkek3Boyut.h_ao[i])/liseliErkek3Boyut.h_s[i])*10+50).toFixed(2))
-    }
-    for(i=0;i<3;i++){
-      liseliErkekResults3Boyut.push((((hampuan5[i+3]-liseliErkek3Boyut.y_ao[i])/liseliErkek3Boyut.y_s[i])*10+50).toFixed(2))
-    }
-
-    //tüm üni
-    let universiteTumResults3Boyut=[]
-    for(i=0;i<3;i++){
-      universiteTumResults3Boyut.push((((hampuan5[i]-universiteliTum3Boyut.h_ao[i])/universiteliTum3Boyut.h_s[i])*10+50).toFixed(2))
-    }
-    for(i=0;i<3;i++){
-      universiteTumResults3Boyut.push((((hampuan5[i+3]-universiteliTum3Boyut.y_ao[i])/universiteliTum3Boyut.y_s[i])*10+50).toFixed(2))
-    }
-    
-    //üni kız
-    let universiteKizResults3Boyut=[]
-    for(i=0;i<3;i++){
-      universiteKizResults3Boyut.push((((hampuan5[i]-universiteliKiz3Boyut.h_ao[i])/universiteliKiz3Boyut.h_s[i])*10+50).toFixed(2))
-    }
-    for(i=0;i<3;i++){
-      universiteKizResults3Boyut.push((((hampuan5[i+3]-universiteliKiz3Boyut.y_ao[i])/universiteliKiz3Boyut.y_s[i])*10+50).toFixed(2))
-    }
-
-    //üni erkek
-    let universiteErkekResults3Boyut=[]
-    for(i=0;i<3;i++){
-      universiteErkekResults3Boyut.push((((hampuan5[i]-universiteliErkek3Boyut.h_ao[i])/universiteliErkek3Boyut.h_s[i])*10+50).toFixed(2))
-    }
-    for(i=0;i<3;i++){
-      universiteErkekResults3Boyut.push((((hampuan5[i+3]-universiteliErkek3Boyut.y_ao[i])/universiteliErkek3Boyut.y_s[i])*10+50).toFixed(2))
-    }
-
-    //tüm öğrenciler
-    let tumResults3Boyut=[]
-    for(i=0;i<3;i++){
-      tumResults3Boyut.push((((hampuan5[i]-tumOgrenci3Boyut.h_ao[i])/tumOgrenci3Boyut.h_s[i])*10+50).toFixed(2))
-    }
-    for(i=0;i<3;i++){
-      tumResults3Boyut.push((((hampuan5[i+3]-tumOgrenci3Boyut.y_ao[i])/tumOgrenci3Boyut.y_s[i])*10+50).toFixed(2))
-    }
-
-
-
-
-  console.log(liseliTumResults3Boyut)
   res.status(200).json({
     succes: true,
     rapor1_1: liseliTumResults8Dilim,
