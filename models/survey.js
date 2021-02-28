@@ -95,7 +95,7 @@ const insertRapor1 = (userId, raporValues1, result) => {
   console.log("inserted"+raporValues1[0]);
   console.log("inserted"+raporValues1[13]);
 
-  con.query("INSERT INTO rapor1 (userId, liseliTum_h, liseliTum_y, liseliKiz_h, liseliKiz_y, liseliErkek_h, liseliErkek_y, universiteTum_h, universiteTum_y, universiteKiz_h, universiteKiz_y, universiteErkek_h, universiteKiz_y, tumogrenci_h,tumogrenci_y) VALUES('"+userId+"','"+raporValues1[0]+"','"+raporValues1[1]+"','"+raporValues1[2]+"','"+raporValues1[3] +"','"+raporValues1[4] +"','"+ raporValues1[5]+"','"+ raporValues1[6]+"','"+raporValues1[7]+"','"+raporValues1[8]+"','"+raporValues1[9]+"','"+raporValues1[10] +"','"+raporValues1[11] +"','"+ raporValues1[12]+"','"+ raporValues1[13]+"') ", (err, res) => {
+  con.query("INSERT INTO rapor1 (userId, liseliTum_h, liseliTum_y, liseliKiz_h, liseliKiz_y, liseliErkek_h, liseliErkek_y, universiteTum_h, universiteTum_y, universiteKiz_h, universiteKiz_y, universiteErkek_h, universiteErkek_y, tumogrenci_h,tumogrenci_y)  VALUES('"+userId+"','"+raporValues1[0]+"','"+raporValues1[1]+"','"+raporValues1[2]+"','"+raporValues1[3] +"','"+raporValues1[4] +"','"+ raporValues1[5]+"','"+ raporValues1[6]+"','"+raporValues1[7]+"','"+raporValues1[8]+"','"+raporValues1[9]+"','"+raporValues1[10] +"','"+raporValues1[11] +"','"+ raporValues1[12]+"','"+ raporValues1[13]+"') ", (err, res) => {
     if (err) {
       result(null, err);
       return;
@@ -108,7 +108,7 @@ const insertRapor2 = (userId, raporValues2, result) => {
   console.log("inserted"+raporValues2);
   console.log("inserted"+raporValues2[0]);
   console.log("inserted"+raporValues2[13]);
-  con.query("INSERT INTO rapor1 (userId, liseliTum_h, liseliTum_y, liseliKiz_h, liseliKiz_y, liseliErkek_h, liseliErkek_y, universiteTum_h, universiteTum_y, universiteKiz_h, universiteKiz_y, universiteErkek_h, universiteKiz_y, tumogrenci_h,tumogrenci_y) VALUES('"+userId+"','"+raporValues2[0]+"','"+raporValues2[1]+"','"+raporValues2[2]+"','"+raporValues2[3] +"','"+raporValues2[4] +"','"+ raporValues2[5]+"','"+ raporValues2[6]+"','"+raporValues2[7]+"','"+raporValues2[8]+"','"+raporValues2[9]+"','"+raporValues2[10] +"','"+raporValues2[11] +"','"+ raporValues2[12]+"','"+ raporValues2[13]+"') ", (err, res) => {
+  con.query("INSERT INTO rapor2 (userId, liseliTum_h, liseliTum_y, liseliKiz_h, liseliKiz_y, liseliErkek_h, liseliErkek_y, universiteTum_h, universiteTum_y, universiteKiz_h, universiteKiz_y, universiteErkek_h, universiteErkek_y, tumogrenci_h,tumogrenci_y)  VALUES('"+userId+"','"+raporValues2[0]+"','"+raporValues2[1]+"','"+raporValues2[2]+"','"+raporValues2[3] +"','"+raporValues2[4] +"','"+ raporValues2[5]+"','"+ raporValues2[6]+"','"+raporValues2[7]+"','"+raporValues2[8]+"','"+raporValues2[9]+"','"+raporValues2[10] +"','"+raporValues2[11] +"','"+ raporValues2[12]+"','"+ raporValues2[13]+"') ", (err, res) => {
     if (err) {
       result(null, err);
       return;
@@ -121,7 +121,7 @@ const insertRapor3 = (userId, raporValues3, result) => {
   console.log("inserted"+raporValues3);
   console.log("inserted"+raporValues3[0]);
   console.log("inserted"+raporValues3[13]);
-  con.query("INSERT INTO rapor1 (userId, liseliTum_h, liseliTum_y, liseliKiz_h, liseliKiz_y, liseliErkek_h, liseliErkek_y, universiteTum_h, universiteTum_y, universiteKiz_h, universiteKiz_y, universiteErkek_h, universiteKiz_y, tumogrenci_h,tumogrenci_y) VALUES('"+userId+"','"+raporValues3[0]+"','"+raporValues3[1]+"','"+raporValues3[2]+"','"+raporValues3[3] +"','"+raporValues3[4] +"','"+ raporValues3[5]+"','"+ raporValues3[6]+"','"+raporValues3[7]+"','"+raporValues3[8]+"','"+raporValues3[9]+"','"+raporValues3[10] +"','"+raporValues3[11] +"','"+ raporValues3[12]+"','"+ raporValues3[13]+"') ", (err, res) => {
+  con.query("INSERT INTO rapor3 (userId, liseliTum_h, liseliTum_y, liseliKiz_h, liseliKiz_y, liseliErkek_h, liseliErkek_y, universiteTum_h, universiteTum_y, universiteKiz_h, universiteKiz_y, universiteErkek_h, universiteErkek_y, tumogrenci_h,tumogrenci_y)  VALUES('"+userId+"','"+raporValues3[0]+"','"+raporValues3[1]+"','"+raporValues3[2]+"','"+raporValues3[3] +"','"+raporValues3[4] +"','"+ raporValues3[5]+"','"+ raporValues3[6]+"','"+raporValues3[7]+"','"+raporValues3[8]+"','"+raporValues3[9]+"','"+raporValues3[10] +"','"+raporValues3[11] +"','"+ raporValues3[12]+"','"+ raporValues3[13]+"') ", (err, res) => {
     if (err) {
       result(null, err);
       return;
@@ -134,7 +134,7 @@ const insertRapor4 = (userId, raporValues4, result) => {
   console.log("inserted"+raporValues4);
   console.log("inserted"+raporValues4[0]);
   console.log("inserted"+raporValues4[13]);
-  con.query("INSERT INTO rapor1 (userId, liseliTum_h, liseliTum_y, liseliKiz_h, liseliKiz_y, liseliErkek_h, liseliErkek_y, universiteTum_h, universiteTum_y, universiteKiz_h, universiteKiz_y, universiteErkek_h, universiteKiz_y, tumogrenci_h,tumogrenci_y) VALUES('"+userId+"','"+raporValues4[0]+"','"+raporValues4[1]+"','"+raporValues4[2]+"','"+raporValues4[3] +"','"+raporValues4[4] +"','"+ raporValues4[5]+"','"+ raporValues4[6]+"','"+raporValues4[7]+"','"+raporValues4[8]+"','"+raporValues4[9]+"','"+raporValues4[10] +"','"+raporValues4[11] +"','"+ raporValues4[12]+"','"+ raporValues4[13]+"') ", (err, res) => {
+  con.query("INSERT INTO rapor4 (userId, liseliTum_h, liseliTum_y, liseliKiz_h, liseliKiz_y, liseliErkek_h, liseliErkek_y, universiteTum_h, universiteTum_y, universiteKiz_h, universiteKiz_y, universiteErkek_h, universiteErkek_y, tumogrenci_h,tumogrenci_y)  VALUES('"+userId+"','"+raporValues4[0]+"','"+raporValues4[1]+"','"+raporValues4[2]+"','"+raporValues4[3] +"','"+raporValues4[4] +"','"+ raporValues4[5]+"','"+ raporValues4[6]+"','"+raporValues4[7]+"','"+raporValues4[8]+"','"+raporValues4[9]+"','"+raporValues4[10] +"','"+raporValues4[11] +"','"+ raporValues4[12]+"','"+ raporValues4[13]+"') ", (err, res) => {
     if (err) {
       result(null, err);
       return;
@@ -147,7 +147,7 @@ const insertRapor5 = (userId, raporValues5, result) => {
   console.log("inserted"+raporValues5);
   console.log("inserted"+raporValues5[0]);
   console.log("inserted"+raporValues5[13]);
-  con.query("INSERT INTO rapor1 (userId, liseliTum_h, liseliTum_y, liseliKiz_h, liseliKiz_y, liseliErkek_h, liseliErkek_y, universiteTum_h, universiteTum_y, universiteKiz_h, universiteKiz_y, universiteErkek_h, universiteKiz_y, tumogrenci_h,tumogrenci_y) VALUES('"+userId+"','"+raporValues5[0]+"','"+raporValues5[1]+"','"+raporValues5[2]+"','"+raporValues5[3] +"','"+raporValues5[4] +"','"+ raporValues5[5]+"','"+ raporValues5[6]+"','"+raporValues5[7]+"','"+raporValues5[8]+"','"+raporValues5[9]+"','"+raporValues5[10] +"','"+raporValues5[11] +"','"+ raporValues5[12]+"','"+ raporValues5[13]+"') ", (err, res) => {
+  con.query("INSERT INTO rapor5 (userId, liseliTum_h, liseliTum_y, liseliKiz_h, liseliKiz_y, liseliErkek_h, liseliErkek_y, universiteTum_h, universiteTum_y, universiteKiz_h, universiteKiz_y, universiteErkek_h, universiteErkek_y, tumogrenci_h,tumogrenci_y)  VALUES('"+userId+"','"+raporValues5[0]+"','"+raporValues5[1]+"','"+raporValues5[2]+"','"+raporValues5[3] +"','"+raporValues5[4] +"','"+ raporValues5[5]+"','"+ raporValues5[6]+"','"+raporValues5[7]+"','"+raporValues5[8]+"','"+raporValues5[9]+"','"+raporValues5[10] +"','"+raporValues5[11] +"','"+ raporValues5[12]+"','"+ raporValues5[13]+"') ", (err, res) => {
     if (err) {
       result(null, err);
       return;
