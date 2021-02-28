@@ -677,7 +677,6 @@ const calculateResults = async (req, res, next) => {
       ).toFixed(2)
     );
   }
-  console.log(liseliTumResultsRAYSGD)
   //liseli kız
   let liseliKizResultsRAYSGD = [];
   
@@ -703,7 +702,7 @@ const calculateResults = async (req, res, next) => {
   }
   //liseli erkek
   let liseliErkekResultsRAYSGD = [];
-  
+  console.log(hampuan4)
 
   for (i = 0; i < 6; i++) {
     liseliErkekResultsRAYSGD.push(
@@ -713,7 +712,10 @@ const calculateResults = async (req, res, next) => {
         50
       ).toFixed(2)
     );
+    console.log("hampuan4: "+hampuan4[i]+" "+"liseliErkekRAYSGD "+ liseliErkekRAYSGD.h_ao[i]+ " "+"Liselierkekh_s "+ liseliErkekRAYSGD.h_s[i])
   }
+  console.log(liseliErkekResultsRAYSGD)
+
   for (i = 0; i < 6; i++) {
     liseliErkekResultsRAYSGD.push(
       (
