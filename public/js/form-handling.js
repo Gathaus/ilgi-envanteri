@@ -1,5 +1,3 @@
-
-
 function fetchData() {
   fetch("http://localhost:8080/api/survey/getLiselerData")
     .then((response) => response.json())
@@ -122,13 +120,13 @@ function calculateData() {
     });
 }
 
-function userComments(){
-  $('#son').css('display','none');
-  $('#thankyou').css('display','block');
+function userComments() {
+  $("#son").css("display", "none");
+  $("#thankyou").css("display", "block");
   var comment = document.getElementById("comment").value;
   var value = document.querySelector('input[name="radio-Yorum"]:checked').value;
 
-  console.log(value+" "+comment)
+  console.log(value + " " + comment);
 
   fetch("http://localhost:8080/api/survey/comments", {
     method: "POST",
@@ -145,75 +143,97 @@ function userComments(){
     .catch((error) => {
       console.log(error);
     });
-
 }
 
-function insertHoslantiAndYapabilirlik(){
-    var i,j=0;
-    for(i=31;i<41;i++){
-      if(document.querySelector("input[name=radio-hoslanma"+i+"]:checked").checked==true && document.querySelector("input[name=radio-yapabilirlik"+i+"]:checked").checked==true ){
-        j++;
-      }
+function insertHoslantiAndYapabilirlik() {
+  var i,
+    j = 0;
+  for (i = 31; i < 41; i++) {
+    if (
+      document.querySelector("input[name=radio-hoslanma" + i + "]:checked")
+        .checked == true &&
+      document.querySelector("input[name=radio-yapabilirlik" + i + "]:checked")
+        .checked == true
+    ) {
+      j++;
     }
-    if(j==10){
-      $('#anket5').css('display', 'none');$('#sonuc').css('display', 'block');
-      var userId=document.getElementById("userId").value;
-      var arrHos=[];
-      var arrYap=[];
-      for(var a=1;a<41;a++){
-          arrHos[a]= document.querySelector("input[name=radio-hoslanma"+a+"]:checked").value;
-          arrYap[a]= document.querySelector("input[name=radio-yapabilirlik"+a+"]:checked").value;
-      }
-      fetch("http://localhost:8080/api/survey/hoslanti", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json; charset=UTF-8",
-        },
-        body: JSON.stringify({
-          userId,
-          arrHos
-        }),
-      })
-        .then((response) => response.json())
-        .then((response) => returnResults(response))
-        .catch((error) => {
-          console.log(error);
-        });
-      
-        fetch("http://localhost:8080/api/survey/yapabilirlik", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json; charset=UTF-8",
-          },
-          body: JSON.stringify({
-            userId,
-            arrYap
-          }),
-        })
-          .then((response) => response.json())
-          .then((response) => returnResults(response))
-          .catch((error) => {
-            console.log(error);
-          });
-
-      }
-    else{
-      alert("Lütfen maddeleri işaretleyiniz!");
+  }
+  if (j == 10) {
+    $("#anket5").css("display", "none");
+    $("#sonuc").css("display", "block");
+    var userId = document.getElementById("userId").value;
+    var arrHos = [];
+    var arrYap = [];
+    for (var a = 1; a < 41; a++) {
+      arrHos[a] = document.querySelector(
+        "input[name=radio-hoslanma" + a + "]:checked"
+      ).value;
+      arrYap[a] = document.querySelector(
+        "input[name=radio-yapabilirlik" + a + "]:checked"
+      ).value;
     }
+    fetch("http://localhost:8080/api/survey/hoslanti", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+      body: JSON.stringify({
+        userId,
+        arrHos,
+      }),
+    })
+      .then((response) => response.json())
+      .then((response) => returnResults(response))
+      .catch((error) => {
+        console.log(error);
+      });
 
+    fetch("http://localhost:8080/api/survey/yapabilirlik", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+      body: JSON.stringify({
+        userId,
+        arrYap,
+      }),
+    })
+      .then((response) => response.json())
+      .then((response) => returnResults(response))
+      .catch((error) => {
+        console.log(error);
+      });
+  } else {
+    alert("Lütfen maddeleri işaretleyiniz!");
+  }
 }
-function goToDescription(){
+function goToDescription() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
   var name = document.getElementById("name").value;
   var age = document.getElementById("age").value;
   var sex = document.querySelector('input[name="radio-sex"]:checked').value;
-  var scoreType1 = document.querySelector('input[name="radioPersonal1"]:checked').value;
-  var scoreType2 = document.querySelector('input[name="radioPersonal2"]:checked').value;
+  var scoreType1 = document.querySelector(
+    'input[name="radioPersonal1"]:checked'
+  ).value;
+  var scoreType2 = document.querySelector(
+    'input[name="radioPersonal2"]:checked'
+  ).value;
   var dropdown1 = document.getElementById("dropdown1").value;
   var dropdown2 = document.getElementById("dropdown2").value;
-  var resultType = document.querySelector('input[name="radioPersonal3"]:checked').value;
-  if(name !="" && age !="" && sex !=0 && scoreType1 !=0 && scoreType2 !=0 && dropdown1 !=0 && dropdown2 !=0){
-    $('#rumuz').css('display', 'none');
-    $('#anket').css('display', 'block');
+  var resultType = document.querySelector(
+    'input[name="radioPersonal3"]:checked'
+  ).value;
+  if (
+    name != "" &&
+    age != "" &&
+    sex != 0 &&
+    scoreType1 != 0 &&
+    scoreType2 != 0 &&
+    dropdown1 != 0 &&
+    dropdown2 != 0
+  ) {
+    $("#rumuz").css("display", "none");
+    $("#anket").css("display", "block");
 
     fetch("http://localhost:8080/api/survey/users", {
       method: "POST",
@@ -221,7 +241,14 @@ function goToDescription(){
         "Content-Type": "application/json; charset=UTF-8",
       },
       body: JSON.stringify({
-        name,age,sex,scoreType1,scoreType2,dropdown1,dropdown2,resultType,
+        name,
+        age,
+        sex,
+        scoreType1,
+        scoreType2,
+        dropdown1,
+        dropdown2,
+        resultType,
       }),
     })
       .then((response) => response.json())
@@ -232,16 +259,16 @@ function goToDescription(){
 
     //getLastUserId
     fetch("http://localhost:8080/api/survey/lastUserId")
-    .then((response) => response.json())
-    .then((response) => {
-      for (i = 0; i < response.length; i++) {
-        $('#userId').val(response[i].Id);
-      }
-      // console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      .then((response) => response.json())
+      .then((response) => {
+        for (i = 0; i < response.length; i++) {
+          $("#userId").val(response[i].Id);
+        }
+        // console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
     //getUserInfo
     $("label[for='raporRumuz']").text(name);
@@ -251,59 +278,76 @@ function goToDescription(){
     $("label[for='raporSoru2']").text(scoreType2);
     $("label[for='raporSoru3']").text(dropdown1);
     $("label[for='raporSoru4']").text(dropdown2);
-
-  }
-  else{
+  } else {
     alert("Lütfen tüm alanları doldurunuz.");
   }
-  
 }
 
-function goToAnket3(){
-  var i,j=0;
-  for(i=1;i<11;i++){
-    if(document.querySelector("input[name=radio-hoslanma"+i+"]:checked").checked==true && document.querySelector("input[name=radio-yapabilirlik"+i+"]:checked").checked==true ){
+function goToAnket3() {
+  var i,
+    j = 0;
+  for (i = 1; i < 11; i++) {
+    if (
+      document.querySelector("input[name=radio-hoslanma" + i + "]:checked")
+        .checked == true &&
+      document.querySelector("input[name=radio-yapabilirlik" + i + "]:checked")
+        .checked == true
+    ) {
       j++;
     }
   }
-  if(j==10){
-    $('#anket2').css('display', 'none');$('#anket3').css('display', 'block');
-  }
-  else{
+  if (j == 10) {
+    $("#anket2").css("display", "none");
+    $("#anket3").css("display", "block");
+  } else {
     alert("Lütfen maddeleri işaretleyiniz!");
   }
 }
-function goToAnket4(){
-  var i,j=0;
-  for(i=11;i<21;i++){
-    if(document.querySelector("input[name=radio-hoslanma"+i+"]:checked").checked==true && document.querySelector("input[name=radio-yapabilirlik"+i+"]:checked").checked==true ){
+function goToAnket4() {
+  window.scrollTo({ top: 65, behavior: "smooth" });
+  var i,
+    j = 0;
+  for (i = 11; i < 21; i++) {
+    if (
+      document.querySelector("input[name=radio-hoslanma" + i + "]:checked")
+        .checked == true &&
+      document.querySelector("input[name=radio-yapabilirlik" + i + "]:checked")
+        .checked == true
+    ) {
       j++;
     }
   }
-  if(j==10){
-    $('#anket3').css('display', 'none');$('#anket4').css('display', 'block');
-  }
-  else{
+  if (j == 10) {
+    $("#anket3").css("display", "none");
+    $("#anket4").css("display", "block");
+  } else {
     alert("Lütfen maddeleri işaretleyiniz!");
   }
 }
 
-function goToAnket5(){
-  var i,j=0;
-  for(i=21;i<31;i++){
-    if(document.querySelector("input[name=radio-hoslanma"+i+"]:checked").checked==true && document.querySelector("input[name=radio-yapabilirlik"+i+"]:checked").checked==true && document.querySelector("input[name=radio-hoslanma-ö]:checked").checked==true && document.querySelector("input[name=radio-yapabilirlik-ö]:checked").checked==true ){
+function goToAnket5() {
+  var i,
+    j = 0;
+  for (i = 21; i < 31; i++) {
+    if (
+      document.querySelector("input[name=radio-hoslanma" + i + "]:checked")
+        .checked == true &&
+      document.querySelector("input[name=radio-yapabilirlik" + i + "]:checked")
+        .checked == true &&
+      document.querySelector("input[name=radio-hoslanma-ö]:checked").checked ==
+        true &&
+      document.querySelector("input[name=radio-yapabilirlik-ö]:checked")
+        .checked == true
+    ) {
       j++;
     }
   }
-  if(j==10){
-    $('#anket4').css('display', 'none');$('#anket5').css('display', 'block');
-  }
-  else{
+  if (j == 10) {
+    $("#anket4").css("display", "none");
+    $("#anket5").css("display", "block");
+  } else {
     alert("Lütfen maddeleri işaretleyiniz!");
   }
 }
 
-function returnResults(response) {
-
-
-}
+function returnResults(response) {}
