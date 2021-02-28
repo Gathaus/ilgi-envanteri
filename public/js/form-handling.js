@@ -161,14 +161,8 @@ function insertHoslantiAndYapabilirlik(){
       var arrHos=[];
       var arrYap=[];
       for(var a=1;a<41;a++){
-        if(a==25){
-          arrHos[a]=document.querySelector('input[name="radio-hoslanma-ö"]:checked').value;
-          arrYap[a]=document.querySelector('input[name="radio-yapabilirlik-ö"]:checked').value;
-        }
-        else{
           arrHos[a]= document.querySelector("input[name=radio-hoslanma"+a+"]:checked").value;
           arrYap[a]= document.querySelector("input[name=radio-yapabilirlik"+a+"]:checked").value;
-        }
       }
       fetch("http://localhost:8080/api/survey/hoslanti", {
         method: "POST",
