@@ -342,11 +342,11 @@ function goToAnket5() {
       j++;
     }
   }
-  if (j == 10) {
+  if (j == 10 && document.querySelector("input[name=radio-hoslanma-ö]:checked").value==4 && document.querySelector("input[name=radio-yapabilirlik-ö]:checked").value==4) {
     $("#anket4").css("display", "none");
     $("#anket5").css("display", "block");
   } else {
-    alert("Lütfen maddeleri işaretleyiniz!");
+    alert("Lütfen maddeleri doğru işaretleyiniz!");
   }
 }
 
