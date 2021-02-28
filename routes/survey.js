@@ -10,6 +10,11 @@ const {
   yapabilirlik,
   users,
   lastUserId,
+  rapor1DB,
+  rapor2DB,
+  rapor3DB,
+  rapor4DB,
+  rapor5DB,
   getRaporData
 } = require("../controllers/survey");
 const router = express.Router();
@@ -29,6 +34,11 @@ router.post("/comments",comments);
 router.post("/hoslanti",hoslanti);
 router.post("/yapabilirlik",yapabilirlik);
 router.post("/users",users);
+router.post("/rapor1DB",rapor1DB);
+router.post("/rapor2DB",rapor2DB);
+router.post("/rapor3DB",rapor3DB);
+router.post("/rapor4DB",rapor4DB);
+router.post("/rapor5DB",rapor5DB);
 router.get("/lastUserId", lastUserId);
 
 module.exports = router;

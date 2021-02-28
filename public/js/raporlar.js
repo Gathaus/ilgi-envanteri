@@ -1,3 +1,4 @@
+
 var raporValues1 = [];
 var raporValues2 = [];
 var raporValues3 = [];
@@ -5,7 +6,6 @@ var raporValues4 = [];
 var raporValues5 = [];
 
 function raporVerileri() {
-  raporValues1[12];
   var name = document.getElementById("name").value;
   var age = document.getElementById("age").value;
   var sex = document.querySelector('input[name="radio-sex"]:checked').value;
@@ -52,6 +52,8 @@ function raporVerileri() {
   })
     .then((response) => response.json())
     .then((response) => {
+      console.log("RESPONSE")
+      console.log(response)
       evalulateRaporData(response);
     })
     .then((res) => {
@@ -66,11 +68,9 @@ function raporVerileri() {
       console.log(error);
     });
 }
-async function evalulateRaporData(response) {
-  console.log(raporValues1);
-  raporValues1[0] = response.rapor1_1.slice(0, 8);
-  console.log(raporValues1);
 
+async function evalulateRaporData(response) {
+  raporValues1[0] = response.rapor1_1.slice(0, 8);
   raporValues1[1] = response.rapor1_1.slice(8);
   raporValues1[2] = response.rapor1_2.slice(0, 8);
   raporValues1[3] = response.rapor1_2.slice(8);
@@ -231,6 +231,7 @@ function raporSonuc1(index) {
     puan1.innerHTML = raporValues1[index][i];
     puan2.innerHTML = raporValues1[index + 1][i];
   }
+  rapor1DBInsert();
 }
 function raporSonuc2(index) {
   if (!index) index = 0;
@@ -297,6 +298,7 @@ function raporSonuc2(index) {
     puan1.innerHTML = raporValues2[index][i];
     puan2.innerHTML = raporValues2[index + 1][i];
   }
+  rapor2DBInsert();
 }
 function raporSonuc3(index) {
   if (!index) index = 0;
@@ -366,6 +368,7 @@ function raporSonuc3(index) {
     puan1.innerHTML = raporValues3[index][i];
     puan2.innerHTML = raporValues3[index + 1][i];
   }
+  rapor3DBInsert();
 }
 function raporSonuc4(index) {
   if (!index) index = 0;
@@ -442,6 +445,7 @@ function raporSonuc4(index) {
     puan1.innerHTML = raporValues4[index][i];
     puan2.innerHTML = raporValues4[index + 1][i];
   }
+  rapor4DBInsert();
 }
 function raporSonuc5(index) {
   if (!index) index = 0;
@@ -505,4 +509,106 @@ function raporSonuc5(index) {
     puan1.innerHTML = raporValues5[index][i];
     puan2.innerHTML = raporValues5[index + 1][i];
   }
+  rapor5DBInsert();
+}
+
+function rapor1DBInsert(){
+
+  console.log("rapor1");
+    var userId=document.getElementById("userId").value;
+    fetch("http://localhost:8080/api/survey/rapor1DB", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+          },
+          body: JSON.stringify({
+            userId,
+            raporValues1
+          }),
+        })
+          .then((response) => response.json())
+          .then((response) => returnResults(response))
+          .catch((error) => {
+            console.log(error);
+          });
+}
+function rapor2DBInsert(){
+
+  console.log("rapor1");
+    var userId=document.getElementById("userId").value;
+    fetch("http://localhost:8080/api/survey/rapor2DB", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+          },
+          body: JSON.stringify({
+            userId,
+            raporValues2
+          }),
+        })
+          .then((response) => response.json())
+          .then((response) => returnResults(response))
+          .catch((error) => {
+            console.log(error);
+          });
+}
+function rapor3DBInsert(){
+
+  console.log("rapor3");
+    var userId=document.getElementById("userId").value;
+    fetch("http://localhost:8080/api/survey/rapor3DB", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+          },
+          body: JSON.stringify({
+            userId,
+            raporValues3
+          }),
+        })
+          .then((response) => response.json())
+          .then((response) => returnResults(response))
+          .catch((error) => {
+            console.log(error);
+          });
+}
+function rapor4DBInsert(){
+
+  console.log("rapor4");
+    var userId=document.getElementById("userId").value;
+    fetch("http://localhost:8080/api/survey/rapor4DB", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+          },
+          body: JSON.stringify({
+            userId,
+            raporValues4
+          }),
+        })
+          .then((response) => response.json())
+          .then((response) => returnResults(response))
+          .catch((error) => {
+            console.log(error);
+          });
+}
+function rapor5DBInsert(){
+
+  console.log("rapor5");
+    var userId=document.getElementById("userId").value;
+    fetch("http://localhost:8080/api/survey/rapor5DB", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+          },
+          body: JSON.stringify({
+            userId,
+            raporValues5
+          }),
+        })
+          .then((response) => response.json())
+          .then((response) => returnResults(response))
+          .catch((error) => {
+            console.log(error);
+          });
 }

@@ -45,6 +45,11 @@ const {
   insertHoslanti,
   insertYapabilirlik,
   insertUsers,
+  insertRapor1,
+  insertRapor2,
+  insertRapor3,
+  insertRapor4,
+  insertRapor5,
   getLastUserId,
 } = require("../models/survey");
 
@@ -677,6 +682,7 @@ const calculateResults = async (req, res, next) => {
       ).toFixed(2)
     );
   }
+  console.log(liseliTumResultsRAYSGD)
   //liseli kız
   let liseliKizResultsRAYSGD = [];
   
@@ -702,7 +708,7 @@ const calculateResults = async (req, res, next) => {
   }
   //liseli erkek
   let liseliErkekResultsRAYSGD = [];
-  console.log(hampuan4)
+  
 
   for (i = 0; i < 6; i++) {
     liseliErkekResultsRAYSGD.push(
@@ -712,10 +718,7 @@ const calculateResults = async (req, res, next) => {
         50
       ).toFixed(2)
     );
-    console.log("hampuan4: "+hampuan4[i]+" "+"liseliErkekRAYSGD "+ liseliErkekRAYSGD.h_ao[i]+ " "+"Liselierkekh_s "+ liseliErkekRAYSGD.h_s[i])
   }
-  console.log(liseliErkekResultsRAYSGD)
-
   for (i = 0; i < 6; i++) {
     liseliErkekResultsRAYSGD.push(
       (
@@ -1087,7 +1090,7 @@ const comments = async (req, res, next) => {
   });
 };
 const hoslanti = async (req, res, next) => {
-  console.log("POST ÇALIŞTI");
+  //console.log("POST ÇALIŞTI");
   var userId = req.body.userId;
   var arrHos=req.body.arrHos;
   //console.log(arrHos[1]);
@@ -1107,7 +1110,7 @@ const hoslanti = async (req, res, next) => {
   );
 };
 const yapabilirlik = async (req, res, next) => {
-  console.log("POST ÇALIŞTI");
+  //console.log("POST ÇALIŞTI");
   var userId = req.body.userId;
   var arrYap=req.body.arrYap;
   //console.log(arrYap[1]);
@@ -1202,6 +1205,96 @@ const getRaporData = async (req, res, next) => {
     ],
   });
 };
+const rapor1DB = async (req, res, next) => {
+  var userId = req.body.userId;
+  var raporValues1 = req.body.raporValues1;
+  insertRapor1(
+    userId,
+    raporValues1,
+    (err, data) => {
+      if (err)
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving customers.",
+        });
+      else {
+        res.send(data);
+      }
+    }
+  );
+};
+const rapor2DB = async (req, res, next) => {
+  var userId = req.body.userId;
+  var raporValues2 = req.body.raporValues2;
+  insertRapor2(
+    userId,
+    raporValues2,
+    (err, data) => {
+      if (err)
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving customers.",
+        });
+      else {
+        res.send(data);
+      }
+    }
+  );
+};
+const rapor3DB = async (req, res, next) => {
+  var userId = req.body.userId;
+  var raporValues3 = req.body.raporValues3;
+  insertRapor3(
+    userId,
+    raporValues3,
+    (err, data) => {
+      if (err)
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving customers.",
+        });
+      else {
+        res.send(data);
+      }
+    }
+  );
+};
+const rapor4DB = async (req, res, next) => {
+  var userId = req.body.userId;
+  var raporValues4 = req.body.raporValues4;
+  insertRapor4(
+    userId,
+    raporValues4,
+    (err, data) => {
+      if (err)
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving customers.",
+        });
+      else {
+        res.send(data);
+      }
+    }
+  );
+};
+const rapor5DB = async (req, res, next) => {
+  var userId = req.body.userId;
+  var raporValues5 = req.body.raporValues5;
+  insertRapor5(
+    userId,
+    raporValues5,
+    (err, data) => {
+      if (err)
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving customers.",
+        });
+      else {
+        res.send(data);
+      }
+    }
+  );
+};
 module.exports = {
   getHome,
   calculateResults,
@@ -1214,5 +1307,10 @@ module.exports = {
   users,
   lastUserId,
   getRaporData,
+  rapor1DB,
+  rapor2DB,
+  rapor3DB,
+  rapor4DB,
+  rapor5DB,
   calculateResults2,
 };
