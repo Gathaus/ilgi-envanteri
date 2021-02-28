@@ -146,8 +146,8 @@ function raporVerileri() {
       evalulateRaporData(response);
     })
     .then(()=>{
-      raporSonuc1();
-      raporSonuc2();
+      raporSonuc1(0);
+      raporSonuc2(0);
       raporSonuc3(0);
       raporSonuc4(0);
       raporSonuc5(0);

@@ -2,6 +2,18 @@
     position: relative;
     width: 50%;
 }
+.memnuniyet-position{
+    justify-content: flex-end;
+    display: block; 
+    height: 86px;
+}
+.memnuniyet-btn{
+    margin: 23px 0; 
+    color: #b1aca1!important;
+}
+.memnuniyet-btn:hover{
+   color: #6794c2!important;
+}
 @media only screen and (max-width: 768px) {
     .chart-container{
         position: relative;
