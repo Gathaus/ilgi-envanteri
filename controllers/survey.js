@@ -694,8 +694,8 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 6; i++) {
     liseliKizResultsRAYSGD.push(
       (
-        ((hampuan4[i + 8] - liseliKizRAYSGD.y_ao[i + 8]) /
-          liseliKizRAYSGD.y_s[i + 8]) *
+        ((hampuan4[i + 6] - liseliKizRAYSGD.y_ao[i]) /
+          liseliKizRAYSGD.y_s[i]) *
           10 +
         50
       ).toFixed(2)
@@ -717,8 +717,8 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 6; i++) {
     liseliErkekResultsRAYSGD.push(
       (
-        ((hampuan4[i + 8] - liseliErkekRAYSGD.y_ao[i + 8]) /
-          liseliErkekRAYSGD.y_s[i + 8]) *
+        ((hampuan4[i + 6] - liseliErkekRAYSGD.y_ao[i]) /
+          liseliErkekRAYSGD.y_s[i]) *
           10 +
         50
       ).toFixed(2)
@@ -739,8 +739,8 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 6; i++) {
     üniliTumResultsRAYSGD.push(
       (
-        ((hampuan4[i + 8] - üniliTumRAYSGD.y_ao[i + 8]) /
-          üniliTumRAYSGD.y_s[i + 8]) *
+        ((hampuan4[i + 6] - üniliTumRAYSGD.y_ao[i]) /
+          üniliTumRAYSGD.y_s[i]) *
           10 +
         50
       ).toFixed(2)
@@ -761,8 +761,8 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 6; i++) {
     üniliKizResultsRAYSGD.push(
       (
-        ((hampuan4[i + 8] - üniliKizRAYSGD.y_ao[i + 8]) /
-          üniliKizRAYSGD.y_s[i + 8]) *
+        ((hampuan4[i + 6] - üniliKizRAYSGD.y_ao[i]) /
+          üniliKizRAYSGD.y_s[i]) *
           10 +
         50
       ).toFixed(2)
@@ -784,8 +784,8 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 6; i++) {
     üniliErkekResultsRAYSGD.push(
       (
-        ((hampuan4[i + 8] - üniliErkekRAYSGD.y_ao[i + 8]) /
-          üniliErkekRAYSGD.y_s[i + 8]) *
+        ((hampuan4[i + 6] - üniliErkekRAYSGD.y_ao[i]) /
+          üniliErkekRAYSGD.y_s[i]) *
           10 +
         50
       ).toFixed(2)
@@ -806,7 +806,7 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 6; i++) {
     tümResultsRAYSGD.push(
       (
-        ((hampuan4[i + 8] - tümRAYSGD.y_ao[i + 8]) / tümRAYSGD.y_s[i + 8]) *
+        ((hampuan4[i + 6] - tümRAYSGD.y_ao[i]) / tümRAYSGD.y_s[i]) *
           10 +
         50
       ).toFixed(2)
