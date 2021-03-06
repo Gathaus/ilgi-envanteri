@@ -170,7 +170,7 @@ function raporSonuc1(index) {
       ],
       datasets: [
         {
-          label: "ilgi-T puanları",
+          label: "İlgi-T Puanları",
           data: raporValues1[index],
           backgroundColor: ["rgba(0,0,0,0)"],
           borderColor: [
@@ -187,7 +187,7 @@ function raporSonuc1(index) {
           borderWidth: 4,
         },
         {
-          label: "Yeterlilik Algısı-T puanları",
+          label: "Yeterlilik Algısı-T Puanları",
           data: raporValues1[index + 1],
           backgroundColor: ["rgba(0,0,0,0)"],
           borderColor: [
@@ -243,12 +243,12 @@ function raporSonuc2(index) {
       labels: ["Yüksek Saygınlık", "Düşük Saygınlık"],
       datasets: [
         {
-          label: "ilgi-T puanları",
+          label: "İlgi-T Puanları",
           backgroundColor: "rgba(91, 155, 213, 1)",
           data: raporValues2[index],
         },
         {
-          label: "Yeterlilik Algısı-T puanları",
+          label: "Yeterlilik Algısı-T Puanları",
           backgroundColor: "rgba(255, 107, 106, 1)",
           data: raporValues2[index + 1],
         },
@@ -311,7 +311,7 @@ function raporSonuc3(index) {
       labels: ["İnsanlar", "Veriler", "Nesneler", "Fikirler"],
       datasets: [
         {
-          label: "ilgi-T puanları",
+          label: "İlgi-T Puanları",
           data: raporValues3[index],
           backgroundColor: ["rgba(0,0,0,0)"],
           borderColor: [
@@ -326,7 +326,7 @@ function raporSonuc3(index) {
           borderWidth: 4,
         },
         {
-          label: "Yeterlilik Algısı-T puanları",
+          label: "Yeterlilik Algısı-T Puanları",
           data: raporValues3[index + 1],
           backgroundColor: ["rgba(0,0,0,0)"],
           borderColor: [
@@ -388,7 +388,7 @@ function raporSonuc4(index) {
       ],
       datasets: [
         {
-          label: "ilgi-T puanları",
+          label: "İlgi-T Puanları",
           data: raporValues4[index],
           backgroundColor: ["rgba(0,0,0,0)"],
           borderColor: [
@@ -403,7 +403,7 @@ function raporSonuc4(index) {
           borderWidth: 4,
         },
         {
-          label: "Yeterlilik Algısı-T puanları",
+          label: "Yeterlilik Algısı-T Puanları",
           data: raporValues4[index + 1],
           backgroundColor: ["rgba(0,0,0,0)"],
           borderColor: [
@@ -458,7 +458,7 @@ function raporSonuc5(index) {
       labels: ["İnsanlar/Nesneler", "Fikirler/Veriler", "Saygınlık"],
       datasets: [
         {
-          label: "ilgi-T puanları",
+          label: "İlgi-T Puanları",
           data: raporValues5[index],
           backgroundColor: ["rgba(0,0,0,0)"],
           borderColor: [
@@ -470,7 +470,7 @@ function raporSonuc5(index) {
           borderWidth: 4,
         },
         {
-          label: "Yeterlilik Algısı-T puanları",
+          label: "Yeterlilik Algısı-T Puanları",
           data: raporValues5[index + 1],
           backgroundColor: ["rgba(0,0,0,0)"],
           borderColor: [
