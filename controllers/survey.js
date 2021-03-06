@@ -51,7 +51,8 @@ const {
   insertRapor4,
   insertRapor5,
   getLastUserId,
-  getRapor1
+  getRapor1,
+  writeToExcel
   
 } = require("../models/survey");
 
@@ -1313,6 +1314,24 @@ const getUserData = async (req, res, next) => {
   );
 };
 
+const writeToExcelController = async (req, res, next) => {
+  writeToExcel(
+    (err, data) => {
+      if (err)
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving customers.",
+        });
+      else {
+        res.status(200).json({
+          success: true
+        })
+      }
+    }
+  );
+  console.log("writeToExcel")
+};
+
 module.exports = {
   getHome,
   calculateResults,
@@ -1331,5 +1350,6 @@ module.exports = {
   rapor4DB,
   rapor5DB,
   calculateResults2,
-  getUserData
+  getUserData,
+  writeToExcelController
 };

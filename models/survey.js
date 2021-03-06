@@ -1,4 +1,5 @@
 const con = require("../middlewares/database/connectDatabase");
+const excel = require('exceljs');
 
 const getRapor1 = (result) => {
   con.query("Select * from user", (err, res) => {
@@ -168,6 +169,38 @@ const insertRapor5 = (userId, raporValues5, result) => {
   });
 };
 
+
+
+const writeToExcel = (result)=>{
+  con.query("Select * from user", (err, customers, fields) => {
+    const jsonCustomers = JSON.parse(JSON.stringify(customers));
+    let workbook = new excel.Workbook(); //creating workbook
+		let worksheet = workbook.addWorksheet('Customers');
+
+    worksheet.columns = [
+			{ header: 'Id', key: 'Id', width: 10 },
+			{ header: 'Rumuz', key: 'Rumuz', width: 30 },
+			{ header: 'Yaş', key: 'Yas', width: 10},
+			{ header: 'Cinsiyet', key: 'Cinsiyet', width: 30},
+			{ header: 'Seçilen Puan Türü', key: 'Soru1', width: 30},
+			{ header: 'Hissedilen Puan Türü', key: 'Soru2', width: 30},
+			{ header: 'Lise Türü', key: 'Soru3', width: 30},
+			{ header: 'Öğrenim Hedefi', key: 'Soru4', width: 30},
+			{ header: 'Karşılaştırılmak İstenen Grup', key: 'Soru5', width: 30},
+		];
+
+    worksheet.addRows(jsonCustomers);
+	 
+		// Write to File
+		workbook.xlsx.writeFile("customer.xlsx")
+		.then(function() {
+			result(null, true);
+      return 
+		});
+    
+  });
+}
+
 module.exports = {
   getLiseler,
   getMeslekler,
@@ -182,5 +215,6 @@ module.exports = {
   insertRapor4,
   insertRapor5,
   getLastUserId,
-  getRapor1
+  getRapor1,
+  writeToExcel
 };

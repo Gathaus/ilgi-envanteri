@@ -16,7 +16,8 @@ const {
   rapor4DB,
   rapor5DB,
   getRaporData,
-  getUserData
+  getUserData,
+  writeToExcelController
 } = require("../controllers/survey");
 const router = express.Router();
 
@@ -41,5 +42,6 @@ router.post("/rapor3DB",rapor3DB);
 router.post("/rapor4DB",rapor4DB);
 router.post("/rapor5DB",rapor5DB);
 router.get("/lastUserId", lastUserId);
-router.get("/getUserData", getUserData)
+router.get("/getUserData", getUserData);
+router.get("/writeToExcel", writeToExcelController);
 module.exports = router;
