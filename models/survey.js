@@ -1,5 +1,16 @@
 const con = require("../middlewares/database/connectDatabase");
 
+const getRapor1 = (result) => {
+  con.query("Select * from user", (err, res) => {
+    if (err) {
+      // console.log("error: ", err);
+      result(null, err);
+    }
+    //   console.log("customers: ", res);
+    result(null, res);
+  });
+};
+
 const getLiseler = (result) => {
   con.query("SELECT * FROM liseler", (err, res) => {
     if (err) {
@@ -10,6 +21,7 @@ const getLiseler = (result) => {
     result(null, res);
   });
 };
+
 const getMeslekler = (result) => {
   con.query("SELECT * FROM meslek", (err, res) => {
     if (err) {
@@ -170,4 +182,5 @@ module.exports = {
   insertRapor4,
   insertRapor5,
   getLastUserId,
+  getRapor1
 };

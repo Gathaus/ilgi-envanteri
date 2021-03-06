@@ -51,6 +51,8 @@ const {
   insertRapor4,
   insertRapor5,
   getLastUserId,
+  getRapor1
+  
 } = require("../models/survey");
 
 const getHome = async (req, res, next) => {
@@ -1295,6 +1297,22 @@ const rapor5DB = async (req, res, next) => {
     }
   );
 };
+
+const getUserData = async (req, res, next) => {
+  getRapor1(
+    (err, data) => {
+      if (err)
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving customers.",
+        });
+      else {
+        res.send(data);
+      }
+    }
+  );
+};
+
 module.exports = {
   getHome,
   calculateResults,
@@ -1313,4 +1331,5 @@ module.exports = {
   rapor4DB,
   rapor5DB,
   calculateResults2,
+  getUserData
 };

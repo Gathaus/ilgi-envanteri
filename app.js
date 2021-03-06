@@ -13,12 +13,15 @@ const session = require("express-session")
  * Load environment variables
  */
 const PORT = process.env.PORT;
+var cors = require('cors')
 const app = express();
 
 /**
  * Express configuration
  */
 app.set('trust proxy', 1)
+
+app.use(cors())
 app.use(session({
   resave: true,
   saveUninitialized: true,

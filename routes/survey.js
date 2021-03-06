@@ -15,7 +15,8 @@ const {
   rapor3DB,
   rapor4DB,
   rapor5DB,
-  getRaporData
+  getRaporData,
+  getUserData
 } = require("../controllers/survey");
 const router = express.Router();
 
@@ -40,5 +41,5 @@ router.post("/rapor3DB",rapor3DB);
 router.post("/rapor4DB",rapor4DB);
 router.post("/rapor5DB",rapor5DB);
 router.get("/lastUserId", lastUserId);
-
+router.get("/getUserData", getUserData)
 module.exports = router;
