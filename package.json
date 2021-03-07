@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js"
   },
-  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Gathaus/ilgi-envanteri.git"
@@ -26,6 +25,8 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "mysql2": "^2.2.5",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
+    "passport-http-bearer": "^1.0.1"
   }
 }

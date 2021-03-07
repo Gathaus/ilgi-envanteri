@@ -97,4 +97,11 @@ document.querySelectorAll("input[name=radio-yapabilirlik-ö]")[3].checked = true
 // for(i=1;i<=40;i++){document.querySelectorAll("input[name=radio-hoslanma"+i+"]")[6].checked = true }
 // for(i=1;i<=40;i++){document.querySelectorAll("input[name=radio-yapabilirlik"+i+"]")[4].checked = true }
 // document.querySelectorAll("input[name=radio-hoslanma-ö]")[3].checked = true
+
 // document.querySelectorAll("input[name=radio-yapabilirlik-ö]")[3].checked = true
+
+// araştırmacı
+
+// cpanel bireysel mini
+// sayafaının başlangıç renkleri değişecek
+// mavi renk baskın olucak
