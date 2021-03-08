@@ -52,8 +52,7 @@ const {
   insertRapor5,
   getLastUserId,
   getRapor1,
-  writeToExcel
-  
+  writeToExcel,
 } = require("../models/survey");
 
 const getHome = async (req, res, next) => {
@@ -664,7 +663,6 @@ const calculateResults = async (req, res, next) => {
   );
   //liseli
   let liseliTumResultsRAYSGD = [];
-  
 
   for (i = 0; i < 6; i++) {
     liseliTumResultsRAYSGD.push(
@@ -678,17 +676,15 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 6; i++) {
     liseliTumResultsRAYSGD.push(
       (
-        ((hampuan4[i + 6] - liseliTumRAYSGD.y_ao[i]) /
-          liseliTumRAYSGD.y_s[i]) *
+        ((hampuan4[i + 6] - liseliTumRAYSGD.y_ao[i]) / liseliTumRAYSGD.y_s[i]) *
           10 +
         50
       ).toFixed(2)
     );
   }
-  console.log(liseliTumResultsRAYSGD)
+  console.log(liseliTumResultsRAYSGD);
   //liseli kız
   let liseliKizResultsRAYSGD = [];
-  
 
   for (i = 0; i < 6; i++) {
     liseliKizResultsRAYSGD.push(
@@ -702,8 +698,7 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 6; i++) {
     liseliKizResultsRAYSGD.push(
       (
-        ((hampuan4[i + 6] - liseliKizRAYSGD.y_ao[i]) /
-          liseliKizRAYSGD.y_s[i]) *
+        ((hampuan4[i + 6] - liseliKizRAYSGD.y_ao[i]) / liseliKizRAYSGD.y_s[i]) *
           10 +
         50
       ).toFixed(2)
@@ -711,7 +706,6 @@ const calculateResults = async (req, res, next) => {
   }
   //liseli erkek
   let liseliErkekResultsRAYSGD = [];
-  
 
   for (i = 0; i < 6; i++) {
     liseliErkekResultsRAYSGD.push(
@@ -734,7 +728,6 @@ const calculateResults = async (req, res, next) => {
   }
   //ünili
   let üniliTumResultsRAYSGD = [];
-  
 
   for (i = 0; i < 6; i++) {
     üniliTumResultsRAYSGD.push(
@@ -747,8 +740,7 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 6; i++) {
     üniliTumResultsRAYSGD.push(
       (
-        ((hampuan4[i + 6] - üniliTumRAYSGD.y_ao[i]) /
-          üniliTumRAYSGD.y_s[i]) *
+        ((hampuan4[i + 6] - üniliTumRAYSGD.y_ao[i]) / üniliTumRAYSGD.y_s[i]) *
           10 +
         50
       ).toFixed(2)
@@ -756,7 +748,6 @@ const calculateResults = async (req, res, next) => {
   }
   //ünili kız
   let üniliKizResultsRAYSGD = [];
-  
 
   for (i = 0; i < 6; i++) {
     üniliKizResultsRAYSGD.push(
@@ -769,8 +760,7 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 6; i++) {
     üniliKizResultsRAYSGD.push(
       (
-        ((hampuan4[i + 6] - üniliKizRAYSGD.y_ao[i]) /
-          üniliKizRAYSGD.y_s[i]) *
+        ((hampuan4[i + 6] - üniliKizRAYSGD.y_ao[i]) / üniliKizRAYSGD.y_s[i]) *
           10 +
         50
       ).toFixed(2)
@@ -778,7 +768,6 @@ const calculateResults = async (req, res, next) => {
   }
   //ünili erkek
   let üniliErkekResultsRAYSGD = [];
-  
 
   for (i = 0; i < 6; i++) {
     üniliErkekResultsRAYSGD.push(
@@ -801,7 +790,6 @@ const calculateResults = async (req, res, next) => {
   }
   //tüm
   let tümResultsRAYSGD = [];
-  
 
   for (i = 0; i < 6; i++) {
     tümResultsRAYSGD.push(
@@ -814,8 +802,7 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 6; i++) {
     tümResultsRAYSGD.push(
       (
-        ((hampuan4[i + 6] - tümRAYSGD.y_ao[i]) / tümRAYSGD.y_s[i]) *
-          10 +
+        ((hampuan4[i + 6] - tümRAYSGD.y_ao[i]) / tümRAYSGD.y_s[i]) * 10 +
         50
       ).toFixed(2)
     );
@@ -829,7 +816,6 @@ const calculateResults = async (req, res, next) => {
   hampuan5.push(parseFloat(hampuan3[0 + 4] - parseFloat(hampuan3[1 + 4])));
   hampuan5.push(parseFloat(hampuan3[3 + 4] - parseFloat(hampuan3[2 + 4])));
   hampuan5.push(parseFloat(hampuan2[0 + 2] - parseFloat(hampuan2[1 + 2])));
-  
 
   //liseli tüm
   let liseliTumResults3Boyut = [];
@@ -986,7 +972,6 @@ const calculateResults = async (req, res, next) => {
     );
   }
 
-  
   res.status(200).json({
     succes: true,
     rapor1_1: liseliTumResults8Dilim,
@@ -1095,42 +1080,34 @@ const comments = async (req, res, next) => {
 const hoslanti = async (req, res, next) => {
   //console.log("POST ÇALIŞTI");
   var userId = req.body.userId;
-  var arrHos=req.body.arrHos;
+  var arrHos = req.body.arrHos;
   //console.log(arrHos[1]);
-  insertHoslanti(
-    userId,
-    arrHos,
-    (err, data) => {
-      if (err)
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving customers.",
-        });
-      else {
-        res.send(data);
-      }
+  insertHoslanti(userId, arrHos, (err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
     }
-  );
+  });
 };
 const yapabilirlik = async (req, res, next) => {
   //console.log("POST ÇALIŞTI");
   var userId = req.body.userId;
-  var arrYap=req.body.arrYap;
+  var arrYap = req.body.arrYap;
   //console.log(arrYap[1]);
-  insertYapabilirlik(
-    userId,
-    arrYap,
-    (err, data) => {
-      if (err)
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving customers.",
-        });
-      else {
-        res.send(data);
-      }
+  insertYapabilirlik(userId, arrYap, (err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
     }
-  );
+  });
 };
 const users = async (req, res, next) => {
   console.log("POST ÇALIŞTI");
@@ -1211,125 +1188,101 @@ const getRaporData = async (req, res, next) => {
 const rapor1DB = async (req, res, next) => {
   var userId = req.body.userId;
   var raporValues1 = req.body.raporValues1;
-  insertRapor1(
-    userId,
-    raporValues1,
-    (err, data) => {
-      if (err)
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving customers.",
-        });
-      else {
-        res.send(data);
-      }
+  insertRapor1(userId, raporValues1, (err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
     }
-  );
+  });
 };
 const rapor2DB = async (req, res, next) => {
   var userId = req.body.userId;
   var raporValues2 = req.body.raporValues2;
-  insertRapor2(
-    userId,
-    raporValues2,
-    (err, data) => {
-      if (err)
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving customers.",
-        });
-      else {
-        res.send(data);
-      }
+  insertRapor2(userId, raporValues2, (err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
     }
-  );
+  });
 };
 const rapor3DB = async (req, res, next) => {
   var userId = req.body.userId;
   var raporValues3 = req.body.raporValues3;
-  insertRapor3(
-    userId,
-    raporValues3,
-    (err, data) => {
-      if (err)
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving customers.",
-        });
-      else {
-        res.send(data);
-      }
+  insertRapor3(userId, raporValues3, (err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
     }
-  );
+  });
 };
 const rapor4DB = async (req, res, next) => {
   var userId = req.body.userId;
   var raporValues4 = req.body.raporValues4;
-  insertRapor4(
-    userId,
-    raporValues4,
-    (err, data) => {
-      if (err)
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving customers.",
-        });
-      else {
-        res.send(data);
-      }
+  insertRapor4(userId, raporValues4, (err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
     }
-  );
+  });
 };
 const rapor5DB = async (req, res, next) => {
   var userId = req.body.userId;
   var raporValues5 = req.body.raporValues5;
-  insertRapor5(
-    userId,
-    raporValues5,
-    (err, data) => {
-      if (err)
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving customers.",
-        });
-      else {
-        res.send(data);
-      }
+  insertRapor5(userId, raporValues5, (err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
     }
-  );
+  });
 };
 
 const getUserData = async (req, res, next) => {
-  getRapor1(
-    (err, data) => {
-      if (err)
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving customers.",
-        });
-      else {
-        res.send(data);
-      }
+  getRapor1((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
     }
-  );
+  });
 };
 
 const writeToExcelController = async (req, res, next) => {
-  writeToExcel(
-    (err, data) => {
-      if (err)
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving customers.",
-        });
-      else {
-        res.status(200).json({
-          success: true
-        })
-      }
+  writeToExcel((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.status(200).json({
+        success: true,
+      });
     }
-  );
-  console.log("writeToExcel")
+  });
+  console.log("writeToExcel");
 };
 
 module.exports = {
@@ -1351,5 +1304,5 @@ module.exports = {
   rapor5DB,
   calculateResults2,
   getUserData,
-  writeToExcelController
+  writeToExcelController,
 };
