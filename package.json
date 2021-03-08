@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "nodemon":"nodemon app.js",
+    "heroku-postbuild":"npm install --prefix admin-panel && npm run build --prefix admin-panel"
+
   },
   "repository": {
     "type": "git",
@@ -15,6 +18,14 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Gathaus/ilgi-envanteri/issues"
+  },
+  "keywords": [
+    "example",
+    "heroku"
+  ],
+  "engines": {
+    "node": "13.14.0",
+    "npm": "6.14.4"
   },
   "homepage": "https://github.com/Gathaus/ilgi-envanteri#readme",
   "dependencies": {
