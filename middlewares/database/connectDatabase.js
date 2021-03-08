@@ -1,8 +1,13 @@
 'use strict';
 
-const mysql = require('mysql2');
+const mysql = require('mysql');
 
-var con = mysql.createConnection("mysql://b7ef3f2ee807bf:99e6dce6@us-cdbr-east-03.cleardb.com/heroku_cab903e0bd5020d?reconnect=true");
+var con = mysql.createConnection({
+  host: "us-cdbr-east-03.cleardb.com",
+  user: "b7ef3f2ee807bf",
+  password: "99e6dce6",
+  database: "heroku_cab903e0bd5020d"
+});
 
 con.connect(function(err) {
   if (err) throw err;
