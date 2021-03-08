@@ -89,14 +89,14 @@
 
     .navbar-header h1 {
         letter-spacing: 1px;
-        color: #fe5d55 !important;
+        color: #0047b3 !important;
         font-weight: 600 !important;
         font-family: 'math';
     }
 
     .navbar li a,
     .navbar {
-        color: #fe5d55 !important;
+        color: #0047b3 !important;
         font-weight: 600 !important;
         font-size: 12px;
         transition: all 0.6s 0s;
@@ -126,6 +126,7 @@
     #thankyou,
     #son,
     #sosyal,
+    #sosyalK,
     #mekanik,
     #doga,
     #yardım,
@@ -145,7 +146,8 @@
     #girisim,
     #duzenli,
     #insanNesne,
-    #fikirVeri {
+    #fikirVeri,
+    #say {
         margin: auto;
         width: 85% !important;
     }
@@ -353,8 +355,8 @@
                     </div>
                     <div class="panel panel-default" id="anasayfa" style="width: 90%;margin: auto;">
 
-                        <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                            <h3><b>KİŞİSEL KÜRE ENVANTERİ TESTİNE HOŞGELDİNİZ!</b></h1>
+                        <div class="panel-heading" style="background-color: #0047b3!important;">
+                            <h3 style="color:white;"><b>KİŞİSEL KÜRE ENVANTERİ TESTİNE HOŞGELDİNİZ!</b></h1>
                         </div>
                         <div class="panel-body">
                             <h4 style="font-weight: 500;">
@@ -2734,7 +2736,7 @@
                                                         <input type="radio" name="radio-yapabilirlik-ö" value="1">
                                                     </div>
                                                     <div
-                                                        style="display: inline-block;text-align: center;margin-left: 20px;">
+                                                        style="display: inline-block;text-align: center;margin-left: 25px;">
                                                         <input type="radio" name="radio-yapabilirlik-ö" value="2">
                                                     </div>
                                                     <div
@@ -3046,7 +3048,7 @@
                                             <td style="text-align: center; vertical-align: middle;">
                                                 <div>
                                                     <div
-                                                        style="display: inline-block;text-align: center;margin-left: 10px;">
+                                                        style="display: inline-block;text-align: center;margin-left: 7px;">
                                                         <input type="radio" name="radio-hoslanma29" value="1">
                                                     </div>
                                                     <div
@@ -3079,7 +3081,7 @@
                                             <td style="text-align: center; vertical-align: middle;">
                                                 <div>
                                                     <div
-                                                        style="display: inline-block;text-align: center;margin-left: 10px;">
+                                                        style="display: inline-block;text-align: center;margin-left: 7px;">
                                                         <input type="radio" name="radio-yapabilirlik29" value="1">
                                                     </div>
                                                     <div
@@ -4251,7 +4253,7 @@
                                     <tbody id="tbodyChart1">
                                         <tr>
                                             <td style="text-align: center; vertical-align: middle;"> <button class="btn info" id="sk"
-                                                onclick="$('#sonuc').css('display', 'none');$('#sosyal').css('display', 'block');"
+                                                onclick="$('#sonuc').css('display', 'none');$('#sosyalK').css('display', 'block');"
                                                 >Sosyal Kolaylaştırma</button></td>
                                                 <td style="text-align: center; vertical-align: middle;"> <span>15</span>
                                                 </td>
@@ -4435,8 +4437,8 @@
                 <!--mekanik-->
                 <div class="panel panel-default" id="mekanik" style="display: none;">
 
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>Mekanik</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>Mekanik</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -4463,8 +4465,8 @@
                 <!--doga-->
                 <div class="panel panel-default" id="doga" style="display: none;">
 
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>Doğa/Açık Alan</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>Doğa/Açık Alan</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -4487,8 +4489,8 @@
                 <!--sanat-->
                 <div class="panel panel-default" id="sanat" style="display: none;">
 
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>Sanat</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>Sanat</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -4511,8 +4513,8 @@
                 <!--Yardım-->
                 <div class="panel panel-default" id="yardım" style="display: none;">
 
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>Sanat</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>Yardım</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -4536,10 +4538,10 @@
                 </div>
 
                 <!--Sosyal Kolaylaştırma-->
-                <div class="panel panel-default" id="sosyal" style="display: none;">
+                <div class="panel panel-default" id="sosyalK" style="display: none;">
 
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>Sosyal Kolaylaştırma</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>Sosyal Kolaylaştırma</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -4556,7 +4558,7 @@
                         <br>
                         <div>
                             <button type="button" class="btn green-haze btn-outline sbold uppercase"
-                                onclick="$('#sosyal').css('display', 'none');$('#sonuc').css('display', 'block');">GERi</button>
+                                onclick="$('#sosyalK').css('display', 'none');$('#sonuc').css('display', 'block');">GERi</button>
 
                         </div>
 
@@ -4565,8 +4567,8 @@
                 <!--Yönetim-->
                 <div class="panel panel-default" id="yonetim" style="display: none;">
 
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>Yönetim</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>Yönetim</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -4592,8 +4594,8 @@
                 <!--İş Ayrıntıları-->
                 <div class="panel panel-default" id="is" style="display: none;">
 
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>İş Ayrıntıları</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>İş Ayrıntıları</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -4617,8 +4619,8 @@
                 <!--Veri İşleme-->
                 <div class="panel panel-default" id="veri" style="display: none;">
 
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>Veri İşleme</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>Veri İşleme</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -4894,8 +4896,8 @@
                 <!--Yuksek Saygınlık-->
                 <div class="panel panel-default" id="yuksek" style="display: none;">
 
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>Yüksek Saygınlık</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>Yüksek Saygınlık</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -4914,8 +4916,8 @@
                 <!--Dusuk Saygınlık-->
                 <div class="panel panel-default" id="dusuk" style="display: none;">
 
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>Düşük Saygınlık</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>Düşük Saygınlık</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -5204,8 +5206,8 @@
                 <!--İnsnalar-->
                 <div class="panel panel-default" id="insan" style="display: none;">
 
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>İnsanlar</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>İnsanlar</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -5224,8 +5226,8 @@
                 <!--Veriler-->
                 <div class="panel panel-default" id="veriler" style="display: none;">
 
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>Veriler</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>Veriler</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -5244,8 +5246,8 @@
                 <!--Nesneler-->
                 <div class="panel panel-default" id="nesne" style="display: none;">
 
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>Nesneler</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>Nesneler</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -5264,8 +5266,8 @@
                 <!--Fikirler-->
                 <div class="panel panel-default" id="fikir" style="display: none;">
 
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>Fikirler</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>Fikirler</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -5421,7 +5423,7 @@
                                             <td style="text-align: center; vertical-align: middle;"> <span> <strong>
                                                 <button class="btn info" id="mk" 
                                                 onclick="$('#sonuc4').css('display', 'none');$('#arastirma').css('display', 'block');"
-                                                >Araştırma</button></strong></span></td>
+                                                >Araştırmacı</button></strong></span></td>
                                             <td style="text-align: center; vertical-align: middle;"> <span> 16</span>
                                             </td>
                                             <td style="text-align: center; vertical-align: middle;"> <span> 17</span>
@@ -5569,8 +5571,8 @@
                  <!--Realistik-->
                  <div class="panel panel-default" id="real" style="display: none;">
                         
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>Realistik</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>Realistik</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -5594,8 +5596,8 @@
                 <!--Araştırmacı-->
                 <div class="panel panel-default" id="arastirma" style="display: none;">
                         
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>Araştırmacı</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>Araştırmacı</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -5621,8 +5623,8 @@
                 <!--Yaratıcı-->
                 <div class="panel panel-default" id="yaratici" style="display: none;">
                         
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>Yaratıcı</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>Yaratıcı</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -5644,8 +5646,8 @@
                 <!--Sosyal-->
                 <div class="panel panel-default" id="sosyal" style="display: none;">
                         
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>Sosyal</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>Sosyal</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -5667,8 +5669,8 @@
                 <!--Girişimci-->
                 <div class="panel panel-default" id="girisim" style="display: none;">
                         
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>Girişimci</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>Girişimci</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -5690,8 +5692,8 @@
                 <!--Düzenli-->
                 <div class="panel panel-default" id="duzenli" style="display: none;">
                         
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>Düzenli</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>Düzenli</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -5861,7 +5863,7 @@
                                         <tr>
                                             <td style="text-align: center; vertical-align: middle;"> <span> <strong>
                                                 <button class="btn info" id="dg"
-                                                onclick="$('#sonuc5').css('display', 'none');$('#fikirVeri').css('display', 'block');"
+                                                onclick="$('#sonuc5').css('display', 'none');$('#say').css('display', 'block');"
                                                 >Saygınlık</button></strong></span></td>
                                             <td style="text-align: center; vertical-align: middle;"> <span>14</span>
                                             </td>
@@ -5971,8 +5973,8 @@
                 <!--İnsanlar/Nesneler-->
                 <div class="panel panel-default" id="insanNesne" style="display: none;">
                         
-                    <div class="panel-heading"style="background-color: #fe5b5566!important;">
-                        <h3><b>İnsanlar/Nesneler</b></h1>
+                    <div class="panel-heading"style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>İnsanlar/Nesneler</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -5992,8 +5994,8 @@
                 <!--Fikirler/Veriler-->
                 <div class="panel panel-default" id="fikirVeri" style="display: none;">
                         
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>Fikirler/Veriler</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>Fikirler/Veriler</b></h1>
                     </div>
                     <div class="panel-body">
                         <h4 style="font-weight: 500;">
@@ -6009,10 +6011,30 @@
                 </div>
 
                 <!-- -->
+                <!--Saygınlık-->
+                <div class="panel panel-default" id="say" style="display: none;">
+                        
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>Saygınlık</b></h1>
+                    </div>
+                    <div class="panel-body">
+                        <h4 style="font-weight: 500;">
+                            Saygınlık boyutu çeşitli etkinliklerdeki zorluk, gerekli eğitim ve bilgi ile ilgidir. 
+                            Kimi birey, kolayca öğrenebilen ve daha az eğitim gerektiren etkinlikleri tercih eder.
+                            Kimi birey ise ileri eğitimler gerektiren ve performan gösterilmesi zor olan etkinliklerden
+                            hoşlanır.
+                        </h4>
+                        <br>
+                        <div >
+                            <button type="button" class="btn green-haze btn-outline sbold uppercase"
+                                onclick="$('#say').css('display', 'none');$('#sonuc5').css('display', 'block');">GERi</button>
+                        </div>
+                    </div>
+                </div>
                 <!-- son -->
                 <div class="panel panel-default " id="son" style="display: none;">
-                    <div class="panel-heading" style="background-color: #fe5b5566!important;">
-                        <h3><b>MEMNUNİYET</b></h1>
+                    <div class="panel-heading" style="background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b>MEMNUNİYET</b></h1>
                     </div>
                     <div class="panel-body">
                         <p style="font-size: large;font-weight: 600 !important;">Kişisel Küre Envanteri – Kısa Form –
@@ -6080,8 +6102,8 @@
 
                 <!--teşekkürler -->
                 <div class="panel panel-default " id="thankyou" style="display: none; text-align: center;">
-                    <div class="panel-heading" style=" position: center;background-color: #fe5b5566!important;">
-                        <h3><b> KATILIMINIZ İÇİN TEŞEKKÜR EDERİZ.</b></h1>
+                    <div class="panel-heading" style=" position: center;background-color: #0047b3!important;">
+                        <h3 style="color:white;"><b> KATILIMINIZ İÇİN TEŞEKKÜR EDERİZ.</b></h1>
                     </div>
                 </div>
 
@@ -6428,7 +6450,8 @@
                             $('#yardım').css('display','none');
                             $('#sanat').css('display','none');
                             $('#doga').css('display','none');
-                            $('#mekanik').css('display','none');"
+                            $('#mekanik').css('display','none');
+                            $('#thankyou').css('display','none');"
                             >
                             Memnun Kaldınız mı ?</ahref>
                     </div>
