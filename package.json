@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
+    "start": "node app",
     "nodemon": "nodemon app.js",
     "heroku-postbuild": "npm install --prefix admin-panel && npm run build --prefix admin-panel"
   },
