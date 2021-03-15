@@ -9,10 +9,14 @@
     "@material-ui/data-grid": "^4.0.0-alpha.21",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/x-grid": "^4.0.0-alpha.21",
+    "@types/googlemaps": "3.39.6",
+    "@types/markerclustererplus": "2.1.33",
+    "ajv": "6.12.2",
     "chartist": "0.10.1",
     "classnames": "2.2.6",
     "cors": "^2.8.5",
     "history": "4.10.1",
+    "material-dashboard-react": "^1.9.0",
     "namor": "^2.0.2",
     "perfect-scrollbar": "1.5.0",
     "prop-types": "15.7.2",
@@ -24,7 +28,8 @@
     "react-scripts": "3.4.1",
     "react-swipeable-views": "0.13.9",
     "react-table": "^7.6.3",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "typescript": "3.9.3"
   },
   "scripts": {
     "start": "react-scripts start",
