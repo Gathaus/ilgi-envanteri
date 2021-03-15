@@ -20,6 +20,8 @@ const app = express();
  * Express configuration
  */
 
+app.use(cors());
+app.options('*', cors())
 app.use(
   session({
     resave: true,
@@ -28,11 +30,9 @@ app.use(
     cookie: { maxAge: 1209600000 }, // two weeks in milliseconds
   })
 );
-app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.options('*', cors())
 app.use("/", routes);
 app.use(express.static("admin-panel/build"));
 app.use(express.static(path.join(__dirname, "public")));
