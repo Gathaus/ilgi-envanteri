@@ -1,6 +1,7 @@
 /**
  * Module dependencies
  */
+var cors = require("cors");
 const express = require("express");
 const path = require("path");
 const dotenv = require("dotenv").config({
@@ -13,14 +14,11 @@ const session = require("express-session");
  * Load environment variables
  */
 const PORT = process.env.PORT;
-var cors = require("cors");
 const app = express();
 
 /**
  * Express configuration
  */
-app.set("trust proxy", 1);
-
 app.use(cors());
 app.use(
   session({
