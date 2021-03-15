@@ -4,9 +4,9 @@ const mysql = require('mysql');
 
 var con = mysql.createConnection({
   host: "us-cdbr-east-03.cleardb.com",
-  user: "b7ef3f2ee807bf",
-  password: "99e6dce6",
-  database: "heroku_cab903e0bd5020d"
+  user: "kisiselk_root",
+  password: "1sH%n4KQFQ~*",
+  database: "kisiselk_ilgienvanteri"
 });
 
 con.connect(function(err) {
