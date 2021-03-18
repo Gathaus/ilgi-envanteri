@@ -3,10 +3,10 @@
 const mysql = require('mysql');
 
 var con = mysql.createConnection({
-  host: "us-cdbr-east-03.cleardb.com",
-  user: "kisiselk_root",
-  password: "1sH%n4KQFQ~*",
-  database: "kisiselk_ilgienvanteri"
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
 });
 
 con.connect(function(err) {
