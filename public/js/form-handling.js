@@ -13,6 +13,7 @@ function fetchData() {
     .catch((error) => {
       console.log(error);
     });
+    
 
   fetch("http://localhost:8080/api/survey/getMesleklerData")
     .then((response) => response.json())

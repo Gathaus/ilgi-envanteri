@@ -1,5 +1,16 @@
 const con = require("../middlewares/database/connectDatabase");
 
+const getUserReports = (result) => {
+  con.query("CALL GetAllReports();", (err, res) => {
+    if (err) {
+       console.log("error: ", err);
+      result(null, err);
+    }
+     console.log("customers: ", res);
+    result(null, res);
+  });
+};
+
 const getRapor1 = (result) => {
   con.query("Select * from user", (err, res) => {
     if (err) {
@@ -210,5 +221,6 @@ module.exports = {
   getLastUserId,
   getRapor1,
   getCommentsCount,
-  getUsersCount
+  getUsersCount,
+  getUserReports
 };

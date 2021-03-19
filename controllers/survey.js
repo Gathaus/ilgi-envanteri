@@ -53,13 +53,27 @@ const {
   getLastUserId,
   getRapor1,
   getCommentsCount,
-  getUsersCount
+  getUsersCount,
+  getUserReports
 } = require("../models/survey");
 const excel = require("exceljs");
 const fs = require("fs");
 
 const getHome = async (req, res, next) => {
   res.sendFile(path.join(__dirname, "../views", "index.html"));
+};
+
+const getUserReport = async (req, res, next) => {
+  getUserReports((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
+    }
+  });
 };
 
 const getLiselerData = async (req, res, next) => {
@@ -1370,5 +1384,6 @@ module.exports = {
   getUserData,
   writeToExcelController,
   getCommentsCounts,
-  getUsersCounts
+  getUsersCounts,
+  getUserReport
 };
