@@ -244,7 +244,7 @@ const calculateResults = async (req, res, next) => {
         ((hampuan1[i] - liseliKiz8Dilim.h_ao[i]) / liseliKiz8Dilim.h_s[i]) *
           10 +
         50
-      ).toFixed(2)
+      )
     );
   }
   for (i = 0; i < 8; i++) {
@@ -253,9 +253,14 @@ const calculateResults = async (req, res, next) => {
         ((hampuan1[i + 8] - liseliKiz8Dilim.y_ao[i]) / liseliTum8Dilim.y_s[i]) *
           10 +
         50
-      ).toFixed(2)
+      )
     );
+    console.log("hampuan: "+hampuan1[i + 8]+" y_a "+ liseliKiz8Dilim.y_ao[i] +" y_s "+liseliTum8Dilim.y_s[i])
+
   }
+
+  console.log(hampuan1)
+  console.log(liseliKizResults8Dilim)
   //tablo1 liseli erkek
   let liseliErkekResults8Dilim = [];
   for (i = 0; i < 8; i++) {
@@ -780,7 +785,6 @@ const calculateResults = async (req, res, next) => {
       ).toFixed(2)
     );
   }
-  console.log(liseliTumResultsRAYSGD);
   //liseli kız
   let liseliKizResultsRAYSGD = [];
 
