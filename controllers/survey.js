@@ -1442,9 +1442,9 @@ const writeToExcelReport1Controller = async (req, res, next) => {
           err.message || "Some error occurred while retrieving customers.",
       });
     else {
-      const jsonCustomers = JSON.parse(JSON.stringify(data))[0];
+      const jsonReport1 = JSON.parse(JSON.stringify(data))[0];
       let workbook = new excel.Workbook(); //creating workbook
-      let worksheet = workbook.addWorksheet("Customers2");
+      let worksheet = workbook.addWorksheet("Report1");
       
       worksheet.columns = [
         { header: "Rumuz", key: "Rumuz", width: 30 },
@@ -1471,23 +1471,266 @@ const writeToExcelReport1Controller = async (req, res, next) => {
         { header: "Tüm Yapabilirlik", key: "Tüm Yapabilirlik", width: 30 },
       ];
 
-      worksheet.addRows(jsonCustomers);
+      worksheet.addRows(jsonReport1);
       //delete if exist
 
-      if (fs.existsSync(path.join(__dirname, "../customer2.xlsx"))) {
-        fs.unlink(path.join(__dirname, "../customer2.xlsx"), (err) => {
+      if (fs.existsSync(path.join(__dirname, "../report1.xlsx"))) {
+        fs.unlink(path.join(__dirname, "../report1.xlsx"), (err) => {
           if (err) {
             console.log("failed to delete local image:" + err);
           } else {
-            console.log(path.join(__dirname, "../customer2.xlsx") + ` deleted`);
-            workbook.xlsx.writeFile("customer2.xlsx").then((response) => {
-              res.sendFile(path.join(__dirname, "../customer2.xlsx"));
+            console.log(path.join(__dirname, "../report1.xlsx") + ` deleted`);
+            workbook.xlsx.writeFile("report1.xlsx").then((response) => {
+              res.sendFile(path.join(__dirname, "../report1.xlsx"));
             });
           }
         });
       } else {
-        workbook.xlsx.writeFile("customer2.xlsx").then((response) => {
-          res.sendFile(path.join(__dirname, "../customer2.xlsx"));
+        workbook.xlsx.writeFile("report1.xlsx").then((response) => {
+          res.sendFile(path.join(__dirname, "../report1.xlsx"));
+        });
+      }
+      // Write to File
+    }
+  });
+};
+
+const writeToExcelReport2Controller = async (req, res, next) => {
+  getUserReports2((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      const jsonReport2 = JSON.parse(JSON.stringify(data))[0];
+      let workbook = new excel.Workbook(); //creating workbook
+      let worksheet = workbook.addWorksheet("Report2");
+      
+      worksheet.columns = [
+        { header: "Rumuz", key: "Rumuz", width: 30 },
+        { header: "Yaş", key: "Yas", width: 10 },
+        { header: "Cinsiyet", key: "Cinsiyet", width: 30 },
+        { header: "Seçilen Puan Türü", key: "Soru1", width: 30 },
+        { header: "Hissedilen Puan Türü", key: "Soru2", width: 30 },
+        { header: "Lise Türü", key: "Soru3", width: 30 },
+        { header: "Öğrenim Hedefi", key: "Soru4", width: 30 },
+        { header: "Karşılaştırılmak İstenen Grup", key: "Soru5", width: 30 },
+        { header: "Liseli Tüm Hoşlantı", key: "Liseli Tüm Hoşlantı", width: 10 },
+        { header: "Liseli Tüm Yapabilirlik", key: "Liseli Tüm Yapabilirlik", width: 30 },
+        { header: "Liseli Kız Hoşlantı", key: "Liseli Kız Hoşlantı", width: 30 },
+        { header: "Liseli Kız Yapabilirlik", key: "Liseli Kız Yapabilirlik", width: 30 },
+        { header: "Liseli Erkek Hoşlantı", key: "Liseli Erkek Hoşlantı", width: 30 },
+        { header: "Liseli Erkek Yapabilirlik", key: "Liseli Erkek Yapabilirlik", width: 30 },
+        { header: "Üniversiteli Tüm Hoşlantı", key: "Üniversiteli Tüm Hoşlantı", width: 30 },
+        { header: "Üniversiteli Tüm Yapabilirlik", key: "Üniversiteli Tüm Yapabilirlik", width: 10 },
+        { header: "Üniversiteli Kız Hoşlantı", key: "Üniversiteli Kız Hoşlantı", width: 30 },
+        { header: "Üniversiteli Kız Yapabilirlik", key: "Üniversiteli Kız Yapabilirlik", width: 30 },
+        { header: "Üniversiteli Erkek Hoşlantı", key: "Üniversiteli Erkek Hoşlantı", width: 30 },
+        { header: "Üniversiteli Erkek Yapabilirlik", key: "Üniversiteli Erkek Yapabilirlik", width: 30 },
+        { header: "Tüm Hoşlantı", key: "Tüm Hoşlantı", width: 30 },
+        { header: "Tüm Yapabilirlik", key: "Tüm Yapabilirlik", width: 30 },
+      ];
+
+      worksheet.addRows(jsonReport2);
+      //delete if exist
+
+      if (fs.existsSync(path.join(__dirname, "../report2.xlsx"))) {
+        fs.unlink(path.join(__dirname, "../report2.xlsx"), (err) => {
+          if (err) {
+            console.log("failed to delete local image:" + err);
+          } else {
+            console.log(path.join(__dirname, "../report2.xlsx") + ` deleted`);
+            workbook.xlsx.writeFile("report2.xlsx").then((response) => {
+              res.sendFile(path.join(__dirname, "../report2.xlsx"));
+            });
+          }
+        });
+      } else {
+        workbook.xlsx.writeFile("report2.xlsx").then((response) => {
+          res.sendFile(path.join(__dirname, "../report2.xlsx"));
+        });
+      }
+      // Write to File
+    }
+  });
+};
+
+const writeToExcelReport3Controller = async (req, res, next) => {
+  getUserReports3((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      const jsonReport3 = JSON.parse(JSON.stringify(data))[0];
+      let workbook = new excel.Workbook(); //creating workbook
+      let worksheet = workbook.addWorksheet("Report3");
+      
+      worksheet.columns = [
+        { header: "Rumuz", key: "Rumuz", width: 30 },
+        { header: "Yaş", key: "Yas", width: 10 },
+        { header: "Cinsiyet", key: "Cinsiyet", width: 30 },
+        { header: "Seçilen Puan Türü", key: "Soru1", width: 30 },
+        { header: "Hissedilen Puan Türü", key: "Soru2", width: 30 },
+        { header: "Lise Türü", key: "Soru3", width: 30 },
+        { header: "Öğrenim Hedefi", key: "Soru4", width: 30 },
+        { header: "Karşılaştırılmak İstenen Grup", key: "Soru5", width: 30 },
+        { header: "Liseli Tüm Hoşlantı", key: "Liseli Tüm Hoşlantı", width: 10 },
+        { header: "Liseli Tüm Yapabilirlik", key: "Liseli Tüm Yapabilirlik", width: 30 },
+        { header: "Liseli Kız Hoşlantı", key: "Liseli Kız Hoşlantı", width: 30 },
+        { header: "Liseli Kız Yapabilirlik", key: "Liseli Kız Yapabilirlik", width: 30 },
+        { header: "Liseli Erkek Hoşlantı", key: "Liseli Erkek Hoşlantı", width: 30 },
+        { header: "Liseli Erkek Yapabilirlik", key: "Liseli Erkek Yapabilirlik", width: 30 },
+        { header: "Üniversiteli Tüm Hoşlantı", key: "Üniversiteli Tüm Hoşlantı", width: 30 },
+        { header: "Üniversiteli Tüm Yapabilirlik", key: "Üniversiteli Tüm Yapabilirlik", width: 10 },
+        { header: "Üniversiteli Kız Hoşlantı", key: "Üniversiteli Kız Hoşlantı", width: 30 },
+        { header: "Üniversiteli Kız Yapabilirlik", key: "Üniversiteli Kız Yapabilirlik", width: 30 },
+        { header: "Üniversiteli Erkek Hoşlantı", key: "Üniversiteli Erkek Hoşlantı", width: 30 },
+        { header: "Üniversiteli Erkek Yapabilirlik", key: "Üniversiteli Erkek Yapabilirlik", width: 30 },
+        { header: "Tüm Hoşlantı", key: "Tüm Hoşlantı", width: 30 },
+        { header: "Tüm Yapabilirlik", key: "Tüm Yapabilirlik", width: 30 },
+      ];
+
+      worksheet.addRows(jsonReport3);
+      //delete if exist
+
+      if (fs.existsSync(path.join(__dirname, "../report3.xlsx"))) {
+        fs.unlink(path.join(__dirname, "../report3.xlsx"), (err) => {
+          if (err) {
+            console.log("failed to delete local image:" + err);
+          } else {
+            console.log(path.join(__dirname, "../report3.xlsx") + ` deleted`);
+            workbook.xlsx.writeFile("report3.xlsx").then((response) => {
+              res.sendFile(path.join(__dirname, "../report3.xlsx"));
+            });
+          }
+        });
+      } else {
+        workbook.xlsx.writeFile("report3.xlsx").then((response) => {
+          res.sendFile(path.join(__dirname, "../report3.xlsx"));
+        });
+      }
+      // Write to File
+    }
+  });
+};
+
+const writeToExcelReport4Controller = async (req, res, next) => {
+  getUserReports4((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      const jsonReport4 = JSON.parse(JSON.stringify(data))[0];
+      let workbook = new excel.Workbook(); //creating workbook
+      let worksheet = workbook.addWorksheet("Report4");
+      
+      worksheet.columns = [
+        { header: "Rumuz", key: "Rumuz", width: 30 },
+        { header: "Yaş", key: "Yas", width: 10 },
+        { header: "Cinsiyet", key: "Cinsiyet", width: 30 },
+        { header: "Seçilen Puan Türü", key: "Soru1", width: 30 },
+        { header: "Hissedilen Puan Türü", key: "Soru2", width: 30 },
+        { header: "Lise Türü", key: "Soru3", width: 30 },
+        { header: "Öğrenim Hedefi", key: "Soru4", width: 30 },
+        { header: "Karşılaştırılmak İstenen Grup", key: "Soru5", width: 30 },
+        { header: "Liseli Tüm Hoşlantı", key: "Liseli Tüm Hoşlantı", width: 10 },
+        { header: "Liseli Tüm Yapabilirlik", key: "Liseli Tüm Yapabilirlik", width: 30 },
+        { header: "Liseli Kız Hoşlantı", key: "Liseli Kız Hoşlantı", width: 30 },
+        { header: "Liseli Kız Yapabilirlik", key: "Liseli Kız Yapabilirlik", width: 30 },
+        { header: "Liseli Erkek Hoşlantı", key: "Liseli Erkek Hoşlantı", width: 30 },
+        { header: "Liseli Erkek Yapabilirlik", key: "Liseli Erkek Yapabilirlik", width: 30 },
+        { header: "Üniversiteli Tüm Hoşlantı", key: "Üniversiteli Tüm Hoşlantı", width: 30 },
+        { header: "Üniversiteli Tüm Yapabilirlik", key: "Üniversiteli Tüm Yapabilirlik", width: 10 },
+        { header: "Üniversiteli Kız Hoşlantı", key: "Üniversiteli Kız Hoşlantı", width: 30 },
+        { header: "Üniversiteli Kız Yapabilirlik", key: "Üniversiteli Kız Yapabilirlik", width: 30 },
+        { header: "Üniversiteli Erkek Hoşlantı", key: "Üniversiteli Erkek Hoşlantı", width: 30 },
+        { header: "Üniversiteli Erkek Yapabilirlik", key: "Üniversiteli Erkek Yapabilirlik", width: 30 },
+        { header: "Tüm Hoşlantı", key: "Tüm Hoşlantı", width: 30 },
+        { header: "Tüm Yapabilirlik", key: "Tüm Yapabilirlik", width: 30 },
+      ];
+
+      worksheet.addRows(jsonReport4);
+      //delete if exist
+
+      if (fs.existsSync(path.join(__dirname, "../report4.xlsx"))) {
+        fs.unlink(path.join(__dirname, "../report4.xlsx"), (err) => {
+          if (err) {
+            console.log("failed to delete local image:" + err);
+          } else {
+            console.log(path.join(__dirname, "../report4.xlsx") + ` deleted`);
+            workbook.xlsx.writeFile("report4.xlsx").then((response) => {
+              res.sendFile(path.join(__dirname, "../report4.xlsx"));
+            });
+          }
+        });
+      } else {
+        workbook.xlsx.writeFile("report4.xlsx").then((response) => {
+          res.sendFile(path.join(__dirname, "../report4.xlsx"));
+        });
+      }
+      // Write to File
+    }
+  });
+};
+const writeToExcelReport5Controller = async (req, res, next) => {
+  getUserReports5((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      const jsonReport5 = JSON.parse(JSON.stringify(data))[0];
+      let workbook = new excel.Workbook(); //creating workbook
+      let worksheet = workbook.addWorksheet("Report5");
+      
+      worksheet.columns = [
+        { header: "Rumuz", key: "Rumuz", width: 30 },
+        { header: "Yaş", key: "Yas", width: 10 },
+        { header: "Cinsiyet", key: "Cinsiyet", width: 30 },
+        { header: "Seçilen Puan Türü", key: "Soru1", width: 30 },
+        { header: "Hissedilen Puan Türü", key: "Soru2", width: 30 },
+        { header: "Lise Türü", key: "Soru3", width: 30 },
+        { header: "Öğrenim Hedefi", key: "Soru4", width: 30 },
+        { header: "Karşılaştırılmak İstenen Grup", key: "Soru5", width: 30 },
+        { header: "Liseli Tüm Hoşlantı", key: "Liseli Tüm Hoşlantı", width: 10 },
+        { header: "Liseli Tüm Yapabilirlik", key: "Liseli Tüm Yapabilirlik", width: 30 },
+        { header: "Liseli Kız Hoşlantı", key: "Liseli Kız Hoşlantı", width: 30 },
+        { header: "Liseli Kız Yapabilirlik", key: "Liseli Kız Yapabilirlik", width: 30 },
+        { header: "Liseli Erkek Hoşlantı", key: "Liseli Erkek Hoşlantı", width: 30 },
+        { header: "Liseli Erkek Yapabilirlik", key: "Liseli Erkek Yapabilirlik", width: 30 },
+        { header: "Üniversiteli Tüm Hoşlantı", key: "Üniversiteli Tüm Hoşlantı", width: 30 },
+        { header: "Üniversiteli Tüm Yapabilirlik", key: "Üniversiteli Tüm Yapabilirlik", width: 10 },
+        { header: "Üniversiteli Kız Hoşlantı", key: "Üniversiteli Kız Hoşlantı", width: 30 },
+        { header: "Üniversiteli Kız Yapabilirlik", key: "Üniversiteli Kız Yapabilirlik", width: 30 },
+        { header: "Üniversiteli Erkek Hoşlantı", key: "Üniversiteli Erkek Hoşlantı", width: 30 },
+        { header: "Üniversiteli Erkek Yapabilirlik", key: "Üniversiteli Erkek Yapabilirlik", width: 30 },
+        { header: "Tüm Hoşlantı", key: "Tüm Hoşlantı", width: 30 },
+        { header: "Tüm Yapabilirlik", key: "Tüm Yapabilirlik", width: 30 },
+      ];
+
+      worksheet.addRows(jsonReport5);
+      //delete if exist
+
+      if (fs.existsSync(path.join(__dirname, "../report5.xlsx"))) {
+        fs.unlink(path.join(__dirname, "../report5.xlsx"), (err) => {
+          if (err) {
+            console.log("failed to delete local image:" + err);
+          } else {
+            console.log(path.join(__dirname, "../report5.xlsx") + ` deleted`);
+            workbook.xlsx.writeFile("report5.xlsx").then((response) => {
+              res.sendFile(path.join(__dirname, "../report5.xlsx"));
+            });
+          }
+        });
+      } else {
+        workbook.xlsx.writeFile("report5.xlsx").then((response) => {
+          res.sendFile(path.join(__dirname, "../report5.xlsx"));
         });
       }
       // Write to File
@@ -1516,6 +1759,10 @@ module.exports = {
   getUserData,
   writeToExcelController,
   writeToExcelReport1Controller,
+  writeToExcelReport2Controller,
+  writeToExcelReport3Controller,
+  writeToExcelReport4Controller,
+  writeToExcelReport5Controller,
   getCommentsCounts,
   getUsersCounts,
   getUserReport1,
