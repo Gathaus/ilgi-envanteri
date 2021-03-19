@@ -1,5 +1,56 @@
 const con = require("../middlewares/database/connectDatabase");
 
+const getUserReports1 = (result) => {
+  con.query("CALL GetReport1();", (err, res) => {
+    if (err) {
+       console.log("error: ", err);
+      result(null, err);
+    }
+     console.log("customers: ", res);
+    result(null, res);
+  });
+};
+const getUserReports2 = (result) => {
+  con.query("CALL GetReport2();", (err, res) => {
+    if (err) {
+       console.log("error: ", err);
+      result(null, err);
+    }
+     console.log("customers: ", res);
+    result(null, res);
+  }); 
+};
+const getUserReports3 = (result) => {
+  con.query("CALL GetReport3();", (err, res) => {
+    if (err) {
+       console.log("error: ", err);
+      result(null, err);
+    }
+     console.log("customers: ", res);
+    result(null, res);
+  });
+};
+const getUserReports4 = (result) => {
+  con.query("CALL GetReport4();", (err, res) => {
+    if (err) {
+       console.log("error: ", err);
+      result(null, err);
+    }
+     console.log("customers: ", res);
+    result(null, res);
+  });
+};
+const getUserReports5 = (result) => {
+  con.query("CALL GetReport5();", (err, res) => {
+    if (err) {
+       console.log("error: ", err);
+      result(null, err);
+    }
+     console.log("customers: ", res);
+    result(null, res);
+  });
+};
+
 const getRapor1 = (result) => {
   con.query("Select * from user", (err, res) => {
     if (err) {
@@ -10,7 +61,16 @@ const getRapor1 = (result) => {
     result(null, res);
   });
 };
-
+const getCommentDatas = (result) => {
+  con.query("SELECT * FROM memnuniyet", (err, res) => {
+    if (err) {
+      // console.log("error: ", err);
+      result(null, err);
+    }
+    //   console.log("customers: ", res);
+    result(null, res);
+  });
+};
 const getLiseler = (result) => {
   con.query("SELECT * FROM liseler", (err, res) => {
     if (err) {
@@ -99,6 +159,30 @@ const getLastUserId = (result) => {
   });
 };
 
+const getCommentsCount = (result) => {
+  con.query("select count(*) as total from memnuniyet", (err, res) => {
+    if (err) {
+      // console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+    //   console.log("customers: ", res);
+    result(null, res);
+  });
+};
+
+const getUsersCount = (result) => {
+  con.query("select count(*) as total from user", (err, res) => {
+    if (err) {
+      // console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+    result(null, res);
+  });
+};
+
+
 const insertRapor1 = (userId, raporValues1, result) => {
   // console.log("inserted"+userId);
   // console.log("inserted"+raporValues1);
@@ -185,5 +269,12 @@ module.exports = {
   insertRapor5,
   getLastUserId,
   getRapor1,
-  
+  getCommentsCount,
+  getUsersCount,
+  getUserReports1,
+  getUserReports2,
+  getUserReports3,
+  getUserReports4,
+  getUserReports5,
+  getCommentDatas
 };

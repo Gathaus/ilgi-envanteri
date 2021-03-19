@@ -52,12 +52,94 @@ const {
   insertRapor5,
   getLastUserId,
   getRapor1,
+  getCommentsCount,
+  getUsersCount,
+  getUserReports1,
+  getUserReports2,
+  getUserReports3, 
+  getUserReports4,
+  getUserReports5,
+  getCommentDatas,
 } = require("../models/survey");
 const excel = require("exceljs");
 const fs = require("fs");
 
 const getHome = async (req, res, next) => {
   res.sendFile(path.join(__dirname, "../views", "index.html"));
+};
+
+const getUserReport1 = async (req, res, next) => {
+  getUserReports1((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
+    }
+  });
+};
+const getUserReport2 = async (req, res, next) => {
+  getUserReports2((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
+    }
+  });
+};
+const getUserReport3 = async (req, res, next) => {
+  getUserReports3((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
+    }
+  });
+};
+const getUserReport4 = async (req, res, next) => {
+  getUserReports4((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
+    }
+  });
+};
+const getUserReport5 = async (req, res, next) => {
+  getUserReports5((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
+    }
+  });
+};
+
+const getCommentData = async (req, res, next) => {
+  getCommentDatas((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
+    }
+  });
 };
 
 const getLiselerData = async (req, res, next) => {
@@ -72,6 +154,35 @@ const getLiselerData = async (req, res, next) => {
     }
   });
 };
+
+
+const getCommentsCounts = async (req, res, next) => {
+  getCommentsCount((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
+    }
+  });
+};
+
+const getUsersCounts = async (req, res, next) => {
+  getUsersCount((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
+    }
+  });
+};
+
+
 const getMesleklerData = async (req, res, next) => {
   getMeslekler((err, data) => {
     if (err)
@@ -1323,6 +1434,66 @@ const writeToExcelController = async (req, res, next) => {
     }
   });
 };
+const writeToExcelReport1Controller = async (req, res, next) => {
+  getUserReports1((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      const jsonCustomers = JSON.parse(JSON.stringify(data));
+      let workbook = new excel.Workbook(); //creating workbook
+      let worksheet = workbook.addWorksheet("Customers");
+
+      worksheet.columns = [
+        { header: "Rumuz", key: "Rumuz", width: 30 },
+        { header: "Yaş", key: "Yas", width: 10 },
+        { header: "Cinsiyet", key: "Cinsiyet", width: 30 },
+        { header: "Seçilen Puan Türü", key: "Soru1", width: 30 },
+        { header: "Hissedilen Puan Türü", key: "Soru2", width: 30 },
+        { header: "Lise Türü", key: "Soru3", width: 30 },
+        { header: "Öğrenim Hedefi", key: "Soru4", width: 30 },
+        { header: "Karşılaştırılmak İstenen Grup", key: "Soru5", width: 30 },
+        { header: "Liseli Tüm Hoşlantı", key: "Liseli Tüm Hoşlantı", width: 10 },
+        { header: "Liseli Tüm Yapabilirlik", key: "Liseli Tüm Yapabilirlik", width: 30 },
+        { header: "Liseli Kız Hoşlantı", key: "Liseli Kız Hoşlantı", width: 30 },
+        { header: "Liseli Kız Yapabilirlik", key: "Liseli Kız Yapabilirlik", width: 30 },
+        { header: "Liseli Erkek Hoşlantı", key: "Liseli Erkek Hoşlantı", width: 30 },
+        { header: "Liseli Erkek Yapabilirlik", key: "Liseli Erkek Yapabilirlik", width: 30 },
+        { header: "Üniversiteli Tüm Hoşlantı", key: "Üniversiteli Tüm Hoşlantı", width: 30 },
+        { header: "Üniversiteli Tüm Yapabilirlik", key: "Üniversiteli Tüm Yapabilirlik", width: 10 },
+        { header: "Üniversiteli Kız Hoşlantı", key: "Üniversiteli Kız Hoşlantı", width: 30 },
+        { header: "Üniversiteli Kız Yapabilirlik", key: "Üniversiteli Kız Yapabilirlik", width: 30 },
+        { header: "Üniversiteli Erkek Hoşlantı", key: "Üniversiteli Erkek Hoşlantı", width: 30 },
+        { header: "Üniversiteli Erkek Yapabilirlik", key: "Üniversiteli Erkek Yapabilirlik", width: 30 },
+        { header: "Tüm Hoşlantı", key: "Tüm Hoşlantı", width: 30 },
+        { header: "Tüm Yapabilirlik", key: "Tüm Yapabilirlik", width: 30 },
+      ];
+
+      worksheet.addRows(jsonCustomers);
+      //delete if exist
+
+      if (fs.existsSync(path.join(__dirname, "../customer.xlsx"))) {
+        fs.unlink(path.join(__dirname, "../customer.xlsx"), (err) => {
+          if (err) {
+            console.log("failed to delete local image:" + err);
+          } else {
+            console.log(path.join(__dirname, "../customer.xlsx") + ` deleted`);
+            workbook.xlsx.writeFile("customer.xlsx").then((response) => {
+              res.sendFile(path.join(__dirname, "../customer.xlsx"));
+            });
+          }
+        });
+      } else {
+        workbook.xlsx.writeFile("customer.xlsx").then((response) => {
+          res.sendFile(path.join(__dirname, "../customer.xlsx"));
+        });
+      }
+      // Write to File
+    }
+  });
+};
 
 module.exports = {
   getHome,
@@ -1344,4 +1515,13 @@ module.exports = {
   calculateResults2,
   getUserData,
   writeToExcelController,
+  writeToExcelReport1Controller,
+  getCommentsCounts,
+  getUsersCounts,
+  getUserReport1,
+  getUserReport2,
+  getUserReport3,
+  getUserReport4,
+  getUserReport5,
+  getCommentData,
 };
