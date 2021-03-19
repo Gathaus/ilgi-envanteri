@@ -20,7 +20,11 @@ const {
   writeToExcelController,
   getCommentsCounts,
   getUsersCounts,
-  getUserReport
+  getUserReport1,
+  getUserReport2,
+  getUserReport3,
+  getUserReport4,
+  getUserReport5
 } = require("../controllers/survey");
 const router = express.Router();
 
@@ -30,7 +34,11 @@ router.get("/", (req, res) => {
 
 router.get("/userCount", getUsersCounts);
 router.get("/commentCount", getCommentsCounts);
-router.get("/getUserReport", getUserReport);
+router.get("/getUserReport1", getUserReport1);
+router.get("/getUserReport2", getUserReport2);
+router.get("/getUserReport3", getUserReport3);
+router.get("/getUserReport4", getUserReport4);
+router.get("/getUserReport5", getUserReport5);
 router.get("/results", calculateResults);
 router.post("/results", calculateResults);
 router.get("/results2", calculateResults2);

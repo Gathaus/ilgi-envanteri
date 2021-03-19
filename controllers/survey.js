@@ -54,7 +54,11 @@ const {
   getRapor1,
   getCommentsCount,
   getUsersCount,
-  getUserReports
+  getUserReports1,
+  getUserReports2,
+  getUserReports3,
+  getUserReports4,
+  getUserReports5,
 } = require("../models/survey");
 const excel = require("exceljs");
 const fs = require("fs");
@@ -63,8 +67,56 @@ const getHome = async (req, res, next) => {
   res.sendFile(path.join(__dirname, "../views", "index.html"));
 };
 
-const getUserReport = async (req, res, next) => {
-  getUserReports((err, data) => {
+const getUserReport1 = async (req, res, next) => {
+  getUserReports1((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
+    }
+  });
+};
+const getUserReport2 = async (req, res, next) => {
+  getUserReports2((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
+    }
+  });
+};
+const getUserReport3 = async (req, res, next) => {
+  getUserReports3((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
+    }
+  });
+};
+const getUserReport4 = async (req, res, next) => {
+  getUserReports4((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
+    }
+  });
+};
+const getUserReport5 = async (req, res, next) => {
+  getUserReports5((err, data) => {
     if (err)
       res.status(500).send({
         message:
@@ -1385,5 +1437,9 @@ module.exports = {
   writeToExcelController,
   getCommentsCounts,
   getUsersCounts,
-  getUserReport
+  getUserReport1,
+  getUserReport2,
+  getUserReport3,
+  getUserReport4,
+  getUserReport5
 };

@@ -1,7 +1,47 @@
 const con = require("../middlewares/database/connectDatabase");
 
-const getUserReports = (result) => {
-  con.query("CALL GetAllReports();", (err, res) => {
+const getUserReports1 = (result) => {
+  con.query("CALL GetReport1();", (err, res) => {
+    if (err) {
+       console.log("error: ", err);
+      result(null, err);
+    }
+     console.log("customers: ", res);
+    result(null, res);
+  });
+};
+const getUserReports2 = (result) => {
+  con.query("CALL GetReport2();", (err, res) => {
+    if (err) {
+       console.log("error: ", err);
+      result(null, err);
+    }
+     console.log("customers: ", res);
+    result(null, res);
+  });
+};
+const getUserReports3 = (result) => {
+  con.query("CALL GetReport3();", (err, res) => {
+    if (err) {
+       console.log("error: ", err);
+      result(null, err);
+    }
+     console.log("customers: ", res);
+    result(null, res);
+  });
+};
+const getUserReports4 = (result) => {
+  con.query("CALL GetReport4();", (err, res) => {
+    if (err) {
+       console.log("error: ", err);
+      result(null, err);
+    }
+     console.log("customers: ", res);
+    result(null, res);
+  });
+};
+const getUserReports5 = (result) => {
+  con.query("CALL GetReport5();", (err, res) => {
     if (err) {
        console.log("error: ", err);
       result(null, err);
@@ -222,5 +262,9 @@ module.exports = {
   getRapor1,
   getCommentsCount,
   getUsersCount,
-  getUserReports
+  getUserReports1,
+  getUserReports2,
+  getUserReports3,
+  getUserReports4,
+  getUserReports5
 };
