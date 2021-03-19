@@ -52,12 +52,12 @@ function raporVerileri() {
   })
     .then((response) => response.json())
     .then((response) => {
-      console.log("RESPONSE")
-      console.log(response)
+      // console.log("RESPONSE")
+      // console.log(response)
       evalulateRaporData(response);
     })
     .then((res) => {
-      console.log(res)
+      // console.log(res)
       raporSonuc1(0);
       raporSonuc2(0);
       raporSonuc3(0);
@@ -65,7 +65,7 @@ function raporVerileri() {
       raporSonuc5(0);
     })
     .catch((error) => {
-      console.log(error);
+      // console.log(error);
     });
 }
 
@@ -152,7 +152,8 @@ async function evalulateRaporData(response) {
 }
 function raporSonuc1(index) {
   if (!index) index = 0;
-  var ctx1 = document.getElementById("myChart1");
+  $('#myChart1').replaceWith($('<canvas id="myChart1"></canvas>'));
+  var ctx1 = document.getElementById("myChart1").getContext('2d');
 
   var myChart1 = new Chart(ctx1, {
     type: "radar",
@@ -209,13 +210,13 @@ function raporSonuc1(index) {
       scale: {
         ticks: {
           min: -1,
-          max: 80,
+          max: 100,
           stepSize: 10,
         },
       },
     },
   });
-
+  
   const tbody = document.getElementById("tbodyChart1");
 
   for (i = 0; i < 8; i++) {
@@ -235,6 +236,7 @@ function raporSonuc1(index) {
 }
 function raporSonuc2(index) {
   if (!index) index = 0;
+  $('#myChart2').replaceWith($('<canvas id="myChart2"></canvas>'));
   let ctx2 = document.getElementById("myChart2");
 
   var myChart2 = new Chart(ctx2, {
@@ -274,7 +276,7 @@ function raporSonuc2(index) {
           {
             ticks: {
               beginAtZero: true,
-              max: 80,
+              max: 90,
               stepSize: 20,
             },
           },
@@ -302,8 +304,8 @@ function raporSonuc2(index) {
 }
 function raporSonuc3(index) {
   if (!index) index = 0;
+  $('#myChart3').replaceWith($('<canvas id="myChart3"></canvas>'));
   let ctx3 = document.getElementById("myChart3");
-
   var myChart3 = new Chart(ctx3, {
     type: "radar",
 
@@ -346,7 +348,7 @@ function raporSonuc3(index) {
       scale: {
         ticks: {
           min: -1,
-          max: 80,
+          max: 90,
           stepSize: 10,
         },
       },
@@ -372,8 +374,8 @@ function raporSonuc3(index) {
 }
 function raporSonuc4(index) {
   if (!index) index = 0;
+  $('#myChart4').replaceWith($('<canvas id="myChart4"></canvas>'));
   let ctx4 = document.getElementById("myChart4");
-
   var myChart4 = new Chart(ctx4, {
     type: "radar",
 
@@ -423,7 +425,7 @@ function raporSonuc4(index) {
       scale: {
         ticks: {
           min: -1,
-          max: 90,
+          max: 100,
           stepSize: 10,
         },
       },
@@ -449,8 +451,8 @@ function raporSonuc4(index) {
 }
 function raporSonuc5(index) {
   if (!index) index = 0;
+  $('#myChart5').replaceWith($('<canvas id="myChart5"></canvas>'));
   let ctx5 = document.getElementById("myChart5");
-
   var myChart5 = new Chart(ctx5, {
     type: "radar",
 
@@ -487,7 +489,7 @@ function raporSonuc5(index) {
       scale: {
         ticks: {
           min: -1,
-          max: 120,
+          max: 130,
           stepSize: 20,
         },
       },
@@ -514,7 +516,7 @@ function raporSonuc5(index) {
 
 function rapor1DBInsert(){
 
-  console.log("rapor1");
+  // console.log("rapor1");
     var userId=document.getElementById("userId").value;
     fetch("http://localhost:8080/api/survey/rapor1DB", {
           method: "POST",
@@ -529,12 +531,12 @@ function rapor1DBInsert(){
           .then((response) => response.json())
           .then((response) => returnResults(response))
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
 }
 function rapor2DBInsert(){
 
-  console.log("rapor1");
+  // console.log("rapor1");
     var userId=document.getElementById("userId").value;
     fetch("http://localhost:8080/api/survey/rapor2DB", {
           method: "POST",
@@ -549,12 +551,12 @@ function rapor2DBInsert(){
           .then((response) => response.json())
           .then((response) => returnResults(response))
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
 }
 function rapor3DBInsert(){
 
-  console.log("rapor3");
+  // console.log("rapor3");
     var userId=document.getElementById("userId").value;
     fetch("http://localhost:8080/api/survey/rapor3DB", {
           method: "POST",
@@ -569,12 +571,12 @@ function rapor3DBInsert(){
           .then((response) => response.json())
           .then((response) => returnResults(response))
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
 }
 function rapor4DBInsert(){
 
-  console.log("rapor4");
+  // console.log("rapor4");
     var userId=document.getElementById("userId").value;
     fetch("http://localhost:8080/api/survey/rapor4DB", {
           method: "POST",
@@ -589,12 +591,12 @@ function rapor4DBInsert(){
           .then((response) => response.json())
           .then((response) => returnResults(response))
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
 }
 function rapor5DBInsert(){
 
-  console.log("rapor5");
+  // console.log("rapor5");
     var userId=document.getElementById("userId").value;
     fetch("http://localhost:8080/api/survey/rapor5DB", {
           method: "POST",
@@ -609,6 +611,6 @@ function rapor5DBInsert(){
           .then((response) => response.json())
           .then((response) => returnResults(response))
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
 }

@@ -24,7 +24,7 @@
     "heroku"
   ],
   "engines": {
-    "node": "13.14.0",
+    "node": "12.19.1",
     "npm": "6.14.4"
   },
   "homepage": "https://github.com/Gathaus/ilgi-envanteri#readme",
