@@ -26,7 +26,12 @@ const {
   getUserReport4,
   getUserReport5,
   getCommentData,
-  writeToExcelReport1Controller
+  writeToExcelReport1Controller,
+  writeToExcelReport2Controller,
+  writeToExcelReport3Controller,
+  writeToExcelReport4Controller,
+  writeToExcelReport5Controller,
+  writeToExcelCommentDataController,
 } = require("../controllers/survey");
 const router = express.Router();
 
@@ -63,4 +68,9 @@ router.get("/lastUserId", lastUserId);
 router.get("/getUserData", getUserData);
 router.get("/writeToExcel", writeToExcelController);
 router.get("/writeToExcelReport1", writeToExcelReport1Controller);
+router.get("/writeToExcelReport2", writeToExcelReport2Controller);
+router.get("/writeToExcelReport3", writeToExcelReport3Controller);
+router.get("/writeToExcelReport4", writeToExcelReport4Controller);
+router.get("/writeToExcelReport5", writeToExcelReport5Controller);
+router.get("/writeToExcelCommentData", writeToExcelCommentDataController);
 module.exports = router;
