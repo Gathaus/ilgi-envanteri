@@ -99,6 +99,30 @@ const getLastUserId = (result) => {
   });
 };
 
+const getCommentsCount = (result) => {
+  con.query("select count(*) as total from memnuniyet", (err, res) => {
+    if (err) {
+      // console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+    //   console.log("customers: ", res);
+    result(null, res);
+  });
+};
+
+const getUsersCount = (result) => {
+  con.query("select count(*) as total from user", (err, res) => {
+    if (err) {
+      // console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+    result(null, res);
+  });
+};
+
+
 const insertRapor1 = (userId, raporValues1, result) => {
   // console.log("inserted"+userId);
   // console.log("inserted"+raporValues1);
@@ -185,5 +209,6 @@ module.exports = {
   insertRapor5,
   getLastUserId,
   getRapor1,
-  
+  getCommentsCount,
+  getUsersCount
 };

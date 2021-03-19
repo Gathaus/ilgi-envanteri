@@ -52,6 +52,8 @@ const {
   insertRapor5,
   getLastUserId,
   getRapor1,
+  getCommentsCount,
+  getUsersCount
 } = require("../models/survey");
 const excel = require("exceljs");
 const fs = require("fs");
@@ -72,6 +74,35 @@ const getLiselerData = async (req, res, next) => {
     }
   });
 };
+
+
+const getCommentsCounts = async (req, res, next) => {
+  getCommentsCount((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
+    }
+  });
+};
+
+const getUsersCounts = async (req, res, next) => {
+  getUsersCount((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      res.send(data);
+    }
+  });
+};
+
+
 const getMesleklerData = async (req, res, next) => {
   getMeslekler((err, data) => {
     if (err)
@@ -1338,4 +1369,6 @@ module.exports = {
   calculateResults2,
   getUserData,
   writeToExcelController,
+  getCommentsCounts,
+  getUsersCounts
 };

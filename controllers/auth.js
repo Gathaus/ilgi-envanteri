@@ -17,6 +17,7 @@ const loginHandle = async(req, res, next) => {
 
 }
 
+
 const checkLoggedIn = (req, res, next) => {
     console.log(req.session.logged)
     if(req.session.logged)
