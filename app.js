@@ -7,7 +7,6 @@
    path: path.join(__dirname, "config.env"),
  });
  const routes = require("./routes");
- const helmet = require("helmet");
  const session = require("express-session");
  /**
   * Load environment variables
@@ -22,7 +21,6 @@
  
  
  app.use(cors());
- app.use(helmet());
  app.use(
    session({
      resave: true,
