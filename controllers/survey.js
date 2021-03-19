@@ -1738,6 +1738,47 @@ const writeToExcelReport5Controller = async (req, res, next) => {
   });
 };
 
+const writeToExcelCommentDataController = async (req, res, next) => {
+  getCommentDatas((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      const jsonComments = JSON.parse(JSON.stringify(data))[0];
+      let workbook = new excel.Workbook(); //creating workbook
+      let worksheet = workbook.addWorksheet("Comments");
+      
+      worksheet.columns = [
+        { header: "Id", key: "Id", width: 30 },
+        { header: "Değer", key: "Value", width: 10 },
+        { header: "Yorum", key: "Yorum", width: 30 },
+      ];
+
+      worksheet.addRows(jsonComments);
+      //delete if exist
+
+      if (fs.existsSync(path.join(__dirname, "../comments.xlsx"))) {
+        fs.unlink(path.join(__dirname, "../comments.xlsx"), (err) => {
+          if (err) {
+            console.log("failed to delete local image:" + err);
+          } else {
+            console.log(path.join(__dirname, "../comments.xlsx") + ` deleted`);
+            workbook.xlsx.writeFile("comments.xlsx").then((response) => {
+              res.sendFile(path.join(__dirname, "../comments.xlsx"));
+            });
+          }
+        });
+      } else {
+        workbook.xlsx.writeFile("comments.xlsx").then((response) => {
+          res.sendFile(path.join(__dirname, "../comments.xlsx"));
+        });
+      }
+      // Write to File
+    }
+  });
+};
 module.exports = {
   getHome,
   calculateResults,
@@ -1763,6 +1804,7 @@ module.exports = {
   writeToExcelReport3Controller,
   writeToExcelReport4Controller,
   writeToExcelReport5Controller,
+  writeToExcelCommentDataController,
   getCommentsCounts,
   getUsersCounts,
   getUserReport1,

@@ -84,27 +84,27 @@ export default function Dashboard() {
           </Button>
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
-          <Button color="success" href="http://127.0.0.1:8080/api/survey/getUserReport2" target="_blank" fullWidth>
+          <Button color="success" href="http://127.0.0.1:8080/api/survey/writeToExcelReport2" target="_blank" fullWidth>
             Saygınlık Ölçekleri verilerini indir
           </Button>
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
-          <Button color="success" href="http://127.0.0.1:8080/api/survey/getUserReport3" target="_blank" fullWidth>
+          <Button color="success" href="http://127.0.0.1:8080/api/survey/writeToExcelReport3" target="_blank" fullWidth>
             Dört Kutuplu Ölçekler verilerini indir
           </Button>
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
-          <Button color="success" href="http://127.0.0.1:8080/api/survey/getUserReport4" target="_blank" fullWidth>
+          <Button color="success" href="http://127.0.0.1:8080/api/survey/writeToExcelReport4" target="_blank" fullWidth>
             Altıgen Model Ölçekler verilerini indir
           </Button>
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
-          <Button color="success" href="http://127.0.0.1:8080/api/survey/getUserReport5" target="_blank" fullWidth>
+          <Button color="success" href="http://127.0.0.1:8080/api/survey/writeToExcelReport5" target="_blank" fullWidth>
             Üç Boyutlu Ölçekler verilerini indir
           </Button>
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
-          <Button color="success" href="http://127.0.0.1:8080/api/survey/getCommentData" target="_blank" fullWidth>
+          <Button color="success" href="http://127.0.0.1:8080/api/survey/writeToExcelCommentData" target="_blank" fullWidth>
             MEMNUNİYET yorumları verilerini indir
           </Button>
         </GridItem>
