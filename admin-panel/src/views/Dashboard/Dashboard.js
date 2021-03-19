@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React from "react";
 // react plugin for creating charts
 import ChartistGraph from "react-chartist";
 // @material-ui/core
@@ -41,32 +41,7 @@ import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js"
 
 const useStyles = makeStyles(styles);
 
-
-
 export default function Dashboard() {
-
-  const [userCount, setUserCount] = useState(0);
-const [commentCount, setCommentCount] = useState(0);
-
-
-useEffect(() => {
-  fetch(
-"http://localhost:8080/api/survey/userCount"
-)
-.then((Response) => Response.json())
-.then((response) => {
-   setUserCount(response[0].total)
-});
-
-fetch(
-  "http://localhost:8080/api/survey/commentCount"
-  )
-  .then((Response) => Response.json())
-  .then((response) => {
-    setCommentCount(response[0].total)
-  });
-}, []);
-
   const classes = useStyles();
   return (
     <div>
@@ -78,7 +53,7 @@ fetch(
                 <Icon>content_copy</Icon>
               </CardIcon>
               <p className={classes.cardCategory}>Toplam Kullanıcı Sayısı</p>
-              <h3 className={classes.cardTitle}>{userCount}</h3>
+              <h3 className={classes.cardTitle}>42</h3>
             </CardHeader>
           </Card>
         </GridItem>
@@ -89,7 +64,7 @@ fetch(
                 <Store />
               </CardIcon>
               <p className={classes.cardCategory}>Memnuniyet yorum sayısı</p>
-              <h3 className={classes.cardTitle}>{commentCount}</h3>
+              <h3 className={classes.cardTitle}>11</h3>
             </CardHeader>
           </Card>
         </GridItem>

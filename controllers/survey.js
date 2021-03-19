@@ -52,80 +52,12 @@ const {
   insertRapor5,
   getLastUserId,
   getRapor1,
-  getCommentsCount,
-  getUsersCount,
-  getUserReports1,
-  getUserReports2,
-  getUserReports3,
-  getUserReports4,
-  getUserReports5,
 } = require("../models/survey");
 const excel = require("exceljs");
 const fs = require("fs");
 
 const getHome = async (req, res, next) => {
   res.sendFile(path.join(__dirname, "../views", "index.html"));
-};
-
-const getUserReport1 = async (req, res, next) => {
-  getUserReports1((err, data) => {
-    if (err)
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving customers.",
-      });
-    else {
-      res.send(data);
-    }
-  });
-};
-const getUserReport2 = async (req, res, next) => {
-  getUserReports2((err, data) => {
-    if (err)
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving customers.",
-      });
-    else {
-      res.send(data);
-    }
-  });
-};
-const getUserReport3 = async (req, res, next) => {
-  getUserReports3((err, data) => {
-    if (err)
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving customers.",
-      });
-    else {
-      res.send(data);
-    }
-  });
-};
-const getUserReport4 = async (req, res, next) => {
-  getUserReports4((err, data) => {
-    if (err)
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving customers.",
-      });
-    else {
-      res.send(data);
-    }
-  });
-};
-const getUserReport5 = async (req, res, next) => {
-  getUserReports5((err, data) => {
-    if (err)
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving customers.",
-      });
-    else {
-      res.send(data);
-    }
-  });
 };
 
 const getLiselerData = async (req, res, next) => {
@@ -140,35 +72,6 @@ const getLiselerData = async (req, res, next) => {
     }
   });
 };
-
-
-const getCommentsCounts = async (req, res, next) => {
-  getCommentsCount((err, data) => {
-    if (err)
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving customers.",
-      });
-    else {
-      res.send(data);
-    }
-  });
-};
-
-const getUsersCounts = async (req, res, next) => {
-  getUsersCount((err, data) => {
-    if (err)
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving customers.",
-      });
-    else {
-      res.send(data);
-    }
-  });
-};
-
-
 const getMesleklerData = async (req, res, next) => {
   getMeslekler((err, data) => {
     if (err)
@@ -1439,11 +1342,4 @@ module.exports = {
   calculateResults2,
   getUserData,
   writeToExcelController,
-  getCommentsCounts,
-  getUsersCounts,
-  getUserReport1,
-  getUserReport2,
-  getUserReport3,
-  getUserReport4,
-  getUserReport5
 };

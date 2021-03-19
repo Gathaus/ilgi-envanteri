@@ -17,28 +17,13 @@ const {
   rapor5DB,
   getRaporData,
   getUserData,
-  writeToExcelController,
-  getCommentsCounts,
-  getUsersCounts,
-  getUserReport1,
-  getUserReport2,
-  getUserReport3,
-  getUserReport4,
-  getUserReport5
+  writeToExcelController
 } = require("../controllers/survey");
 const router = express.Router();
 
 router.get("/", (req, res) => {
   res.send("OK SURVEY");
 });
-
-router.get("/userCount", getUsersCounts);
-router.get("/commentCount", getCommentsCounts);
-router.get("/getUserReport1", getUserReport1);
-router.get("/getUserReport2", getUserReport2);
-router.get("/getUserReport3", getUserReport3);
-router.get("/getUserReport4", getUserReport4);
-router.get("/getUserReport5", getUserReport5);
 router.get("/results", calculateResults);
 router.post("/results", calculateResults);
 router.get("/results2", calculateResults2);
