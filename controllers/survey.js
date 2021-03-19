@@ -184,7 +184,6 @@ const calculateResults = async (req, res, next) => {
       ).toFixed(2)
     );
   }
-
   //tablo1 liseli kız
   let liseliKizResults8Dilim = [];
   for (i = 0; i < 8; i++) {
@@ -199,13 +198,12 @@ const calculateResults = async (req, res, next) => {
   for (i = 0; i < 8; i++) {
     liseliKizResults8Dilim.push(
       (
-        ((hampuan1[i + 8] - liseliKiz8Dilim.y_ao[i]) / liseliKiz8Dilim.y_s[i]) *
+        ((hampuan1[i + 8] - liseliKiz8Dilim.y_ao[i]) / liseliTum8Dilim.y_s[i]) *
           10 +
         50
       ).toFixed(2)
     );
   }
-
   //tablo1 liseli erkek
   let liseliErkekResults8Dilim = [];
   for (i = 0; i < 8; i++) {
@@ -461,7 +459,9 @@ const calculateResults = async (req, res, next) => {
   }
   for (i = 0; i < 2; i++) {
     tumogrenci.push(
-      (((hampuan2[i + 2] - tum_yd.y_ao[i]) / tum_yd.y_s[i]) * 10 + 50).toFixed(2)
+      (((hampuan2[i + 2] - tum_yd.y_ao[i]) / tum_yd.y_s[i]) * 10 + 50).toFixed(
+        2
+      )
     );
   }
 
@@ -728,7 +728,7 @@ const calculateResults = async (req, res, next) => {
       ).toFixed(2)
     );
   }
- // console.log(liseliTumResultsRAYSGD);
+  console.log(liseliTumResultsRAYSGD);
   //liseli kız
   let liseliKizResultsRAYSGD = [];
 
@@ -1109,7 +1109,7 @@ function map(x, in_min, in_max, out_min, out_max) {
 }
 
 const comments = async (req, res, next) => {
-  //console.log("POST ÇALIŞTI");
+  console.log("POST ÇALIŞTI");
   var x = req.body.value;
   var comment = req.body.comment;
   insertComments(x, comment, (err, data) => {
@@ -1156,7 +1156,7 @@ const yapabilirlik = async (req, res, next) => {
   });
 };
 const users = async (req, res, next) => {
-  //console.log("POST ÇALIŞTI");
+  console.log("POST ÇALIŞTI");
   var name = req.body.name;
   var age = req.body.age;
   var sex = req.body.sex;
