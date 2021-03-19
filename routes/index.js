@@ -3,15 +3,16 @@ const router = express.Router();
 const survey = require("./survey");
 const path = require("path");
 const { getHome } = require("../controllers/survey");
-
+const {getAdminPage} = require("../controllers/admin") 
+const {getLoginPage,loginHandle,checkLoggedIn} = require("../controllers/auth") 
 router.get("/status", (req, res) => res.send("OK"));
 
 router.get("/", getHome);
 router.use("/api/survey", survey);
 
-router.get("/admin", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../admin-panel/build","index.html"));
-});
+router.get("/login", getLoginPage)
+router.post("/login", loginHandle)
+router.get("/admin", checkLoggedIn,getAdminPage );
 
 router.get("/admin/table", (req,res)=>{
   res.redirect("/admin")
