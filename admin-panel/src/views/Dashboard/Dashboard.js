@@ -79,7 +79,7 @@ export default function Dashboard() {
           </Button>
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
-          <Button color="success" href="http://127.0.0.1:8080/api/survey/getUserReport1" target="_blank" fullWidth>
+          <Button color="success" href="http://127.0.0.1:8080/api/survey/writeToExcelReport1" target="_blank" fullWidth>
             Sekiz Dilimli Ölçekler verilerini indir
           </Button>
         </GridItem>
