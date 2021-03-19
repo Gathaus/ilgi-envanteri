@@ -159,7 +159,7 @@ function raporSonuc1(index) {
 
     data: {
       labels: [
-        "Kolaylaştırma",
+        "Sosyal Kolaylaştırma",
         "Yönetim",
         "İş Ayrıntıları",
         "Veri İşleme",
