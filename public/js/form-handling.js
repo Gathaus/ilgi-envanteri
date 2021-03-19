@@ -148,17 +148,23 @@ function userComments() {
 function insertHoslantiAndYapabilirlik() {
   var i,
     j = 0;
-  for (i = 31; i < 41; i++) {
+  for (i = 1; i < 41; i++) {
     if (
       document.querySelector("input[name=radio-hoslanma" + i + "]:checked")
         .checked == true &&
       document.querySelector("input[name=radio-yapabilirlik" + i + "]:checked")
-        .checked == true
+        .checked == true &&
+      document.querySelector("input[name=radio-hoslanma-ö]:checked").checked ==
+          true &&
+      document.querySelector("input[name=radio-yapabilirlik-ö]:checked")
+        .checked == true && 
+      document.querySelector("input[name=radio-hoslanma-ö]:checked").value==4 && 
+      document.querySelector("input[name=radio-yapabilirlik-ö]:checked").value==4
     ) {
       j++;
     }
   }
-  if (j == 10) {
+  if (j == 40) {
     $("#anket5").css("display", "none");
     $("#sonuc").css("display", "block");
     var userId = document.getElementById("userId").value;
@@ -203,8 +209,10 @@ function insertHoslantiAndYapabilirlik() {
       .catch((error) => {
         console.log(error);
       });
+      raporVerileri();
+      window.scrollTo({ top: 180, behavior: 'smooth' });
   } else {
-    alert("Lütfen maddeleri işaretleyiniz!");
+    alert("Lütfen maddeleri doğru ve eksiksiz işaretleyiniz!");
   }
 }
 function goToDescription() {
@@ -284,70 +292,18 @@ function goToDescription() {
 }
 
 function goToAnket3() {
-  var i,
-    j = 0;
-  for (i = 1; i < 11; i++) {
-    if (
-      document.querySelector("input[name=radio-hoslanma" + i + "]:checked")
-        .checked == true &&
-      document.querySelector("input[name=radio-yapabilirlik" + i + "]:checked")
-        .checked == true
-    ) {
-      j++;
-    }
-  }
-  if (j == 10) {
     $("#anket2").css("display", "none");
     $("#anket3").css("display", "block");
-  } else {
-    alert("Lütfen maddeleri işaretleyiniz!");
-  }
 }
 function goToAnket4() {
   window.scrollTo({ top: 65, behavior: "smooth" });
-  var i,
-    j = 0;
-  for (i = 11; i < 21; i++) {
-    if (
-      document.querySelector("input[name=radio-hoslanma" + i + "]:checked")
-        .checked == true &&
-      document.querySelector("input[name=radio-yapabilirlik" + i + "]:checked")
-        .checked == true
-    ) {
-      j++;
-    }
-  }
-  if (j == 10) {
     $("#anket3").css("display", "none");
     $("#anket4").css("display", "block");
-  } else {
-    alert("Lütfen maddeleri işaretleyiniz!");
-  }
 }
 
 function goToAnket5() {
-  var i,
-    j = 0;
-  for (i = 21; i < 31; i++) {
-    if (
-      document.querySelector("input[name=radio-hoslanma" + i + "]:checked")
-        .checked == true &&
-      document.querySelector("input[name=radio-yapabilirlik" + i + "]:checked")
-        .checked == true &&
-      document.querySelector("input[name=radio-hoslanma-ö]:checked").checked ==
-        true &&
-      document.querySelector("input[name=radio-yapabilirlik-ö]:checked")
-        .checked == true
-    ) {
-      j++;
-    }
-  }
-  if (j == 10 && document.querySelector("input[name=radio-hoslanma-ö]:checked").value==4 && document.querySelector("input[name=radio-yapabilirlik-ö]:checked").value==4) {
     $("#anket4").css("display", "none");
     $("#anket5").css("display", "block");
-  } else {
-    alert("Lütfen maddeleri doğru işaretleyiniz!");
-  }
 }
 
 function returnResults(response) {}
