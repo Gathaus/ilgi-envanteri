@@ -1428,6 +1428,66 @@ const writeToExcelController = async (req, res, next) => {
     }
   });
 };
+const writeToExcelReport1Controller = async (req, res, next) => {
+  getUserReports1((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      const jsonCustomers = JSON.parse(JSON.stringify(data));
+      let workbook = new excel.Workbook(); //creating workbook
+      let worksheet = workbook.addWorksheet("Customers");
+
+      worksheet.columns = [
+        { header: "Rumuz", key: "Rumuz", width: 30 },
+        { header: "Yaş", key: "Yas", width: 10 },
+        { header: "Cinsiyet", key: "Cinsiyet", width: 30 },
+        { header: "Seçilen Puan Türü", key: "Soru1", width: 30 },
+        { header: "Hissedilen Puan Türü", key: "Soru2", width: 30 },
+        { header: "Lise Türü", key: "Soru3", width: 30 },
+        { header: "Öğrenim Hedefi", key: "Soru4", width: 30 },
+        { header: "Karşılaştırılmak İstenen Grup", key: "Soru5", width: 30 },
+        { header: "Liseli Tüm Hoşlantı", key: "Liseli Tüm Hoşlantı", width: 10 },
+        { header: "Liseli Tüm Yapabilirlik", key: "Liseli Tüm Yapabilirlik", width: 30 },
+        { header: "Liseli Kız Hoşlantı", key: "Liseli Kız Hoşlantı", width: 30 },
+        { header: "Liseli Kız Yapabilirlik", key: "Liseli Kız Yapabilirlik", width: 30 },
+        { header: "Liseli Erkek Hoşlantı", key: "Liseli Erkek Hoşlantı", width: 30 },
+        { header: "Liseli Erkek Yapabilirlik", key: "Liseli Erkek Yapabilirlik", width: 30 },
+        { header: "Üniversiteli Tüm Hoşlantı", key: "Üniversiteli Tüm Hoşlantı", width: 30 },
+        { header: "Üniversiteli Tüm Yapabilirlik", key: "Üniversiteli Tüm Yapabilirlik", width: 10 },
+        { header: "Üniversiteli Kız Hoşlantı", key: "Üniversiteli Kız Hoşlantı", width: 30 },
+        { header: "Üniversiteli Kız Yapabilirlik", key: "Üniversiteli Kız Yapabilirlik", width: 30 },
+        { header: "Üniversiteli Erkek Hoşlantı", key: "Üniversiteli Erkek Hoşlantı", width: 30 },
+        { header: "Üniversiteli Erkek Yapabilirlik", key: "Üniversiteli Erkek Yapabilirlik", width: 30 },
+        { header: "Tüm Hoşlantı", key: "Tüm Hoşlantı", width: 30 },
+        { header: "Tüm Yapabilirlik", key: "Tüm Yapabilirlik", width: 30 },
+      ];
+
+      worksheet.addRows(jsonCustomers);
+      //delete if exist
+
+      if (fs.existsSync(path.join(__dirname, "../customer.xlsx"))) {
+        fs.unlink(path.join(__dirname, "../customer.xlsx"), (err) => {
+          if (err) {
+            console.log("failed to delete local image:" + err);
+          } else {
+            console.log(path.join(__dirname, "../customer.xlsx") + ` deleted`);
+            workbook.xlsx.writeFile("customer.xlsx").then((response) => {
+              res.sendFile(path.join(__dirname, "../customer.xlsx"));
+            });
+          }
+        });
+      } else {
+        workbook.xlsx.writeFile("customer.xlsx").then((response) => {
+          res.sendFile(path.join(__dirname, "../customer.xlsx"));
+        });
+      }
+      // Write to File
+    }
+  });
+};
 
 module.exports = {
   getHome,
@@ -1449,6 +1509,7 @@ module.exports = {
   calculateResults2,
   getUserData,
   writeToExcelController,
+  writeToExcelReport1Controller,
   getCommentsCounts,
   getUsersCounts,
   getUserReport1,

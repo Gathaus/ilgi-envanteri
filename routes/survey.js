@@ -25,7 +25,8 @@ const {
   getUserReport3,
   getUserReport4,
   getUserReport5,
-  getCommentData
+  getCommentData,
+  writeToExcelReport1Controller
 } = require("../controllers/survey");
 const router = express.Router();
 
@@ -61,4 +62,5 @@ router.post("/rapor5DB",rapor5DB);
 router.get("/lastUserId", lastUserId);
 router.get("/getUserData", getUserData);
 router.get("/writeToExcel", writeToExcelController);
+router.get("/writeToExcelReport1", writeToExcelReport1Controller);
 module.exports = router;
