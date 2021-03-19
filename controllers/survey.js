@@ -1442,10 +1442,10 @@ const writeToExcelReport1Controller = async (req, res, next) => {
           err.message || "Some error occurred while retrieving customers.",
       });
     else {
-      const jsonCustomers = JSON.parse(JSON.stringify(data));
+      const jsonCustomers = JSON.parse(JSON.stringify(data))[0];
       let workbook = new excel.Workbook(); //creating workbook
-      let worksheet = workbook.addWorksheet("Customers");
-
+      let worksheet = workbook.addWorksheet("Customers2");
+      
       worksheet.columns = [
         { header: "Rumuz", key: "Rumuz", width: 30 },
         { header: "Yaş", key: "Yas", width: 10 },
@@ -1474,20 +1474,20 @@ const writeToExcelReport1Controller = async (req, res, next) => {
       worksheet.addRows(jsonCustomers);
       //delete if exist
 
-      if (fs.existsSync(path.join(__dirname, "../customer.xlsx"))) {
-        fs.unlink(path.join(__dirname, "../customer.xlsx"), (err) => {
+      if (fs.existsSync(path.join(__dirname, "../customer2.xlsx"))) {
+        fs.unlink(path.join(__dirname, "../customer2.xlsx"), (err) => {
           if (err) {
             console.log("failed to delete local image:" + err);
           } else {
-            console.log(path.join(__dirname, "../customer.xlsx") + ` deleted`);
-            workbook.xlsx.writeFile("customer.xlsx").then((response) => {
-              res.sendFile(path.join(__dirname, "../customer.xlsx"));
+            console.log(path.join(__dirname, "../customer2.xlsx") + ` deleted`);
+            workbook.xlsx.writeFile("customer2.xlsx").then((response) => {
+              res.sendFile(path.join(__dirname, "../customer2.xlsx"));
             });
           }
         });
       } else {
-        workbook.xlsx.writeFile("customer.xlsx").then((response) => {
-          res.sendFile(path.join(__dirname, "../customer.xlsx"));
+        workbook.xlsx.writeFile("customer2.xlsx").then((response) => {
+          res.sendFile(path.join(__dirname, "../customer2.xlsx"));
         });
       }
       // Write to File

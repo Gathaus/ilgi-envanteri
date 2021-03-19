@@ -6,7 +6,7 @@ const getUserReports1 = (result) => {
        console.log("error: ", err);
       result(null, err);
     }
-     console.log("customers: ", res);
+    //  console.log("customers: ", res);
     result(null, res);
   });
 };
