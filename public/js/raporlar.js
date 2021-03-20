@@ -203,14 +203,14 @@ function raporSonuc1(index) {
         },
       ],
     },
-    responsive: true,
+    
     maintainAspectRatio: false,
     options: {
       aspectRatio: 1,
       scale: {
         ticks: {
           min: -1,
-          max: 90,
+          max: 80,
           stepSize: 10,
         },
       },
@@ -256,6 +256,7 @@ function raporSonuc2(index) {
         },
       ],
     },
+    
     options: {
       /**
        * scale: {
@@ -343,6 +344,7 @@ function raporSonuc3(index) {
         },
       ],
     },
+    
     options: {
       aspectRatio: 1,
       scale: {
@@ -420,6 +422,7 @@ function raporSonuc4(index) {
         },
       ],
     },
+    
     options: {
       aspectRatio: 1,
       scale: {
@@ -484,6 +487,7 @@ function raporSonuc5(index) {
         },
       ],
     },
+    
     options: {
       aspectRatio: 1,
       scale: {
