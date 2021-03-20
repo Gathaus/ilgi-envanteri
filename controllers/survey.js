@@ -1183,10 +1183,10 @@ function map(x, in_min, in_max, out_min, out_max) {
 
 const comments = async (req, res, next) => {
   console.log("POST ÇALIŞTI");
-  var x = req.body.value;
+  var value = req.body.value;
   var comment = req.body.comment;
   var userId=req.body.userId;
-  insertComments(x, comment,userId, (err, data) => {
+  insertComments(value, comment,userId, (err, data) => {
     if (err)
       res.status(500).send({
         message:
@@ -1793,9 +1793,9 @@ const writeToExcelHosYapController = async (req, res, next) => {
       const jsonHosYap = JSON.parse(JSON.stringify(data))[0];
       let workbook = new excel.Workbook(); //creating workbook
       let worksheet = workbook.addWorksheet("HoslanmaYapabilirlik");
-      
+      console.log(data);
       worksheet.columns = [
-        { key: "Hoslantı1", header: "Hoşlantı Madde 1", width: 10 },
+        { key: "Hoslanma1", header: "Hoşlantı Madde 1", width: 10 },
         { key: "HMadde2", header: "Madde 2", width: 10 },
         { key: "HMadde3", header: "Madde 3", width: 10 },
         { key: "HMadde4", header: "Madde 4", width: 10 },
