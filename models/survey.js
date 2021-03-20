@@ -51,6 +51,18 @@ const getUserReports5 = (result) => {
   });
 };
 
+const getHosYap = (result) => {
+  con.query("CALL GetHosYap();", (err, res) => {
+    if (err) {
+       console.log("error: ", err);
+      result(null, err);
+    }
+     console.log("customers: ", res);
+    result(null, res);
+  });
+};
+
+
 const getRapor1 = (result) => {
   con.query("Select * from user", (err, res) => {
     if (err) {
@@ -106,10 +118,10 @@ const getSorular = (result) => {
   });
 };
 
-const insertComments = (value1,value2,result) => {
+const insertComments = (value1,value2,userId,result) => {
   var value=value1;
   var comment=value2;
-  con.query("INSERT INTO memnuniyet (Value,Yorum) VALUES('"+value+"','"+comment+"') ", (err, res) => {
+  con.query("INSERT INTO memnuniyet (Value,Yorum,UserId) VALUES('"+value+"','"+comment+"','"+userId+"') ", (err, res) => {
     if (err) {
       result(null, err);
       return;
@@ -276,5 +288,6 @@ module.exports = {
   getUserReports3,
   getUserReports4,
   getUserReports5,
-  getCommentDatas
+  getCommentDatas,
+  getHosYap
 };
