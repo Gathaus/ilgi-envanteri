@@ -125,6 +125,7 @@ function userComments() {
   $("#thankyou").css("display", "block");
   var comment = document.getElementById("comment").value;
   var value = document.querySelector('input[name="radio-Yorum"]:checked').value;
+  var userId = document.getElementById("userId").value;
 
   console.log(value + " " + comment);
 
@@ -136,6 +137,7 @@ function userComments() {
     body: JSON.stringify({
       value,
       comment,
+      userId,
     }),
   })
     .then((response) => response.json())

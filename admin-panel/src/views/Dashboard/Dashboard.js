@@ -108,6 +108,11 @@ export default function Dashboard() {
             MEMNUNİYET yorumları verilerini indir
           </Button>
         </GridItem>
+        <GridItem xs={12} sm={6} md={3}>
+          <Button color="success" href="http://127.0.0.1:8080/api/survey/writeToExcelHosYap" target="_blank" fullWidth>
+            KULLANICI RAPOR VERİLERİ İNDİR
+          </Button>
+        </GridItem>
       </GridContainer>
     </div>
   );

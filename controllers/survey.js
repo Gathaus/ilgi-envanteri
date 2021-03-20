@@ -60,6 +60,7 @@ const {
   getUserReports4,
   getUserReports5,
   getCommentDatas,
+  getHosYap,
 } = require("../models/survey");
 const excel = require("exceljs");
 const fs = require("fs");
@@ -1184,7 +1185,8 @@ const comments = async (req, res, next) => {
   console.log("POST ÇALIŞTI");
   var x = req.body.value;
   var comment = req.body.comment;
-  insertComments(x, comment, (err, data) => {
+  var userId=req.body.userId;
+  insertComments(x, comment,userId, (err, data) => {
     if (err)
       res.status(500).send({
         message:
@@ -1779,6 +1781,137 @@ const writeToExcelCommentDataController = async (req, res, next) => {
     }
   });
 };
+
+const writeToExcelHosYapController = async (req, res, next) => {
+  getHosYap((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    else {
+      const jsonHosYap = JSON.parse(JSON.stringify(data))[0];
+      let workbook = new excel.Workbook(); //creating workbook
+      let worksheet = workbook.addWorksheet("HoslanmaYapabilirlik");
+      
+      worksheet.columns = [
+        { key: "Hoslantı1", header: "Hoşlantı Madde 1", width: 10 },
+        { key: "HMadde2", header: "Madde 2", width: 10 },
+        { key: "HMadde3", header: "Madde 3", width: 10 },
+        { key: "HMadde4", header: "Madde 4", width: 10 },
+        { key: "HMadde5", header: "Madde 5", width: 10 },
+        { key: "HMadde6", header: "Madde 6", width: 10 },
+        { key: "HMadde7", header: "Madde 7", width: 10 },
+        { key: "HMadde8", header: "Madde 8", width: 10 },
+        { key: "HMadde9", header: "Madde 9", width: 10 },
+        { key: "HMadde10", header: "Madde 10", width: 10 },
+        { key: "HMadde11", header: "Madde 11", width: 10 },
+        { key: "HMadde12", header: "Madde 12", width: 10 },
+        { key: "HMadde13", header: "Madde 13", width: 10 },
+        { key: "HMadde14", header: "Madde 14", width: 10 },
+        { key: "HMadde15", header: "Madde 15", width: 10 },
+        { key: "HMadde16", header: "Madde 16", width: 10 },
+        { key: "HMadde17", header: "Madde 17", width: 10 },
+        { key: "HMadde18", header: "Madde 18", width: 10 },
+        { key: "HMadde19", header: "Madde 19", width: 10 },
+        { key: "HMadde20", header: "Madde 20", width: 10 },
+        { key: "HMadde21", header: "Madde 21", width: 10 },
+        { key: "HMadde22", header: "Madde 22", width: 10 },
+        { key: "HMadde23", header: "Madde 23", width: 10 },
+        { key: "HMadde24", header: "Madde 24", width: 10 },
+        { key: "HKontrol", header: "Madde Kontrol", width: 10 },
+        { key: "HMadde25", header: "Madde 25", width: 10 },
+        { key: "HMadde26", header: "Madde 26", width: 10 },
+        { key: "HMadde27", header: "Madde 27", width: 10 },
+        { key: "HMadde28", header: "Madde 28", width: 10 },
+        { key: "HMadde29", header: "Madde 29", width: 10 },
+        { key: "HMadde30", header: "Madde 30", width: 10 },
+        { key: "HMadde31", header: "Madde 31", width: 10 },
+        { key: "HMadde32", header: "Madde 32", width: 10 },
+        { key: "HMadde33", header: "Madde 33", width: 10 },
+        { key: "HMadde34", header: "Madde 34", width: 10 },
+        { key: "HMadde35", header: "Madde 35", width: 10 },
+        { key: "HMadde36", header: "Madde 36", width: 10 },
+        { key: "HMadde37", header: "Madde 37", width: 10 },
+        { key: "HMadde38", header: "Madde 38", width: 10 },
+        { key: "HMadde39", header: "Madde 39", width: 10 },
+        { key: "HMadde40", header: "Madde 40", width: 10 },
+        { key: "Yapabilirlik1", header: "Yapabilirlik Madde 1", width: 10 },
+        { key: "YMadde2", header: "Madde 2", width: 10 },
+        { key: "YMadde3", header: "Madde 3", width: 10 },
+        { key: "YMadde4", header: "Madde 4", width: 10 },
+        { key: "YMadde5", header: "Madde 5", width: 10 },
+        { key: "YMadde6", header: "Madde 6", width: 10 },
+        { key: "YMadde7", header: "Madde 7", width: 10 },
+        { key: "YMadde8", header: "Madde 8", width: 10 },
+        { key: "YMadde9", header: "Madde 9", width: 10 },
+        { key: "YMadde10", header: "Madde 10", width: 10 },
+        { key: "YMadde11", header: "Madde 11", width: 10 },
+        { key: "YMadde12", header: "Madde 12", width: 10 },
+        { key: "YMadde13", header: "Madde 13", width: 10 },
+        { key: "YMadde14", header: "Madde 14", width: 10 },
+        { key: "YMadde15", header: "Madde 15", width: 10 },
+        { key: "YMadde16", header: "Madde 16", width: 10 },
+        { key: "YMadde17", header: "Madde 17", width: 10 },
+        { key: "YMadde18", header: "Madde 18", width: 10 },
+        { key: "YMadde19", header: "Madde 19", width: 10 },
+        { key: "YMadde20", header: "Madde 20", width: 10 },
+        { key: "YMadde21", header: "Madde 21", width: 10 },
+        { key: "YMadde22", header: "Madde 22", width: 10 },
+        { key: "YMadde23", header: "Madde 23", width: 10 },
+        { key: "YMadde24", header: "Madde 24", width: 10 },
+        { key: "YKontrol", header: "Madde Kontrol", width: 10 },
+        { key: "YMadde25", header: "Madde 25", width: 10 },
+        { key: "YMadde26", header: "Madde 26", width: 10 },
+        { key: "YMadde27", header: "Madde 27", width: 10 },
+        { key: "YMadde28", header: "Madde 28", width: 10 },
+        { key: "YMadde29", header: "Madde 29", width: 10 },
+        { key: "YMadde30", header: "Madde 30", width: 10 },
+        { key: "YMadde31", header: "Madde 31", width: 10 },
+        { key: "YMadde32", header: "Madde 32", width: 10 },
+        { key: "YMadde33", header: "Madde 33", width: 10 },
+        { key: "YMadde34", header: "Madde 34", width: 10 },
+        { key: "YMadde35", header: "Madde 35", width: 10 },
+        { key: "YMadde36", header: "Madde 36", width: 10 },
+        { key: "YMadde37", header: "Madde 37", width: 10 },
+        { key: "YMadde38", header: "Madde 38", width: 10 },
+        { key: "YMadde39", header: "Madde 39", width: 10 },
+        { key: "YMadde40", header: "Madde 40", width: 10 },
+        { header: "Rumuz", key: "Rumuz", width: 30 },
+        { header: "Yaş", key: "Yas", width: 10 },
+        { header: "Cinsiyet", key: "Cinsiyet", width: 30 },
+        { header: "Seçilen Puan Türü", key: "Soru1", width: 30 },
+        { header: "Hissedilen Puan Türü", key: "Soru2", width: 30 },
+        { header: "Lise Türü", key: "Soru3", width: 30 },
+        { header: "Öğrenim Hedefi", key: "Soru4", width: 30 },
+        { header: "Karşılaştırılmak İstenen Grup", key: "Soru5", width: 30 },
+        { header: "Memnuniyet", key: "Memnuniyet", width: 10 },
+      ];
+
+      worksheet.addRows(jsonHosYap);
+      //delete if exist
+
+      if (fs.existsSync(path.join(__dirname, "../hosyap.xlsx"))) {
+        fs.unlink(path.join(__dirname, "../hosyap.xlsx"), (err) => {
+          if (err) {
+            console.log("failed to delete local image:" + err);
+          } else {
+            console.log(path.join(__dirname, "../hosyap.xlsx") + ` deleted`);
+            workbook.xlsx.writeFile("hosyap.xlsx").then((response) => {
+              res.sendFile(path.join(__dirname, "../hosyap.xlsx"));
+            });
+          }
+        });
+      } else {
+        workbook.xlsx.writeFile("hosyap.xlsx").then((response) => {
+          res.sendFile(path.join(__dirname, "../hosyap.xlsx"));
+        });
+      }
+      // Write to File
+    }
+  });
+};
+
 module.exports = {
   getHome,
   calculateResults,
@@ -1813,4 +1946,5 @@ module.exports = {
   getUserReport4,
   getUserReport5,
   getCommentData,
+  writeToExcelHosYapController,
 };
