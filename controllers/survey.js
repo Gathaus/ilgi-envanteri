@@ -1748,7 +1748,7 @@ const writeToExcelCommentDataController = async (req, res, next) => {
           err.message || "Some error occurred while retrieving customers.",
       });
     else {
-      const jsonComments = JSON.parse(JSON.stringify(data))[0];
+      const jsonComments = JSON.parse(JSON.stringify(data));
       let workbook = new excel.Workbook(); //creating workbook
       let worksheet = workbook.addWorksheet("Comments");
       

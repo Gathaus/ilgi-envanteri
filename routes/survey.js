@@ -40,8 +40,10 @@ router.get("/", (req, res) => {
   res.send("OK SURVEY");
 });
 
+
 router.get("/userCount", getUsersCounts);
 router.get("/commentCount", getCommentsCounts);
+
 router.get("/getUserReport1", getUserReport1);
 router.get("/getUserReport2", getUserReport2);
 router.get("/getUserReport3", getUserReport3);

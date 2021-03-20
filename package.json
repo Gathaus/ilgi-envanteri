@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "nodemon": "nodemon app.js",
-    "heroku-postbuild": "npm install --prefix admin-panel && npm run build --prefix admin-panel"
+    "heroku-postbuild": "npm install --prefix admin-panel && npm run build --prefix admin-panel",
+    "build":"cd admin-panel && npm run build"
   },
   "repository": {
     "type": "git",
