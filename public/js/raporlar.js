@@ -310,7 +310,7 @@ function raporSonuc3(index) {
     type: "radar",
 
     data: {
-      labels: ["İnsanlar", "Veriler", "Nesneler", "Fikirler"],
+      labels: ["İnsanlar", "Nesneler", "Veriler", "Fikirler"],
       datasets: [
         {
           label: "İlgi-T Puanları",
