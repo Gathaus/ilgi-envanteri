@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // react plugin for creating charts
 import ChartistGraph from "react-chartist";
 // @material-ui/core
@@ -42,6 +42,22 @@ import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js"
 const useStyles = makeStyles(styles);
 
 export default function Dashboard() {
+  const [userCount, setUserCount] = useState(0);
+  const [commentCount, setCommentCount] = useState(0);
+
+  useEffect(() => {
+    fetch("https://kisiselkureenvanteri.com/api/survey/userCount")
+      .then((Response) => Response.json())
+      .then((findresponse) => {
+        setUserCount(findresponse[0].total);
+      });
+
+    fetch("https://kisiselkureenvanteri.com/api/survey/commentCount")
+      .then((Response) => Response.json())
+      .then((findresponse) => {
+        setCommentCount(findresponse[0].total);
+      });
+  }, []);
   const classes = useStyles();
   return (
     <div>
@@ -53,7 +69,7 @@ export default function Dashboard() {
                 <Icon>content_copy</Icon>
               </CardIcon>
               <p className={classes.cardCategory}>Toplam Kullanıcı Sayısı</p>
-              <h3 className={classes.cardTitle}>42</h3>
+              <h3 className={classes.cardTitle}>{userCount}</h3>
             </CardHeader>
           </Card>
         </GridItem>
@@ -64,14 +80,14 @@ export default function Dashboard() {
                 <Store />
               </CardIcon>
               <p className={classes.cardCategory}>Memnuniyet yorum sayısı</p>
-              <h3 className={classes.cardTitle}>11</h3>
+              <h3 className={classes.cardTitle}>{commentCount}</h3>
             </CardHeader>
           </Card>
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
           <Button
             color="success"
-            href="http://127.0.0.1:8080/api/survey/writeToExcel"
+            href="https://kisiselkureenvanteri.com/api/survey/writeToExcel"
             target="_blank"
             fullWidth
           >
@@ -79,32 +95,62 @@ export default function Dashboard() {
           </Button>
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
-          <Button color="success" href="http://127.0.0.1:8080/api/survey/writeToExcelReport1" target="_blank" fullWidth>
+          <Button
+            color="success"
+            href="https://kisiselkureenvanteri.com/api/survey/writeToExcelReport1"
+            target="_blank"
+            fullWidth
+          >
             Sekiz Dilimli Ölçekler verilerini indir
           </Button>
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
-          <Button color="success" href="http://127.0.0.1:8080/api/survey/writeToExcelReport2" target="_blank" fullWidth>
+          <Button
+            color="success"
+            href="https://kisiselkureenvanteri.com/api/survey/writeToExcelReport2"
+            target="_blank"
+            fullWidth
+          >
             Saygınlık Ölçekleri verilerini indir
           </Button>
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
-          <Button color="success" href="http://127.0.0.1:8080/api/survey/writeToExcelReport3" target="_blank" fullWidth>
+          <Button
+            color="success"
+            href="https://kisiselkureenvanteri.com/api/survey/writeToExcelReport3"
+            target="_blank"
+            fullWidth
+          >
             Dört Kutuplu Ölçekler verilerini indir
           </Button>
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
-          <Button color="success" href="http://127.0.0.1:8080/api/survey/writeToExcelReport4" target="_blank" fullWidth>
+          <Button
+            color="success"
+            href="https://kisiselkureenvanteri.com/api/survey/writeToExcelReport4"
+            target="_blank"
+            fullWidth
+          >
             Altıgen Model Ölçekler verilerini indir
           </Button>
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
-          <Button color="success" href="http://127.0.0.1:8080/api/survey/writeToExcelReport5" target="_blank" fullWidth>
+          <Button
+            color="success"
+            href="https://kisiselkureenvanteri.com/api/survey/writeToExcelReport5"
+            target="_blank"
+            fullWidth
+          >
             Üç Boyutlu Ölçekler verilerini indir
           </Button>
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
-          <Button color="success" href="http://127.0.0.1:8080/api/survey/writeToExcelCommentData" target="_blank" fullWidth>
+          <Button
+            color="success"
+            href="https://kisiselkureenvanteri.com/api/survey/writeToExcelCommentData"
+            target="_blank"
+            fullWidth
+          >
             MEMNUNİYET yorumları verilerini indir
           </Button>
         </GridItem>

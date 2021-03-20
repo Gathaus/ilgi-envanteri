@@ -71,16 +71,12 @@ const App = () => {
 
 
   useEffect(() => {
-        console.log("BAŞLADI")
         fetch(
-      "http://127.0.0.1:8080/api/survey/getuserData"
+      "https://kisiselkureenvanteri.com/api/survey/getuserData"
     )
       .then((Response) => Response.json())
       .then((findresponse) => {
-        console.log("xxxx")
-        console.log(findresponse);
         setData(findresponse);
-        console.log("xxxx")
       });
   }, []);
 
