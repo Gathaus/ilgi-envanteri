@@ -37,7 +37,7 @@ const checkLoggedIn = (req, res, next) => {
 const credentialsCheck = (user, password) => {
   return new Promise((resolve, reject) => {
     if (user === "admin") {
-      if (password === "123456") {
+      if (password === process.env.ADM_PASS) {
         resolve(true);
       } else {
         reject("wrong pass");

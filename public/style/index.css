@@ -34,8 +34,8 @@
 @media only screen and (max-width: 768px) {
     .chart-container{
         position: relative;
-        width: 295px;
-        height: 155x;
+        width: 350px;
+        min-height: 7em;
         }
     
 }
@@ -43,15 +43,15 @@
 @media only screen and (min-width: 768px) {
     .chart-container{
         position: relative;
-        width: 350;
-        height: 190;
+        width: 400px;
+        min-height: 8em;
     }
     
 }
 @media only screen and (min-width: 1024px) {
     .chart-container{
         position: relative;
-        width: 70%;
+        width: 90%;
     }
     
 }
