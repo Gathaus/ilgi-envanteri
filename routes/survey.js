@@ -33,6 +33,7 @@ const {
   writeToExcelReport5Controller,
   writeToExcelCommentDataController,
   writeToExcelHosYapController,
+  writeToExcelHosYapController2,
 } = require("../controllers/survey");
 const router = express.Router();
 
@@ -77,4 +78,5 @@ router.get("/writeToExcelReport4", writeToExcelReport4Controller);
 router.get("/writeToExcelReport5", writeToExcelReport5Controller);
 router.get("/writeToExcelCommentData", writeToExcelCommentDataController);
 router.get("/writeToExcelHosYap", writeToExcelHosYapController);
+router.get("/writeToExcelHosYap2", writeToExcelHosYapController2);
 module.exports = router;

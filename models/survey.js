@@ -62,6 +62,17 @@ const getHosYap = (result) => {
   });
 };
 
+const getHosYap2 = (result) => {
+  con.query("CALL GetHosYap2();", (err, res) => {
+    if (err) {
+       console.log("error: ", err);
+      result(null, err);
+    }
+     console.log("customers: ", res);
+    result(null, res);
+  });
+};
+
 
 const getRapor1 = (result) => {
   con.query("Select * from user", (err, res) => {
@@ -289,5 +300,6 @@ module.exports = {
   getUserReports4,
   getUserReports5,
   getCommentDatas,
-  getHosYap
+  getHosYap,
+  getHosYap2
 };
